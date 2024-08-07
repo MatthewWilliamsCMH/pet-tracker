@@ -1,0 +1,13 @@
+{
+  "name": "pet-tracker",
+  "version": "1.0.0",
+  "description": "Database for tracking animals at a pet shelter",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
