@@ -1,20 +1,17 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Photo extends Model {}
+class Color extends Model {}
 
-Photo.init(
+Color.init(
     {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        url: {
-            type: DataTypes.VARCHAR,
-            validate: {
-                isUrl: true
-            }
+        name: {
+            type: DataTypes.VARCHAR
         }
     },
     {
@@ -22,8 +19,8 @@ Photo.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'photo'
+        modelName: 'color',
     }
 );
 
-module.exports = Photo;
+module.exports = Color;

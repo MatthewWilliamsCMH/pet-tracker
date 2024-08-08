@@ -44,7 +44,11 @@ Animal.init(
         photo_id: {
             type: DataTypes.INTEGER
           }
-    },
+          ,
+        qrcode_id: {
+            type: DataTypes.INTEGER
+        }
+        },
     {
         sequelize,
         timestamps: false,
