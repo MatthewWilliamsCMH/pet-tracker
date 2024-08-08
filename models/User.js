@@ -21,6 +21,13 @@ User.init(
       allowNull: false,
       unique: true
     },
+    email: {
+      type:DataTypes.VARCHAR,
+      allowNull: false,
+      validate: {
+        isEmail: true
+      }
+    }
     password: {
       type: DataTypes.VARCHAR,
       allowNull: false,
