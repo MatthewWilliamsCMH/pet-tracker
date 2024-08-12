@@ -1,3 +1,4 @@
+/*---------- site-wide ----------*/
 .inter-tight-regular {
   font-family: "Inter Tight", sans-serif;
   font-optical-sizing: auto;
@@ -13,10 +14,18 @@
   }
   
   h1, h2, h3, h4, h5, h6 {
-    line-height: 120%;
+    font-family: "Inter Tight", sans-serif;
     font-size: 3.5rem;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 120%;
     text-align: center;
     margin-bottom:.25rem;
+}
+
+h2 {
+    font-size: 2.5rem;
 }
 
 body {
@@ -27,26 +36,16 @@ body {
     /* background-color: white; */
 }
 
-.splash_container {
-    width: 100%;
-    height: fit-content;
-    min-width: 310px;
-    max-width: 720px;
-    margin: auto;
-    padding: .5rem;
-    border: 1px solid black;
-    box-sizing: border-box;
+input {
+    /* display:block; */
+    width: 98%;
+    margin-bottom:.5rem;
 }
 
-.splash_container h1 {
-    margin-top:0px;
-}
-
-.splash_container img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
+/* div > button {
+    position:absolute;
+    bottom:0;
+} */
 
 /* @media (orientation: landscape) {
     .splash_container {
@@ -83,4 +82,62 @@ footer p {
     font-family: "Inter Tight", sans-serif;
     font-size: 0.75rem;
     text-align:center;
+}
+
+/*-------------------- containers -------------------- */
+.container {
+    width: 100%;
+    min-width: 310px;
+    max-width: 720px;
+    height: fit-content;
+    margin: auto;
+    padding: .5rem;
+    border: 1px solid black;
+    box-sizing: border-box;
+    /* display:flex; */
+}
+
+/*---------- splash page ----------*/
+
+.splash > h1 {
+    margin-top:0px;
+}
+
+.splash > img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/*---------- login page ----------*/
+.login {
+    display: flex;
+    gap:1rem;
+    background-color:hsl(39, 100%, 90%);
+}
+
+.login h2 {
+    color:rgb(255, 165, 0);
+    margin-top:0px;
+    text-align: left;
+}
+
+.login_form, .signup_form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: .5rem;
+}
+
+.login_form > form, .signup_form > form {
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    justify-content:space-between;
+    height:100%;
+    width: 100%;
+}
+
+.login_form button, .signup_form button {
+    margin-top: auto;
 }
