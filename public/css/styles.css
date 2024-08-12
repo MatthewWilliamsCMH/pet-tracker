@@ -1,0 +1,86 @@
+.inter-tight-regular {
+  font-family: "Inter Tight", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.inter-tight-bold {
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 120%;
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom:.25rem;
+}
+
+body {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* height: 50vh; */
+    /* background-color: white; */
+}
+
+.splash_container {
+    width: 100%;
+    height: fit-content;
+    min-width: 310px;
+    max-width: 720px;
+    margin: auto;
+    padding: .5rem;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+.splash_container h1 {
+    margin-top:0px;
+}
+
+.splash_container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* @media (orientation: landscape) {
+    .splash_container {
+        width: 100vw;
+        height: 100vh; /* Full height for landscape */
+    /* } */
+    /* img { */
+        /* margin-top:0;
+        padding-top:0; */
+        /* width: auto; Allow width to adjust based on height */
+        /* height: 70%; Fill height of container */
+    /* }
+} */
+
+/* @media (orientation: portrait) {
+    .splash_container {
+        height: fit-content;
+    }
+    img {
+        width: 100%;
+        height: auto;
+    }
+} */ */
+
+footer {
+    background-color: white;
+    position: fixed;
+    text-align: center;
+    /* margin: auto; */
+    padding: 0.25rem;
+}
+
+footer p {
+    font-family: "Inter Tight", sans-serif;
+    font-size: 0.75rem;
+    text-align:center;
+}
