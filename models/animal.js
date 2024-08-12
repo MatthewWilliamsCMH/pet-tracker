@@ -16,7 +16,7 @@ Animal.init(
             allowNull: false
         },
         chip: {
-            type: DataTypes.VARCHAR(15),
+            type: DataTypes.VARCHAR(255),
             validate: {
                 len: [9,15],
                 isAlphanumeric: true

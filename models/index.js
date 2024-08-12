@@ -30,8 +30,8 @@ Animal.hasOne(Species, {foreignKey: 'species_id', onDelete: 'SET NULL'});
 Species.hasMany(Animal, {foreignKey: 'species_id'});
 
 //many-to-many
-Animal.belongsToMany(Behavior, {through 'AnimalBehavior'});
-Behavior.belongsToMany(Animal, {through 'AnimalBehavior'});
+Animal.belongsToMany(Behavior, { through: 'AnimalBehavior' });
+Behavior.belongsToMany(Animal, { through: 'AnimalBehavior' });
 
 //The below is my original attempt before consulting chatGPT. Essentially, I had the "hasOne"s reversed and always had the animal_id as teh foreign key. Were these assocations syntactially correct? Semantically, I think they require an "animal_id" filed in the tables where "animal_id" is listed as a foreign key. Is that correct? Finally, would my set up be preferable to chatGPT's—would it be better to have the foreign key in the affiliated tables?
 
