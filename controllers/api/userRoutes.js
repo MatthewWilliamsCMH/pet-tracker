@@ -191,27 +191,25 @@ passport.use(new LocalStrategy(function verify(username, password, cb) {
         return next(err); 
       }
 
-      User.create({ name: req.body.username, email: req.body.email, password: hashedPassword})
-        .then(data => {
-          console.log("New User: ", data);
+      User.create({ name: req.body.username, email: req.body.email, password: hashedPassword })
+  .then(data => {
+    var user = {
+      id: data.id,
+      name: req.body.username
+    };
 
-          var user = {
-            id: data.lastID,
-            name: req.body.username
-          };
+    console.log('New User: ', user);
 
-          console.log('New User: ', user);
-      
-          req.login(user, function(err) {
-            if (err) { return next(err); }
-            // redirect to a PROTECTED route
-            res.redirect('/');
-          });
-        })
-        .catch(err => {
-          console.log("err, ", err );
-          return next(err); 
-        });
+    req.login(user, function(err) {
+      if (err) { return next(err); }
+      // Redirect to a protected route
+      res.redirect('/');
+    });
+  })
+  .catch(err => {
+    console.log("err, ", err );
+    return next(err); 
+  });
 
         /*
   //    db.run('INSERT INTO users (name, email, password, salt) VALUES (?, ?, ?, ?)', [
