@@ -1,0 +1,143 @@
+/*---------- site-wide ----------*/
+.inter-tight-regular {
+  font-family: "Inter Tight", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.inter-tight-bold {
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Inter Tight", sans-serif;
+    font-size: 3.5rem;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 120%;
+    text-align: center;
+    margin-bottom:.25rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+body {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* height: 50vh; */
+    /* background-color: white; */
+}
+
+input {
+    /* display:block; */
+    width: 98%;
+    margin-bottom:.5rem;
+}
+
+/* div > button {
+    position:absolute;
+    bottom:0;
+} */
+
+/* @media (orientation: landscape) {
+    .splash_container {
+        width: 100vw;
+        height: 100vh; /* Full height for landscape */
+    /* } */
+    /* img { */
+        /* margin-top:0;
+        padding-top:0; */
+        /* width: auto; Allow width to adjust based on height */
+        /* height: 70%; Fill height of container */
+    /* }
+} */
+
+/* @media (orientation: portrait) {
+    .splash_container {
+        height: fit-content;
+    }
+    img {
+        width: 100%;
+        height: auto;
+    }
+} */ */
+
+footer {
+    background-color: white;
+    position: fixed;
+    text-align: center;
+    /* margin: auto; */
+    padding: 0.25rem;
+}
+
+footer p {
+    font-family: "Inter Tight", sans-serif;
+    font-size: 0.75rem;
+    text-align:center;
+}
+
+/*-------------------- containers -------------------- */
+.container {
+    width: 100%;
+    min-width: 310px;
+    max-width: 720px;
+    height: fit-content;
+    margin: auto;
+    padding: .5rem;
+    border: 1px solid black;
+    box-sizing: border-box;
+    /* display:flex; */
+}
+
+/*---------- splash page ----------*/
+
+.splash > h1 {
+    margin-top:0px;
+}
+
+.splash > img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/*---------- login page ----------*/
+.login {
+    display: flex;
+    gap:1rem;
+    background-color:hsl(39, 100%, 90%);
+}
+
+.login h2 {
+    color:rgb(255, 165, 0);
+    margin-top:0px;
+    text-align: left;
+}
+
+.login_form, .signup_form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: .5rem;
+}
+
+.login_form > form, .signup_form > form {
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    justify-content:space-between;
+    height:100%;
+    width: 100%;
+}
+
+.login_form button, .signup_form button {
+    margin-top: auto;
+}
