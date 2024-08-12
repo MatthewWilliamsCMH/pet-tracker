@@ -19,7 +19,8 @@ Animal.init(
             type: DataTypes.VARCHAR(15),
             validate: {
                 len: [9,15],
-                isAlphanumeric: true
+                isAlphanumeric: true,
+                unique: true
             }
         },
         species_id: {
@@ -42,11 +43,15 @@ Animal.init(
             allowNull: false
         },
         photo_id: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            unique: true,
+            isUrl: true
           }
           ,
         qrcode_id: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            unique: true,
+            isUrl: true
         }
         },
     {
