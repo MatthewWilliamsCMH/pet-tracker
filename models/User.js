@@ -27,7 +27,7 @@ User.init(
       validate: {
         isEmail: true
       }
-    }
+    },
     password: {
       type: DataTypes.VARCHAR,
       allowNull: false,
