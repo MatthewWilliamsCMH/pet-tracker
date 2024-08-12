@@ -1,16 +1,18 @@
 const sequelize = require('../config/connection'); 
-const User = require('../models/User'); 
-const userData = require('./userdata.json'); 
+const { User, Animal, Breed, Species, Behavior, Color, Kennel, QRCode, Photo } = require('../models');
+const userData = require('./seeds/userData.json'); 
+const animalData = require('./seeds/animalData.json'); 
 
 const seedDatabase = async () => {
-  await sequelize.sync(); 
+  await sequelize.sync({ force: true });
 
   await User.bulkCreate(userData, {
-    individualHooks: true, 
+    individualHooks: true,
     returning: true,
   });
 
-  console.log('Database seeded!');
+  await Animal.bulkCreate(animalData);
+
   process.exit(0);
 };
 

@@ -14,18 +14,16 @@
 <!--end testing; don't forget "</body>" below-->
 <div class='container login inter-tight-regular'>
   <div class='login_form'>
-      <h2>Login</h2>
-      <form>
-          <div>
-              <label for='email-login'>Email</label>
-              <input type='text' id='email-login' />
-              <label for='password-login'>Password</label>
-              <input type='password' id='password-login' />
-          </div>
-          <div>
-              <button type='submit'>Login</button>
-          </div>
-      </form>
+    <form action="/login" method="POST">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+    
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+    
+      <button type="submit">Login</button>
+    </form>
+    <a href="/register">Don't have an account? Register</a>
   </div>
   <div class = 'signup_form'>
       <h2>Signup</h2>
