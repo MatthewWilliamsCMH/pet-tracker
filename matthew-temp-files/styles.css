@@ -1,0 +1,15 @@
+@media print {
+    @page {
+        margin: 0;
+    }
+    body {
+      visibility: hidden;
+    }
+    #qrPrintBox {
+      visibility: visible;
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding: .5in;
+    }
+  }
