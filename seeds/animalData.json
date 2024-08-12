@@ -1,0 +1,16 @@
+[
+    {
+      "name": "Lucy",
+      "species": "Dog",
+      "breed": "Golden Doodle",
+      "age": 2,
+      "userId": 1
+    },
+    {
+      "name": "Jerry",
+      "species": "Cat",
+      "breed": "Tabby",
+      "age": 2,
+      "userId": 2
+    }
+  ]
