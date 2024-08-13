@@ -34,15 +34,16 @@ passport.deserializeUser(function (user, cb) {
 
 // Routes
 
-// GET /login - Prompt the user to log in.
-router.get('/login', function (req, res, next) {
-  res.render('login');
-});
+//I don't think we need this because the home page is the login page
+//GET /login - Prompt the user to log in.
+// router.get('/login', function (req, res, next) {
+//   res.render('login');
+// });
 
 // POST /login/password - Authenticate the user by verifying a username and password.
 router.post('/login/password', passport.authenticate('local', {
-  successReturnToOrRedirect: '/',
-  failureRedirect: '/login',
+  successReturnToOrRedirect: '/pack', //this should go to the pack page, not home
+  failureRedirect: '/login', //this should return to the login (home) page
   failureMessage: true
 }));
 
@@ -54,26 +55,27 @@ router.post('/logout', function (req, res, next) {
   });
 });
 
+//I think this can be handled more easily; if the user tries to login and fails, they get an alert and then returned to the login page
 // GET /signup - Prompt the user to sign up.
-router.get('/signup', function (req, res, next) {
-  res.render('signup');
-});
+// router.get('/signup', function (req, res, next) {
+//   res.render('signup');
+// });
 
 // POST /signup - Create a new user account.
 router.post('/register', function (req, res, next) {
   console.log("Incoming Data: ", req.body);
 
-  bcrypt.hash(req.body.password, 10, function (err, hashedPassword) {
+  bcrypt.hash(req.body.passVal, 10, function (err, hashedPassword) {
     if (err) {
       console.log("Err: ", err);
       return next(err);
     }
 
-    User.create({ name: req.body.username, email: req.body.email, password: hashedPassword })
+    User.create({ name: req.body.userVal, emailVal: req.body.emailVal, password: hashedPassword })
       .then(data => {
         const user = {
           id: data.id,
-          name: req.body.username
+          name: req.body.userVal
         };
 
         console.log('New User: ', user);
@@ -81,7 +83,7 @@ router.post('/register', function (req, res, next) {
         req.login(user, function (err) {
           if (err) { return next(err); }
           // Redirect to a protected route
-          res.redirect('/');
+          res.redirect('/');  //redirect to pack page
         });
       })
       .catch(err => {

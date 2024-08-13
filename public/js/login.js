@@ -16,7 +16,7 @@ const logFormHandler = async (event) => {
 
   //console.log(userVal, emailVal, passVal)
 
-  fetch('/api/users/register', { //check to make sure this route is still correct
+  fetch('/login/password', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify({ 
@@ -35,7 +35,7 @@ const regFormHandler = async (event) => {
 
   //console.log(userVal, emailVal, passVal)
 
-  fetch('/api/users/register', { //check to make sure this route is still correct
+  fetch('/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify({ 
@@ -53,56 +53,3 @@ document
 document
   .querySelector('.register-form')
   .addEventListener('submit', regFormHandler);
-
-
-// const logFrmHandler = async (event) => {
-//   event.preventDefault();
-
-//   const email = document.querySelector('#login-email').value.trim();
-//   const password = document.querySelector('#login-password').value.trim();
-
-//   if (email && password) {
-//     const response = await fetch('/api/users/login', { //is this route correct?
-//       method: 'POST',
-//       body: JSON.stringify({ email, password }),
-//       headers: { 'Content-Type': 'application/json' },
-//     });
-
-//     if (response.ok) {
-//       document.location.replace('/'); //append "/pack" to route?
-//     } else {
-//       alert('Please register before trying to log in.');
-//       document.location.replace('/login');
-//     }
-//   }
-// };
-
-// const regFrmHandler = async (event) => {
-//   event.preventDefault();
-
-//   const name = document.querySelector('#register-user').value.trim();
-//   const email = document.querySelector('#register-email').value.trim();
-//   const password = document.querySelector('#register-signup').value.trim();
-
-//   if (name && email && password) {
-//     const response = await fetch('/api/users', { //is this route correct?
-//       method: 'POST',
-//       body: JSON.stringify({ name, email, password }),
-//       headers: { 'Content-Type': 'application/json' },
-//     });
-
-//     if (response.ok) {
-//       document.location.replace('/');
-//     } else {
-//       alert(response.statusText);
-//     };
-//   };
-// };
-
-// document
-//   .querySelector('.login-form')
-//   .addEventListener('submit', logFrmHandler);
-
-// document
-//   .querySelector('.register-form')
-//   .addEventListener('submit', regFrmHandler);
