@@ -1,34 +1,34 @@
-const loginFormHandler = async (event) => {
+const logFrmHandler = async (event) => {
   event.preventDefault();
 
-  const email = document.querySelector('#email-login').value.trim();
-  const password = document.querySelector('#password-login').value.trim();
+  const email = document.querySelector('#login-email').value.trim();
+  const password = document.querySelector('#login-password').value.trim();
 
   if (email && password) {
-    const response = await fetch('/api/users/login', {
+    const response = await fetch('/api/users/login', { //is this route correct?
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/'); //append "/pack" to route?
     } else {
-      alert('Please sign up before trying to log in.');
+      alert('Please register before trying to log in.');
       document.location.replace('/login');
     }
   }
 };
 
-const signupFormHandler = async (event) => {
+const regFrmHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#name-signup').value.trim();
-  const email = document.querySelector('#email-signup').value.trim();
-  const password = document.querySelector('#password-signup').value.trim();
+  const name = document.querySelector('#register-user').value.trim();
+  const email = document.querySelector('#register-email').value.trim();
+  const password = document.querySelector('#register-signup').value.trim();
 
   if (name && email && password) {
-    const response = await fetch('/api/users', {
+    const response = await fetch('/api/users', { //is this route correct?
       method: 'POST',
       body: JSON.stringify({ name, email, password }),
       headers: { 'Content-Type': 'application/json' },
@@ -44,8 +44,8 @@ const signupFormHandler = async (event) => {
 
 document
   .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler);
+  .addEventListener('submit', logFrmHandler);
 
 document
-  .querySelector('.signup-form')
-  .addEventListener('submit', signupFormHandler);
+  .querySelector('.register-form')
+  .addEventListener('submit', regFrmHandler);

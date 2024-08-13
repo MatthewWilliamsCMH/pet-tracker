@@ -15,6 +15,15 @@ Animal.init(
             type: DataTypes.STRING,
             allowNull: false
         },
+        sex: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            is: /^[MF]$/,
+            len: [1]
+        },
+        altered: {
+            type: DataTypes.BOOLEAN
+        },
         chip: {
             type: DataTypes.STRING,
             validate: {

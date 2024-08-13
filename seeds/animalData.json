@@ -1,6 +1,8 @@
 [
     {
       "name": "Luna",
+      "sex": "F",
+      "altered": true,
       "chip": "900112345678910",
       "species_id": "1",
       "breed_id": "3",
@@ -10,6 +12,8 @@
     },
     {
       "name": "Milo",
+      "sex": "M",
+      "altered": false,
       "chip": "900123456789012",
       "species_id": "1",
       "breed_id": "5",
@@ -19,6 +23,8 @@
     },
     {
       "name": "Bella",
+      "sex": "F",
+      "altered": false,
       "chip": null,
       "species_id": "2",
       "breed_id": "1",
@@ -28,15 +34,19 @@
     },
     {
       "name": "Oliver",
+      "sex": "M",
+      "altered": true,
       "chip": "900134567890123",
       "species_id": "1",
-      "breed_id": "6",
+      "breed_id": "2",
       "color_id": "2",
       "behaviors_id": "1",
       "kennel_id": "4"
     },
     {
       "name": "Daisy",
+      "sex": "F",
+      "altered": false,
       "chip": "900145678901234",
       "species_id": "1",
       "breed_id": "2",
@@ -46,6 +56,8 @@
     },
     {
       "name": "Max",
+      "sex": "M",
+      "altered": true,
       "chip": "900156789012345",
       "species_id": "2",
       "breed_id": "4",
@@ -55,6 +67,8 @@
     },
     {
       "name": "Rosie",
+      "sex": "F",
+      "altered": true,
       "chip": "0D0D158498",
       "species_id": "2",
       "breed_id": "6",
@@ -64,6 +78,8 @@
     },
     {
       "name": "Charlie",
+      "sex": "F",
+      "altered": false,
       "chip": null,
       "species_id": "2",
       "breed_id": "6",
@@ -73,6 +89,8 @@
     },
     {
       "name": "Jasper",
+      "sex": "M",
+      "altered": true,
       "chip": null,
       "species_id": "2",
       "breed_id": "5",
@@ -82,6 +100,8 @@
     },
     {
       "name": "Willow",
+      "sex": "F",
+      "altered": true,
       "chip": "0A151138459",
       "species_id": "1",
       "breed_id": "3",
