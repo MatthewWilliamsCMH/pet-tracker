@@ -11,7 +11,7 @@ Color.init(
             autoIncrement: true
         },
         name: {
-            type: DataTypes.VARCHAR
+            type: DataTypes.STRING
         }
     },
     {

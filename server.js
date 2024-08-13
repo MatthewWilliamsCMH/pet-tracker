@@ -1,3 +1,4 @@
+//verify that we need all these; I think we do.
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
@@ -5,18 +6,13 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 //const helpers = require('./utils/helpers');
 const passport = require('passport');
-
 //var LocalStrategy = require('passport-local');
-
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-
 const app = express();
 const PORT = process.env.PORT || 3001;
-
 // const hbs = exphbs.create({ helpers });
 const hbs = exphbs.create();
-
 const sess = {
   secret: 'Super secret secret',
   cookie: {
@@ -31,7 +27,6 @@ const sess = {
     db: sequelize
   })
 };
-
 app.use(session(sess));
 // Passport AUTH config middleware
 app.use(passport.authenticate('session'));
@@ -42,7 +37,6 @@ app.use(function(req, res, next) {
   req.session.messages = [];
   next();
 });
-
 /*
 passport.use(new LocalStrategy(function verify(username, password, cb) {
   db.get('SELECT * FROM users WHERE username = ?', [ username ], function(err, user) {
@@ -59,16 +53,19 @@ passport.use(new LocalStrategy(function verify(username, password, cb) {
   });
 }));
 */
-
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-lstat
 app.use(routes);
-
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
+
+
+
+
+
+
+
