@@ -12,19 +12,24 @@ Animal.init(
             autoIncrement: true
         },
         name: {
-            type: DataTypes.VARCHAR,
+            type: DataTypes.STRING,
             allowNull: false
         },
         chip: {
-            type: DataTypes.VARCHAR(15),
+            type: DataTypes.STRING,
             validate: {
                 len: [9,15],
-                isAlphanumeric: true
+                isAlphanumeric: true,
+                unique: true
             }
         },
         species_id: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            references: {
+                model: 'species',
+                key: 'id'
+            }
         },
         breed_id: {
             type: DataTypes.INTEGER,
@@ -34,21 +39,18 @@ Animal.init(
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        behaviors_id: {
+        behavior_id: {
             type: DataTypes.INTEGER,
         },
         kennel_id: {
             type: DataTypes.INTEGER,
-            allowNull: false
-        },
-        photo_id: {
-            type: DataTypes.INTEGER
-          }
-          ,
-        qrcode_id: {
-            type: DataTypes.INTEGER
+            allowNull: false,
+            references: {
+                model: 'animal',
+                key: 'id'
+            }
         }
-        },
+    },
     {
         sequelize,
         timestamps: false,

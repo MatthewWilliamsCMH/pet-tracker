@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const Animal = require('./animal');
-const Behavior = requrie ('./behavior');
+const Behavior = require ('./behavior');
 
 class AnimalBehavior extends Model {}
 
@@ -32,7 +32,7 @@ AnimalBehavior.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'color',
+        modelName: 'animalBehavior',
     }
 );
 
