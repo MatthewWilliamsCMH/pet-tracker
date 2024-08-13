@@ -29,7 +29,7 @@ main {
     width:100vw;
     margin-left:6rem;
     border-radius: 2rem 0 0 0;
-    box-shadow: -10px -10px 20px hsl(204, 72%, 55%);
+    box-shadow: -10px -10px 20px rgb(58, 157, 223);
 }
 
 
@@ -153,6 +153,46 @@ footer p {
 
 .login_form button, .register_form button {
     margin-top: auto;
+}
+
+/*---------- pack page ----------*/
+table {
+    border-collapse:collapse;
+}
+
+.container:has(table){
+    width:fit-content;
+}
+
+tr:nth-child(odd) {
+    background-color: #fff;
+}
+ 
+tr:nth-child(even) {
+    background-color: hsl(204, 72%, 90%);
+}
+    
+th, td {
+    padding:.25rem 1rem;
+    text-align: left; 
+}
+
+tr:first-of-type {
+    border-bottom:1px solid black;
+}
+
+/*---------- pet page ---------*/
+.photo_qrcode {
+    position:absolute;
+    right:1rem;
+}
+
+.qrcode {
+    margin-top:.5rem;
+    text-align:right;
+}
+.qrcode img {
+    width:100px;
 }
 
 /*-------------------- adaptive --------------------*/
