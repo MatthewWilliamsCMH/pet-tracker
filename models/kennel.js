@@ -11,18 +11,10 @@ Kennel.init(
             primaryKey: true,
             autoIncrement: true
         },
-        hall: {
-            type: DataTypes.VARCHAR,
-            isAlpha: true,
+        kennel: {
+            type: DataTypes.STRING,
             validate: {
-                len: 1
-            }
-        },
-        cage: {
-            type: DataTypes.INT,
-            isInt: true,
-            validate: {
-                len: [1,2]
+                len: 2
             }
         }
     },

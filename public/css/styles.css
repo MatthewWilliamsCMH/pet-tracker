@@ -1,4 +1,4 @@
-/*---------- site-wide ----------*/
+/*-------------------- site-wide --------------------*/
 .inter-tight-regular {
   font-family: "Inter Tight", sans-serif;
   font-optical-sizing: auto;
@@ -28,53 +28,17 @@ h2 {
     font-size: 2.5rem;
 }
 
-body {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    /* height: 50vh; */
-    /* background-color: white; */
-}
-
 input {
-    /* display:block; */
     width: 98%;
     margin-bottom:.5rem;
 }
 
-/* div > button {
-    position:absolute;
-    bottom:0;
-} */
-
-/* @media (orientation: landscape) {
-    .splash_container {
-        width: 100vw;
-        height: 100vh; /* Full height for landscape */
-    /* } */
-    /* img { */
-        /* margin-top:0;
-        padding-top:0; */
-        /* width: auto; Allow width to adjust based on height */
-        /* height: 70%; Fill height of container */
-    /* }
-} */
-
-/* @media (orientation: portrait) {
-    .splash_container {
-        height: fit-content;
-    }
-    img {
-        width: 100%;
-        height: auto;
-    }
-} */ */
-
 footer {
     background-color: white;
     position: fixed;
-    text-align: center;
-    /* margin: auto; */
+    width:100%;
+    margin:auto;
+    bottom:0;
     padding: 0.25rem;
 }
 
@@ -94,7 +58,7 @@ footer p {
     padding: .5rem;
     border: 1px solid black;
     box-sizing: border-box;
-    /* display:flex; */
+    border-radius: 0 1rem 0 0;
 }
 
 /*---------- splash page ----------*/
@@ -114,7 +78,7 @@ footer p {
     display: flex;
     gap:1rem;
     background-color:hsl(39, 100%, 90%);
-}
+    box-shadow: 10px 10px 20px #ccc;}
 
 .login h2 {
     color:rgb(255, 165, 0);
@@ -141,3 +105,27 @@ footer p {
 .login_form button, .signup_form button {
     margin-top: auto;
 }
+
+/*-------------------- adaptive --------------------*/
+/* @media (orientation: landscape) {
+    .splash_container {
+        width: 100vw;
+        height: 100vh; /* Full height for landscape
+    }
+    img {
+        margin-top:0;
+        padding-top:0;
+        width: auto; Allow width to adjust based on height
+        height: 70%; Fill height of container
+    }
+}
+
+@media (orientation: portrait) {
+    .splash_container {
+        height: fit-content;
+    }
+    img {
+        width: 100%;
+        height: auto;
+    }
+} */

@@ -1,16 +1,92 @@
 [
     {
-      "name": "Lucy",
-      "species": "Dog",
-      "breed": "Golden Doodle",
-      "age": 2,
-      "userId": 1
+      "name": "Luna",
+      "chip": "900112345678910",
+      "species_id": "1",
+      "breed_id": "3",
+      "color_id": "6",
+      "behaviors_id": "2",
+      "kennel_id": "1"
     },
     {
-      "name": "Jerry",
-      "species": "Cat",
-      "breed": "Tabby",
-      "age": 2,
-      "userId": 2
+      "name": "Milo",
+      "chip": "900123456789012",
+      "species_id": "1",
+      "breed_id": "5",
+      "color_id": "3",
+      "behaviors_id": "3",
+      "kennel_id": "2"
+    },
+    {
+      "name": "Bella",
+      "chip": null,
+      "species_id": "2",
+      "breed_id": "1",
+      "color_id": "7",
+      "behaviors_id": "1",
+      "kennel_id": "3"
+    },
+    {
+      "name": "Oliver",
+      "chip": "900134567890123",
+      "species_id": "1",
+      "breed_id": "6",
+      "color_id": "2",
+      "behaviors_id": "1",
+      "kennel_id": "4"
+    },
+    {
+      "name": "Daisy",
+      "chip": "900145678901234",
+      "species_id": "1",
+      "breed_id": "2",
+      "color_id": "2",
+      "behaviors_id": null,
+      "kennel_id": "5"
+    },
+    {
+      "name": "Max",
+      "chip": "900156789012345",
+      "species_id": "2",
+      "breed_id": "4",
+      "color_id": "5",
+      "behaviors_id": "3",
+      "kennel_id": "6"
+    },
+    {
+      "name": "Rosie",
+      "chip": "0D0D158498",
+      "species_id": "2",
+      "breed_id": "6",
+      "color_id": "7",
+      "behaviors_id": "1",
+      "kennel_id": "7"
+    },
+    {
+      "name": "Charlie",
+      "chip": null,
+      "species_id": "2",
+      "breed_id": "6",
+      "color_id": "5",
+      "behaviors_id": null,
+      "kennel_id": "8"
+    },
+    {
+      "name": "Jasper",
+      "chip": null,
+      "species_id": "2",
+      "breed_id": "5",
+      "color_id": "1",
+      "behaviors_id": null,
+      "kennel_id": "9"
+    },
+    {
+      "name": "Willow",
+      "chip": "0A151138459",
+      "species_id": "1",
+      "breed_id": "3",
+      "color_id": "4",
+      "behaviors_id": "2",
+      "kennel_id": "10"
     }
   ]
