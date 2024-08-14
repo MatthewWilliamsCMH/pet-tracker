@@ -5,6 +5,7 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 //const helpers = require('./utils/helpers');
 const passport = require('passport');
+const LocalStrategy = require('passport-local');
 //var LocalStrategy = require('passport-local');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -27,8 +28,39 @@ const sess = {
   })
 };
 app.use(session(sess));
+app.use(passport.initialize())
 // Passport AUTH config middleware
-app.use(passport.authenticate('session'));
+// Configure password authentication strategy using bcrypt.
+passport.use(new LocalStrategy(function verify(username, password, cb) {
+  console.log("***")
+  console.log(username, password)
+  db.get('SELECT * FROM user WHERE name = ?', [username], function (err, row) {
+    console.log(row)
+    if (err) { return cb(err); }
+    if (!row) { return cb(null, false, { message: 'Incorrect username or password.' }); }
+
+    bcrypt.compare(password, row.password, function (err, result) {
+      if (err) { return cb(err); }
+      if (!result) { return cb(null, false, { message: 'Incorrect username or password.' }); }
+      return cb(null, row);
+    });
+  });
+}));
+
+// Configure session management.
+passport.serializeUser(function (user, cb) {
+  process.nextTick(function () {
+    cb(null, { id: user.id, username: user.username });
+  });
+});
+
+passport.deserializeUser(function (user, cb) {
+  process.nextTick(function () {
+    return cb(null, user);
+  });
+});
+
+// app.use(passport.authenticate('local'));
 app.use(function(req, res, next) {
   var msgs = req.session.messages || [];
   res.locals.messages = msgs;

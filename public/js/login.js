@@ -14,6 +14,7 @@ const logFormHandler = async (event) => {
   let emailVal = logemail.value
   let passVal = logpassword.value
 
+  console.log(emailVal, passVal)
   fetch('/api/login/password', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
