@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/login/password', (req, res) => {
-    res.render('/login');
+    res.render('login');
 });
 
 router.get('/register', (req, res) => {

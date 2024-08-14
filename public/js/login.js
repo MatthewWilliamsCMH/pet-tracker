@@ -14,7 +14,7 @@ const logFormHandler = async (event) => {
   let emailVal = logemail.value
   let passVal = logpassword.value
 
-  fetch('/login/password', {
+  fetch('/api/login/password', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ 
@@ -31,7 +31,7 @@ const regFormHandler = async (event) => {
   let emailVal = regemail.value
   let passVal = regpassword.value
 
-  fetch('/register', {
+  fetch('/api/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify({ 

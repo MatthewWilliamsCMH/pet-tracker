@@ -1,4 +1,3 @@
-//verify that we need all these; I think we do.
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
