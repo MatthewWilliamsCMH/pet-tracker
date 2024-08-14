@@ -14,11 +14,9 @@ const logFormHandler = async (event) => {
   let emailVal = logemail.value
   let passVal = logpassword.value
 
-  //console.log(userVal, emailVal, passVal)
-
   fetch('/login/password', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json'},
+      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ 
           email: emailVal, 
           password: passVal
@@ -32,8 +30,6 @@ const regFormHandler = async (event) => {
   let userVal = reguser.value
   let emailVal = regemail.value
   let passVal = regpassword.value
-
-  //console.log(userVal, emailVal, passVal)
 
   fetch('/register', {
       method: 'POST',
