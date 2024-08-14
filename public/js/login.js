@@ -47,9 +47,9 @@ const regFormHandler = async (event) => {
 }
 
 document
-  .querySelector('.login-form')
+  .querySelector('#login-form')
   .addEventListener('submit', logFormHandler);
 
 document
-  .querySelector('.register-form')
+  .querySelector('#register-form')
   .addEventListener('submit', regFormHandler);
