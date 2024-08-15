@@ -16,8 +16,6 @@ const User = require('../../models/User');
 // });
 
 passport.use(new LocalStrategy(function verify(username, password, cb) {
-  console.log("***")
-  console.log(username, password)
   User.findOne({where: {email: username}}).then(function (row) {
     console.log(row.password)
     // if (err) { return cb(err); }
@@ -26,7 +24,7 @@ passport.use(new LocalStrategy(function verify(username, password, cb) {
     bcrypt.compare(password, row.password, function (err, result) {
       if (err) { return cb(err); }
       if (!result) { return cb(null, false, { message: 'Incorrect username or password.' }); }
-      console.log("success!")
+      console.log("User successfully logged in!")
       return cb(null, row);
     });
   })
