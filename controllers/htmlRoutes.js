@@ -25,4 +25,8 @@ router.get('/register', auth, (req, res) => {
     res.render('register');
 });
 
+router.get('/new', auth, (req, res) => { 
+    res.render('new');
+  })
+
 module.exports = router;
