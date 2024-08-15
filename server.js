@@ -38,6 +38,7 @@ app.use(function(req, res, next) {
   req.session.messages = [];
   next();
 });
+app.use('/pets', petRoutes);
 /*
 passport.use(new LocalStrategy(function verify(username, password, cb) {
   db.get('SELECT * FROM users WHERE username = ?', [ username ], function(err, user) {
