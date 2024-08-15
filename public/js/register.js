@@ -1,5 +1,3 @@
-
-
 // we need to GRAB References
 const form = document.getElementById('register-form');
 const username = document.getElementById('username');

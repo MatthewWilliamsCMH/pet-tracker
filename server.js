@@ -1,4 +1,3 @@
-//verify that we need all these; I think we do.
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
@@ -6,7 +5,6 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 //const helpers = require('./utils/helpers');
 const passport = require('passport');
-//var LocalStrategy = require('passport-local');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
@@ -28,7 +26,10 @@ const sess = {
   })
 };
 app.use(session(sess));
+// app.use(passport.initialize())
 // Passport AUTH config middleware
+// Configure password authentication strategy using bcrypt.
+
 app.use(passport.authenticate('session'));
 app.use(function(req, res, next) {
   var msgs = req.session.messages || [];
@@ -55,6 +56,7 @@ passport.use(new LocalStrategy(function verify(username, password, cb) {
 */
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -62,10 +64,3 @@ app.use(routes);
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
-
-
-
-
-
-
-

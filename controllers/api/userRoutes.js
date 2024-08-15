@@ -5,18 +5,31 @@ const bcrypt = require('bcrypt');
 const db = require('../../config/connection');
 const User = require('../../models/User');
 
-// Configure password authentication strategy using bcrypt.
+
+
+// Routes
+
+//I don't think we need this because the home page is the login page
+//GET /login - Prompt the user to log in.
+// router.get('/login', function (req, res, next) {
+//   res.render('login');
+// });
+
 passport.use(new LocalStrategy(function verify(username, password, cb) {
-  db.get('SELECT * FROM users WHERE username = ?', [username], function (err, row) {
-    if (err) { return cb(err); }
+  console.log("***")
+  console.log(username, password)
+  User.findOne({where: {email: username}}).then(function (row) {
+    console.log(row.password)
+    // if (err) { return cb(err); }
     if (!row) { return cb(null, false, { message: 'Incorrect username or password.' }); }
 
-    bcrypt.compare(password, row.hashed_password, function (err, result) {
+    bcrypt.compare(password, row.password, function (err, result) {
       if (err) { return cb(err); }
       if (!result) { return cb(null, false, { message: 'Incorrect username or password.' }); }
+      console.log("success!")
       return cb(null, row);
     });
-  });
+  })
 }));
 
 // Configure session management.
@@ -32,19 +45,16 @@ passport.deserializeUser(function (user, cb) {
   });
 });
 
-// Routes
-
-// GET /login - Prompt the user to log in.
-router.get('/login', function (req, res, next) {
-  res.render('login');
-});
-
 // POST /login/password - Authenticate the user by verifying a username and password.
 router.post('/login/password', passport.authenticate('local', {
-  successReturnToOrRedirect: '/',
-  failureRedirect: '/login',
+  // successReturnToOrRedirect: '/register', //this should go to the pack page, not home
+  failureRedirect: '/error', //this should return to the login (home) page
   failureMessage: true
-}));
+}), function (req, res) {
+  console.log("heelo")
+  res.redirect("/register")
+}
+);
 
 // POST /logout - Log the user out.
 router.post('/logout', function (req, res, next) {
@@ -54,10 +64,11 @@ router.post('/logout', function (req, res, next) {
   });
 });
 
+//I think this can be handled more easily; if the user tries to login and fails, they get an alert and then returned to the login page
 // GET /signup - Prompt the user to sign up.
-router.get('/signup', function (req, res, next) {
-  res.render('signup');
-});
+// router.get('/signup', function (req, res, next) {
+//   res.render('signup');
+// });
 
 // POST /signup - Create a new user account.
 router.post('/register', function (req, res, next) {
@@ -69,11 +80,11 @@ router.post('/register', function (req, res, next) {
       return next(err);
     }
 
-    User.create({ name: req.body.username, email: req.body.email, password: hashedPassword })
+    User.create({ name: req.body.user, email: req.body.email, password: hashedPassword })
       .then(data => {
         const user = {
           id: data.id,
-          name: req.body.username
+          name: req.body.user
         };
 
         console.log('New User: ', user);
@@ -81,7 +92,7 @@ router.post('/register', function (req, res, next) {
         req.login(user, function (err) {
           if (err) { return next(err); }
           // Redirect to a protected route
-          res.redirect('/');
+          res.redirect('/register');  //redirect to pack page
         });
       })
       .catch(err => {
