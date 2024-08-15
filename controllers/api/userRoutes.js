@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const passport = require('passport');
+const LocalStrategy = require('passport-local');
 const bcrypt = require('bcrypt');
 const db = require('../../config/connection');
 const User = require('../../models/User');
@@ -14,13 +15,43 @@ const User = require('../../models/User');
 //   res.render('login');
 // });
 
+passport.use(new LocalStrategy(function verify(username, password, cb) {
+  console.log("***")
+  console.log(username, password)
+  User.findOne({where: {email: username}}).then(function (row) {
+    console.log(row.password)
+    // if (err) { return cb(err); }
+    if (!row) { return cb(null, false, { message: 'Incorrect username or password.' }); }
+
+    bcrypt.compare(password, row.password, function (err, result) {
+      if (err) { return cb(err); }
+      if (!result) { return cb(null, false, { message: 'Incorrect username or password.' }); }
+      console.log("success!")
+      return cb(null, row);
+    });
+  })
+}));
+
+// Configure session management.
+passport.serializeUser(function (user, cb) {
+  process.nextTick(function () {
+    cb(null, { id: user.id, username: user.username });
+  });
+});
+
+passport.deserializeUser(function (user, cb) {
+  process.nextTick(function () {
+    return cb(null, user);
+  });
+});
+
 // POST /login/password - Authenticate the user by verifying a username and password.
 router.post('/login/password', passport.authenticate('local', {
-  successReturnToOrRedirect: '/', //this should go to the pack page, not home
-  failureRedirect: '/register', //this should return to the login (home) page
+  // successReturnToOrRedirect: '/register', //this should go to the pack page, not home
+  failureRedirect: '/error', //this should return to the login (home) page
   failureMessage: true
 }), function (req, res) {
-  console.log("Hello")
+  console.log("heelo")
   res.redirect("/register")
 }
 );

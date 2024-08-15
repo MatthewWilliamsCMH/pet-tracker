@@ -10,16 +10,14 @@ const regpassword = document.getElementById('register-password');
 
 const logFormHandler = async (event) => {
   event.preventDefault();
-
   let emailVal = logemail.value
   let passVal = logpassword.value
 
-  console.log(emailVal, passVal)
   fetch('/api/login/password', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ 
-          email: emailVal, 
+          username: emailVal, 
           password: passVal
       })
   })
@@ -43,9 +41,9 @@ const regFormHandler = async (event) => {
   })
 }
 
-document
-  .querySelector('#login-form')
-  .addEventListener('submit', logFormHandler);
+// document
+//   .querySelector('#login-form')
+//   .addEventListener('submit', logFormHandler);
 
 document
   .querySelector('#register-form')

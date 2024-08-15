@@ -1,13 +1,13 @@
 <div class='container login inter-tight-regular'>
   <div class='login_form'>
     <h2>Login</h2>
-    <form id='login-form'>
+    <form id='login-form' action='/api/login/password' method='POST'>
       <div>
         <label for='login-email'>Email:</label>
-        <input type='text' id='login-email' name='login-email' required>
+        <input type='text' id='login-email' name='username' required>
       
         <label for='login-password'>Password:</label>
-        <input type='password' id='login-password' name='login-password' required>
+        <input type='password' id='login-password' name='password' required>
       </div>
       <div>
         <button type='submit'>Login</button>
