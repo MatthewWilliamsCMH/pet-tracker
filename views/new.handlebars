@@ -1,0 +1,37 @@
+{{!-- add-pet.handlebars --}}
+<div class='container login inter-tight-regular'>
+    <h2>Add New Pet</h2>
+    <form id="add-pet-form" action="/pets/add" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="pet-name">Pet Name:</label>
+            <input type="text" id="pet-name" name="pet_name" required>
+        </div>
+        <div class="form-group">
+            <label for="pet-species">Pet Species:</label>
+            <input type="text" id="pet-species" name="pet_species" required>
+        </div>
+        <div class="form-group">
+            <label for="pet-behavior">Pet Behavior:</label>
+            <input type="number" id="pet-behavior" name="pet_behavior" required>
+        </div>
+        <div class="form-group">
+            <label for="pet-breed">Pet Breed:</label>
+            <input type="text" id="pet-breed" name="pet_breed">
+        </div>
+        <div class="form-group">
+            <label for="kennel">Kennel:</label>
+            <input type="text" id="kennel" name="kennel">
+        </div>
+        <div class="form-group">
+            <label for="pet-color">Pet Color:</label>
+            <input type="text" id="pet-color" name="pet_color">
+        </div>
+        {{!-- <div class="form-group">
+            <label for="pet-picture">Pet Picture:</label>
+            <input type="file" id="pet-picture" name="pet_picture">
+        </div> --}}
+        <div class="form-group">
+            <button type="submit" id="save-button">Save</button>
+            <button type="button" id="cancel-button">Cancel</button>
+        </div>
+    </form>

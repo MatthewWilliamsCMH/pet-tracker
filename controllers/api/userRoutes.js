@@ -47,12 +47,10 @@ passport.deserializeUser(function (user, cb) {
 
 // POST /login/password - Authenticate the user by verifying a username and password.
 router.post('/login/password', passport.authenticate('local', {
-  // successReturnToOrRedirect: '/register', //this should go to the pack page, not home
-  failureRedirect: '/error', //this should return to the login (home) page
+  successReturnToOrRedirect: '/new',
+  failureRedirect: '/',
   failureMessage: true
 }), function (req, res) {
-  console.log("heelo")
-  res.redirect("/register")
 }
 );
 
