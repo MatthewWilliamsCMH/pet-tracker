@@ -4,7 +4,7 @@ const animalRoutes = require('./animalRoutes')
 
 // all of these routes are prefixed with '/api'
 router.use('/', usersRoutes);
-router.use('/pets', petRoutes);
+router.use('/animals', animalRoutes);
 
 
 module.exports = router;
