@@ -95,3 +95,41 @@
         <button type='button' id='cancel-button'>Cancel</button>
     </form>
 </div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById('add-pet-form');
+    const saveButton = document.getElementById('save-button');
+    const cancelButton = document.getElementById('cancel-button');
+
+    // Handle Save button click
+    saveButton.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const formData = new FormData(form);
+
+        fetch('/pets/add', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Pet added successfully!');
+                form.reset(); // Reset form fields
+            } else {
+                alert('Error adding pet: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('There was an error with the request.');
+        });
+    });
+
+    // Handle Cancel button click
+    cancelButton.addEventListener('click', function() {
+        form.reset(); // Reset form fields
+        window.location.href = '/pets'; // Redirect to the pets list page or any other page
+    });
+});
+</script>
