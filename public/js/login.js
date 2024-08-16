@@ -1,3 +1,6 @@
+//I think this can be deleted.
+
+
 // // we need to GRAB References
 // const logform = document.getElementById('login-form');
 // const logemail = document.getElementById('login-email');

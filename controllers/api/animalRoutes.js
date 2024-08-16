@@ -29,7 +29,7 @@ router.post('/add', async (req, res) => {
 router.get('/pack', async (req, res) => {
     try {
         const animals = await Animal.findAll(); // Fetch all animals
-        res.render('pack', { animals }); // Render 'animals.handlebars' view with the animals data
+        res.render('pack', { animals }); // Render 'animal.handlebars' view with the animals data
     } catch (error) {
         console.error('Error fetching animals:', error);
         res.status(500).send('Error fetching animals');

@@ -23,7 +23,7 @@ passport.use(new LocalStrategy(function verify(username, password, cb) {
 // Configure session management.
 passport.serializeUser(function (user, cb) {
   process.nextTick(function () {
-    cb(null, { id: user.id, username: user.username });
+    cb(null, { id: user.id, username: user.username }); //if this is referencing the database table, it's user.name, not user.username
   });
 });
 
@@ -37,7 +37,7 @@ passport.deserializeUser(function (user, cb) {
 router.post('/login/password', passport.authenticate('local', {
   failureRedirect: '/',
   failureMessage: true,
-  // successReturnToOrRedirect: '/pack' //change to whatever the findAll page is
+  // successReturnToOrRedirect: '/pack'
 }), async function (req, res) {
   try {
     console.log("*****************Hello**************************")
@@ -91,7 +91,7 @@ router.post('/register', function (req, res, next) {
         req.login(user, function (err) {
           if (err) { return next(err); }
           // Redirect to a protected route
-          res.redirect('/new');  //redirect to pack page
+          res.redirect('pack');
         });
       })
       .catch(err => {
