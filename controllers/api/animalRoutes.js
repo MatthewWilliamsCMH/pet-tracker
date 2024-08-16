@@ -4,16 +4,19 @@ const { Animal } = require('../../models/animal')
 
 // Adding a new animal
 router.post('/add', async (req, res) => {
-    const { animal_name, animal_species, animal_breed, animal_color, animal_behavior, kennel } = req.body;
+    const { animal_name, animal_chip, animal_species, animal_breed, animal_sex, animal_altered, animal_color, animal_behavior, kennel } = req.body;
     try {
         // Create a new animal entry in the Animal table
-        const newanimal = await Animal.create({
+        const newAnimal = await Animal.create({
             animal_name,
+            animal_chip,
             animal_species,
             animal_breed,
+            animal_sex,
+            animal_altered,
             animal_color,
-            animal_behavior,
-            kennel,
+            animal_behavior, //this will need to be written into the animalBehavior table
+            kennel
         });
         res.json({ success: true, data: newAnimal });
     } catch (error) {
