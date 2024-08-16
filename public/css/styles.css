@@ -93,9 +93,7 @@ footer p {
     margin: auto;
     margin-top:2rem;
     padding: .5rem;
-    /* border: 1px solid black; */
     box-sizing: border-box;
-    /* border-radius: 2rem 0 0 0; */
 }
 
 /*---------- splash page ----------*/
@@ -126,37 +124,35 @@ footer p {
 /*---------- login page ----------*/
 .login {
     display: flex;
-    /* border:1px solid green; */
 }
 
-.login_form, .register_form, .add-pet-form {
+.login_form, .register_form, .add-animal-form {
     display: flex;
     flex-direction: column;
     flex:1;
     padding:.5rem;
-    /* border:1px solid red; */
 }
 
-.login_form > form, .register_form > form, .add-pet-form > form {
+.login_form > form, .register_form > form, .add-animal-form > form {
     display: flex;
     flex-direction: column;
     justify-content:space-between;
     height:100%;
     width: 100%;
-    /* border:1px solid blue; */
 }
 
-.login_form button, .register_form button, .add-pet-form button {
+.login_form button, .register_form button, .add-animal-form button {
     margin-top: auto;
 }
 
 /*---------- pack page ----------*/
-table {
+/* table {
     border-collapse:collapse;
 }
 
 .container:has(table){
     width:fit-content;
+    text-align:left;
 }
 
 tr:nth-child(odd) {
@@ -174,37 +170,55 @@ th, td {
 
 tr:first-of-type {
     border-bottom:1px solid black;
-}
+} */
 
-/*---------- new pet page ----------*/
-.newpet {
-    display: flex;
-    flex-direction:row;
-
+/*---------- new animal page ----------*/
+.form-group-1 {
+    display:inline-flex;
+    flex-wrap:nowrap;
+    white-space:nowrap;
     gap:1rem;
-    /* border:1px solid green; */
+    width: 100%;
+    margin-bottom:.5rem;
+    padding-bottom: .5rem;
+    border-bottom:2px solid rgb(58, 157, 223);
 }
 
-.form-group-1, .form-group-2 {
-    width: 50%;
+.form-group-1 #animal-name {
+    flex: 1 1 65%;
 }
 
-.form-group-3 {
+.form-group-1 #animal-chip {
+    flex: 1 1 35%;
+}
+
+.columns {
+    display:flex;
+}
+.form-group-2, .form-group-3 {
+    width:50%;
+}
+
+.form-group-3 #kennel {
+    width:15%;
+}
+
+.form-group-4 {
     display:block;
-    position:absolute;
-    right:5.3rem;
 }
 
+.radio-check-group {
+    line-height:225%
+}
+
+.radio-list {
+    line-height:initial;
+}
 .radio-list input {
     width:5%;
 }
-.radio-list label{
-    width:80%;
-    padding:12px;
-}
-
 .checkbox-list {
-    display:block;
+    line-height:initial;
 }
 
 .checkbox-list input {
@@ -220,7 +234,7 @@ tr:first-of-type {
     margin-top:10px;
 }
 
-/*---------- existing pet page ---------*/
+/*---------- existing animal page ---------*/
 .photo_qrcode {
     position:absolute;
     right:1rem;
@@ -232,6 +246,25 @@ tr:first-of-type {
 }
 .qrcode img {
     width:100px;
+}
+
+.animal-data table {
+    width:100%;
+    border-collapse:collapse;
+    border-top:1px solid black;
+}
+
+.animal-data tr:nth-child(odd) {
+    background-color: #fff;
+}
+ 
+.animal-data tr:nth-child(even) {
+    background-color: hsl(204, 72%, 90%);
+}
+    
+.animal-data th, td {
+    padding:.25rem 1rem;
+    text-align: left; 
 }
 
 /*-------------------- adaptive --------------------*/

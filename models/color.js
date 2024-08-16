@@ -10,7 +10,7 @@ Color.init(
             primaryKey: true,
             autoIncrement: true
         },
-        name: {
+        color: {
             type: DataTypes.STRING
         }
     },

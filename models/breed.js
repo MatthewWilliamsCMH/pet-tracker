@@ -10,7 +10,7 @@ Breed.init(
             primaryKey: true,
             autoIncrement: true
         },
-        name: {
+        breed: {
             type: DataTypes.STRING
         }
     },

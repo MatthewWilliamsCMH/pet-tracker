@@ -14,7 +14,8 @@ Kennel.init(
         kennel: {
             type: DataTypes.STRING,
             validate: {
-                len: 2
+                len: 2,
+                is: /^[A-Z][0-9]+$/
             }
         }
     },

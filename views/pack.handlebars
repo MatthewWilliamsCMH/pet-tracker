@@ -1,0 +1,13 @@
+<div class='container login inter-tight-regular'>
+  <div>
+    <h2>This is the Pack Page</h2>
+    {{#if animals.length}}
+      {{#each animals as |animal|}}
+        <p><a href='/animals/{{animal.id}}'>{{animal.name}}</a></p>
+      {{/each}}
+    {{/if}}
+  </div>
+</div>
+
+{{!-- <script src='./js/login.js'></script> --}}
+

@@ -1,0 +1,91 @@
+<div class='container inter-tight-regular'>
+    <h2>{{animal.name}}</h2>
+    {{!-- <header>
+        <nav>
+=            <button onclick="window.location.href='/update-animal/{{animal.id}}'">Update</button> <!-- Update path accordingly -->
+            <button onclick="window.location.href='/delete-animal/{{animal.id}}'">Delete</button> <!-- Update path accordingly -->
+        </nav>
+    </header> --}}
+
+    {{!-- <main> --}}
+        <div class='photo_qrcode'>
+            <div class='photo'>
+                <img src='/images/1.png' width='200px' alt='image of animal'>
+                {{!-- remove the line above, uncomment the libe below for production --}}
+                {{!-- <img src='/images/{{animal.id}}.png' width='200px' alt='image of animal'> --}}
+            </div>
+            <div class='qrcode'>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?data=../public/images/{{animal.id}}.png&size=200x200" alt="QR code for {{animal.name}}">
+            </div>
+        </div>
+
+        <div class='animal-data'>
+            <table>
+                <tr>
+                    <th>Chip:</th>
+                    <td>{{animal.chip}}</td>
+                </tr>
+                <tr>
+                    <th>Species:</th>
+                    <td>{{animal.species}}</td>
+                </tr>
+                <tr>
+                    <th>Breed:</th>
+                    <td>{{breed.breed}}</td>
+                </tr>
+                <tr>
+                    <th>Sex:</th>
+                    <td>{{animal.sex}}</td>
+                </tr>
+                <tr>
+                    <th>Altered:</th>
+                    <td>{{animal.altered}}</td>
+                </tr>
+                <tr>
+                    <th>Color:</th>
+                    <td>{{animal.color}}</td>
+                </tr>
+                <tr>
+                    <th>Kennel:</th>
+                    <td>{{animal.kennel}}</td>
+    {{!-- not sure how to get these in a list --}}
+                </tr>
+                <tr>
+                    <th>Behavior Issues:</th>
+                    <td>{{animal.behavior}}</td>
+                </tr>
+            </table>
+        </div>
+    {{!-- </main> --}}
+</div>
+
+<script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const animalId = "{{animal.id}}"; // Get the animal ID from the template
+
+            // Home button functionality
+            document.getElementById("home-button").addEventListener("click", () => {
+                window.location.href = "/";
+            });
+
+            // Update button functionality
+            document.getElementById("update-button").addEventListener("click", () => {
+                window.location.href = `/update-animal/${animalId}`;
+            });
+
+            // Delete button functionality
+            document.getElementById("delete-button").addEventListener("click", () => {
+                window.location.href = `/delete-animal/${animalId}`;
+            });
+
+            // Logout button functionality
+            document.getElementById("logout-button").addEventListener("click", () => {
+                window.location.href = "/logout";
+            });
+
+            // Cancel button functionality in the form
+            document.getElementById("cancel-button").addEventListener("click", () => {
+                window.location.href = "/cancel";
+            });
+        });
+    </script>

@@ -10,7 +10,7 @@ Species.init(
             primaryKey: true,
             autoIncrement: true
         },
-        name: {
+        species: {
             type: DataTypes.STRING
         }
     },

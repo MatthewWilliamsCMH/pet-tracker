@@ -10,7 +10,7 @@ Behavior.init(
             primaryKey: true,
             autoIncrement: true
         },
-        name: {
+        behavior: {
             type: DataTypes.STRING
         }
     },
