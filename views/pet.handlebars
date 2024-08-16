@@ -11,10 +11,10 @@
     {{!-- <main> --}}
         <div class='photo_qrcode'>
             <div class='photo'>
-                <img src='/images/1.png' width='200px' alt='image of pet 1'>
+                <img src='/images/{{animal.id}}.png' width='200px' alt='image of pet 1'>
             </div>
             <div class='qrcode'>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?data=../public/images/1.png&size=200x200" alt="QR code for pet 1">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?data=../public/images/{{animal.id}}.png&size=200x200" alt="QR code for pet {{animal.name}}">
             </div>
         </div>
 

@@ -174,34 +174,49 @@ tr:first-of-type {
 }
 
 /*---------- new pet page ----------*/
-.newpet {
-    display: flex;
-    flex-direction:row;
-
+.form-group-1 {
+    display:inline-flex;
+    flex-wrap:nowrap;
+    white-space:nowrap;
     gap:1rem;
-    /* border:1px solid green; */
+    width: 100%;
 }
 
-.form-group-1, .form-group-2 {
-    width: 50%;
+.form-group-1 #pet-name {
+    flex: 1 1 65%;
 }
 
-.form-group-3 {
+.form-group-1 #pet-chip {
+    flex: 1 1 23%;
+}
+
+.form-group-1 #kennel {
+    flex: 1 1 12%;
+}
+
+.columns {
+    display:flex;
+}
+.form-group-2, .form-group-3 {
+    width:50%;
+}
+
+.form-group-4 {
     display:block;
-    position:absolute;
-    right:5.3rem;
 }
 
+.radio-check-group {
+    line-height:225%
+}
+
+.radio-list {
+    line-height:initial;
+}
 .radio-list input {
     width:5%;
 }
-.radio-list label{
-    width:80%;
-    padding:12px;
-}
-
 .checkbox-list {
-    display:block;
+    line-height:initial;
 }
 
 .checkbox-list input {

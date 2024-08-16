@@ -1,42 +1,42 @@
-// we need to GRAB References
-const logform = document.getElementById('login-form');
-const logemail = document.getElementById('login-email');
-const logpassword = document.getElementById('login-password');
+// // we need to GRAB References
+// const logform = document.getElementById('login-form');
+// const logemail = document.getElementById('login-email');
+// const logpassword = document.getElementById('login-password');
 
-const regform = document.getElementById('register-form');
-const reguser = document.getElementById('register-user');
-const regemail = document.getElementById('register-email');
-const regpassword = document.getElementById('register-password');
+// const regform = document.getElementById('register-form');
+// const reguser = document.getElementById('register-user');
+// const regemail = document.getElementById('register-email');
+// const regpassword = document.getElementById('register-password');
 
-const logFormHandler = async (event) => {
-  event.preventDefault();
-  let emailVal = logemail.value
-  let passVal = logpassword.value
+// const logFormHandler = async (event) => {
+//   event.preventDefault();
+//   let emailVal = logemail.value
+//   let passVal = logpassword.value
 
-  fetch('/api/login/password', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ 
-          username: emailVal, 
-          password: passVal
-      })
-  })
-}
+//   fetch('/api/login/password', {
+//       method: 'POST',
+//       headers: {'Content-Type': 'application/json'},
+//       body: JSON.stringify({ 
+//           username: emailVal, 
+//           password: passVal
+//       })
+//   })
+// }
 
-const regFormHandler = async (event) => {
-  event.preventDefault();
+// const regFormHandler = async (event) => {
+//   event.preventDefault();
 
-  let userVal = reguser.value
-  let emailVal = regemail.value
-  let passVal = regpassword.value
+//   let userVal = reguser.value
+//   let emailVal = regemail.value
+//   let passVal = regpassword.value
 
-  fetch('/api/register', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json'},
-      body: JSON.stringify({ 
-          user: userVal,
-          email: emailVal, 
-          password: passVal
-      })
-  })
-}
+//   fetch('/api/register', {
+//       method: 'POST',
+//       headers: { 'Content-Type': 'application/json'},
+//       body: JSON.stringify({ 
+//           user: userVal,
+//           email: emailVal, 
+//           password: passVal
+//       })
+//   })
+// }

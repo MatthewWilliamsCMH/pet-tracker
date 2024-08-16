@@ -7,7 +7,7 @@
       "species_id": "1",
       "breed_id": "3",
       "color_id": "6",
-      "behaviors_id": "2",
+      "behavior_id": "2",
       "kennel_id": "1"
     },
     {
@@ -18,7 +18,7 @@
       "species_id": "1",
       "breed_id": "5",
       "color_id": "3",
-      "behaviors_id": "3",
+      "behavior_id": "3",
       "kennel_id": "2"
     },
     {
@@ -29,7 +29,7 @@
       "species_id": "2",
       "breed_id": "1",
       "color_id": "7",
-      "behaviors_id": "1",
+      "behavior_id": "1",
       "kennel_id": "3"
     },
     {
@@ -40,7 +40,7 @@
       "species_id": "1",
       "breed_id": "2",
       "color_id": "2",
-      "behaviors_id": "1",
+      "behavior_id": "1",
       "kennel_id": "4"
     },
     {
@@ -51,7 +51,7 @@
       "species_id": "1",
       "breed_id": "2",
       "color_id": "2",
-      "behaviors_id": null,
+      "behavior_id": null,
       "kennel_id": "5"
     },
     {
@@ -62,7 +62,7 @@
       "species_id": "2",
       "breed_id": "4",
       "color_id": "5",
-      "behaviors_id": "3",
+      "behavior_id": "3",
       "kennel_id": "6"
     },
     {
@@ -73,7 +73,7 @@
       "species_id": "2",
       "breed_id": "6",
       "color_id": "7",
-      "behaviors_id": "1",
+      "behavior_id": "1",
       "kennel_id": "7"
     },
     {
@@ -84,7 +84,7 @@
       "species_id": "2",
       "breed_id": "6",
       "color_id": "5",
-      "behaviors_id": null,
+      "behavior_id": null,
       "kennel_id": "8"
     },
     {
@@ -95,7 +95,7 @@
       "species_id": "2",
       "breed_id": "5",
       "color_id": "1",
-      "behaviors_id": null,
+      "behavior_id": null,
       "kennel_id": "9"
     },
     {
@@ -106,7 +106,7 @@
       "species_id": "1",
       "breed_id": "3",
       "color_id": "4",
-      "behaviors_id": "2",
+      "behavior_id": "2",
       "kennel_id": "10"
     }
   ]

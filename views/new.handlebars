@@ -1,94 +1,94 @@
 <div class='container inter-tight-regular'>
-    <h2>Add New Pet</h2>
-    <form id="add-pet-form" action="/pets/add" method="POST" enctype="multipart/form-data">
-        <div class = "newpet">
-            <div class="form-group-1">
-                <label for="pet-name">Pet Name:</label>
-                <input type="text" id="pet-name" name="pet-name" required>
+    <h2>Add Pet</h2>
+    <form id='add-pet-form' action='/pets/add' method='POST' enctype='multipart/form-data'>
+        <div>
+            <div class='form-group-1'>
+                <label for='pet-name'>Name:</label>
+                <input type='text' id='pet-name' name='pet-name' required>
 
-                <div>
-                    <label for="pet-sex">Pet Sex:</label>
-                    <div class='radio-list'>
-                        <input type="radio" id="female" name="pet-sex" value="female" checked />
-                        <label for="female">female</label>
-                    </div>
-                    <div class='radio-list'>
-                        <input type="radio" id="male" name="pet-sex" value="male" />
-                        <label for="radio">male</label>
-                    </div>
-                </div>
+                <label for='pet-chip'>Microchip:</label>
+                <input type='text' id='pet-chip' name='pet-chip' placeholder='111111111111110'>
 
-                <div class='drop-list'>
-                    <label for="pet-species">Pet Species: </label>
-=                    <select name='pet-species'>
-                        <option>dog</option>
-                        <option>cat</option>
-                    </select>
-                </div>
-
-                <div class='drop-list'>
-                    <label for="pet-breed">Pet Breed:</label>
-                    <select name='pet-breed'>
-                        <option>bulldog</option>
-                        <option>calico</option>
-                        <option>tabby</option>
-                        <option>dachschund</option>
-                        <option>Siamese</option>
-                        <option>retriever</option>
-                    </select>
-                </div>
+                <label for='kennel'>Kennel:</label>
+                <input type='text' id='kennel' name='kennel' placeholder='e.g., A5'>
             </div>
-                
-            <div class="form-group-2">
-                  <div>
-                    <label for="pet-altered-yes">Pet Altered:</label>
-                    <div class='radio-list'>
-                        <input type="radio" id="pet-altered-yes" name="pet-altered" value="yes" checked />
-                        <label for="yes">yes</label>
-                    </div>
-                    <div class='radio-list'>
-                        <input type="radio" id="pet-altered-no" name="pet-altered" value="no" />
-                        <label for="radio">male</label>
-                    </div>
-                </div>
-                <div class='drop-list'>
-                    <label for="pet-breed">Pet Color:</label>
-                    <select name='pet-breed'>
-                        <option>black</option checked>
-                        <option>white</option>
-                        <option>gray</option>
-                        <option>brown</option>
-                        <option>yellow</option>
-                        <option>orange</option>
-                        <option>brindle</option>
-                    </select>
-                </div>
 
-                <div>
-                    <label for="pet-behavior">Pet Behavior:</label>
-                    <div class='checkbox-list'>
-                        <input type="checkbox" id="animal-aggression" name="pet-behavior"/>
-                        <label for="toy-aggression">toy aggression</label></br>
-                        <input type="checkbox" id="animal-aggression" name="pet-behavior"/>
-                        <label for="animal-aggression">animal aggression</label></br>
-                        <input type="checkbox" id="not-housebroken" name="pet-behavior"/>
-                        <label for="not-housebroken">not housebroken</label>
+            <div class='columns'>
+                <div class='form-group-2'>
+                    <div class='drop-list'>
+                        <label for='pet-species'>Species: </label>
+                            <select name='pet-species'>
+                            <option>dog</option>
+                            <option>cat</option>
+                        </select>
+                    </div>
+
+                    <div class='drop-list'>
+                        <label for='pet-breed'>Breed:</label>
+                        <select name='pet-breed'>
+                            <option>bulldog</option>
+                            <option>calico</option>
+                            <option>tabby</option>
+                            <option>dachschund</option>
+                            <option>Siamese</option>
+                            <option>retriever</option>
+                        </select>
+                    </div>
+
+                    <div class='radio-check-group'>
+                        <label for='pet-sex'>Sex:</label>
+                        <div class='radio-list'>
+                            <input type='radio' id='female' name='pet-sex' value='female' checked />
+                            <label for='female'>female</label>
+                        </div>
+                        <div class='radio-list'>
+                            <input type='radio' id='male' name='pet-sex' value='male' />
+                            <label for='radio'>male</label>
+                        </div>
+                    </div>
+
+                    <div class='radio-check-group'>
+                        <label for='pet-altered-yes'>Altered:</label>
+                        <div class='radio-list'>
+                            <input type='radio' id='pet-altered-yes' name='pet-altered' value='yes' checked />
+                            <label for='yes'>yes</label>
+                        </div>
+                        <div class='radio-list'>
+                            <input type='radio' id='pet-altered-no' name='pet-altered' value='no' />
+                            <label for='radio'>no</label>
+                        </div>
                     </div>
                 </div>
-                        
-                <label for="kennel">Kennel:</label>
-                <input type="text" id="kennel" name="kennel" placeholder='e.g., A5'>
-            </div>
+                    
+                <div class='form-group-3'>
+                    <div class='drop-list'>
+                        <label for='pet-breed'>Color:</label>
+                        <select name='pet-breed'>
+                            <option>black</option checked>
+                            <option>white</option>
+                            <option>gray</option>
+                            <option>brown</option>
+                            <option>yellow</option>
+                            <option>orange</option>
+                            <option>brindle</option>
+                        </select>
+                    </div>
+
+                    <div class='radio-check-group'>
+                        <label for='pet-behavior'>Behavior Issues:</label>
+                        <div class='checkbox-list'>
+                            <input type='checkbox' id='animal-aggression' name='pet-behavior'/>
+                            <label for='toy-aggression'>toy aggression</label></br>
+                            <input type='checkbox' id='animal-aggression' name='pet-behavior'/>
+                            <label for='animal-aggression'>animal aggression</label></br>
+                            <input type='checkbox' id='not-housebroken' name='pet-behavior'/>
+                            <label for='not-housebroken'>not housebroken</label>
+                        </div>
+                    </div>
+                </div>
+            </dif>
         </div>
-        <div class="form-group-3">
-            <button type="submit" id="save-button">Save</button>
-            <button type="button" id="cancel-button">Cancel</button>
-        </div>
+        <button type='submit' id='save-button'>Save</button>
+        <button type='button' id='cancel-button'>Cancel</button>
     </form>
 </div>
-
-<script>  
-    function petSpecies() {  
-        const speciesList = document.getElementById("pet-species");  
-    }  
-</script>  

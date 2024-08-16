@@ -6,13 +6,6 @@ const db = require('../../config/connection');
 const User = require('../../models/User');
 
 // Routes
-
-//I don't think we need this because the home page is the login page
-//GET /login - Prompt the user to log in.
-// router.get('/login', function (req, res, next) {
-//   res.render('login');
-// });
-
 passport.use(new LocalStrategy(function verify(username, password, cb) {
   User.findOne({where: {email: username}}).then(function (row) {
     // if (err) { return cb(err); }
@@ -42,7 +35,7 @@ passport.deserializeUser(function (user, cb) {
 
 // POST /login/password - Authenticate the user by verifying a username and password.
 router.post('/login/password', passport.authenticate('local', {
-  successReturnToOrRedirect: '/pet',
+  successReturnToOrRedirect: '/new',
   failureRedirect: '/',
   failureMessage: true
 }), function (req, res) {

@@ -18,8 +18,10 @@ Animal.init(
         sex: {
             type: DataTypes.STRING,
             allowNull: false,
-            is: /^[MF]$/,
-            len: [1]
+            validate: {
+                is: /^[MF]$/,
+                len: [1]
+            }
         },
         altered: {
             type: DataTypes.BOOLEAN
@@ -42,22 +44,23 @@ Animal.init(
         },
         breed_id: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            references: {
+                model: 'breed',
+                key: 'id'
+            }
         },
         color_id: {
             type: DataTypes.INTEGER,
-            allowNull: false
-        },
-        behavior_id: {
-            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'color',
+                key: 'id'
+            }
         },
         kennel_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'animal',
-                key: 'id'
-            }
+            allowNull: false
         }
     },
     {

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { Animal } = require('../../models/animal')
+
 // Adding a new pet
 router.post('/add', async (req, res) => {
     const { pet_name, pet_species, pet_breed, pet_color, pet_behavior, kennel } = req.body;
