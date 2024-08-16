@@ -40,7 +40,6 @@ router.post('/login/password', passport.authenticate('local', {
   // successReturnToOrRedirect: '/pack'
 }), async function (req, res) {
   try {
-    console.log("*****************Hello**************************")
     const animalData = await Animal.findAll({
       // include: [
       //   {
@@ -49,7 +48,6 @@ router.post('/login/password', passport.authenticate('local', {
       //   }
       // ]
     });
-    console.log(animalData)
     const animals = animalData.map((animal) => animal.get({ plain: true }));
     res.render('pack', {
       animals
