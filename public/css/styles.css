@@ -126,22 +126,20 @@ footer p {
 /*---------- login page ----------*/
 .login {
     display: flex;
-    gap:1rem;
     /* border:1px solid green; */
 }
 
 .login_form, .register_form, .add-pet-form {
     display: flex;
     flex-direction: column;
-    flex: 1;
-    padding: .5rem;
+    flex:1;
+    padding:.5rem;
     /* border:1px solid red; */
 }
 
 .login_form > form, .register_form > form, .add-pet-form > form {
     display: flex;
     flex-direction: column;
-    gap:1rem;
     justify-content:space-between;
     height:100%;
     width: 100%;
@@ -191,11 +189,36 @@ tr:first-of-type {
     width: 50%;
 }
 
-.from-group-3 {
+.form-group-3 {
+    display:block;
+    position:absolute;
+    right:5.3rem;
+}
+
+.radio-list input {
+    width:5%;
+}
+.radio-list label{
+    width:80%;
+    padding:12px;
+}
+
+.checkbox-list {
     display:block;
 }
 
+.checkbox-list input {
+    width:5%;
+}
 
+.checkbox-list label {
+    width:100%;
+    padding:12px;
+}
+
+.drop-list {
+    margin-top:10px;
+}
 
 /*---------- existing pet page ---------*/
 .photo_qrcode {
