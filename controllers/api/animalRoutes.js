@@ -1,3 +1,4 @@
+//do we need to combine animalRoutes and HTMLRoutes and remove duplicates?
 const express = require('express');
 const router = express.Router();
 const { Animal } = require('../../models/animal')
@@ -25,10 +26,10 @@ router.post('/add', async (req, res) => {
     }
 });
 // Route to display all animals
-router.get('/animals', async (req, res) => {
+router.get('/pack', async (req, res) => {
     try {
         const animals = await Animal.findAll(); // Fetch all animals
-        res.render('animals', { animals }); // Render 'animals.handlebars' view with the animals data
+        res.render('pack', { animals }); // Render 'animals.handlebars' view with the animals data
     } catch (error) {
         console.error('Error fetching animals:', error);
         res.status(500).send('Error fetching animals');

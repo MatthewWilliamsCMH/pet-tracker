@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const passport = require('passport');
+// const passport = require('passport');
 function auth (req, res, next) {
     if (!req.isAuthenticated()) {
         res.redirect('/')
@@ -11,11 +11,11 @@ router.get('/', (req, res) => {
     res.render('home');
 });
 
-router.get('/pack', auth, (req, res) => {
-    console.log(req.isAuthenticated())
-    console.log(req.session.passport)
-    res.render('pack');
-});
+// router.get('/pack', auth, (req, res) => {
+//     console.log(req.isAuthenticated())
+//     console.log(req.session.passport)
+//     res.render('pack');
+// });
 
 router.get('/pack', auth, (req, res) => { //change to whatever the findAll page is
     res.render('pack'); //change to whatever the findAll page is

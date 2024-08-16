@@ -3,7 +3,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const bcrypt = require('bcrypt');
 const db = require('../../config/connection');
-const User = require('../../models/User');
+const {Animal, User} = require('../../models');
 
 // Routes
 passport.use(new LocalStrategy(function verify(username, password, cb) {
@@ -35,12 +35,31 @@ passport.deserializeUser(function (user, cb) {
 
 // POST /login/password - Authenticate the user by verifying a username and password.
 router.post('/login/password', passport.authenticate('local', {
-  successReturnToOrRedirect: '/pack', //change to hatever the findAll page is
   failureRedirect: '/',
-  failureMessage: true
-}), function (req, res) {
-}
-);
+  failureMessage: true,
+  // successReturnToOrRedirect: '/pack' //change to whatever the findAll page is
+}), async function (req, res) {
+  try {
+    console.log("*****************Hello**************************")
+    const animalData = await Animal.findAll({
+      // include: [
+      //   {
+      //     model: User,
+      //     attributes: ['name']
+      //   }
+      // ]
+    });
+    console.log(animalData)
+    const animals = animalData.map((animal) => animal.get({ plain: true }));
+    res.render('pack', {
+      animals
+      // logged_in: req.session.logged_in
+    });
+  }
+  catch (err) {
+    return res.status(500).json({message: 'Error retrieving the animals.', error: err.message});
+  };
+});
 
 // POST /logout - Log the user out.
 router.post('/logout', function (req, res, next) {
