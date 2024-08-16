@@ -126,7 +126,6 @@ footer p {
 /*---------- login page ----------*/
 .login {
     display: flex;
-    /* border:1px solid green; */
 }
 
 .login_form, .register_form, .add-pet-form {
@@ -134,7 +133,6 @@ footer p {
     flex-direction: column;
     flex:1;
     padding:.5rem;
-    /* border:1px solid red; */
 }
 
 .login_form > form, .register_form > form, .add-pet-form > form {
@@ -143,7 +141,6 @@ footer p {
     justify-content:space-between;
     height:100%;
     width: 100%;
-    /* border:1px solid blue; */
 }
 
 .login_form button, .register_form button, .add-pet-form button {

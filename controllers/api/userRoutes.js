@@ -42,7 +42,7 @@ passport.deserializeUser(function (user, cb) {
 
 // POST /login/password - Authenticate the user by verifying a username and password.
 router.post('/login/password', passport.authenticate('local', {
-  successReturnToOrRedirect: '/new',
+  successReturnToOrRedirect: '/pet',
   failureRedirect: '/',
   failureMessage: true
 }), function (req, res) {
