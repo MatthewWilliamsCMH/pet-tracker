@@ -5,8 +5,6 @@ const bcrypt = require('bcrypt');
 const db = require('../../config/connection');
 const User = require('../../models/User');
 
-
-
 // Routes
 
 //I don't think we need this because the home page is the login page
@@ -17,7 +15,6 @@ const User = require('../../models/User');
 
 passport.use(new LocalStrategy(function verify(username, password, cb) {
   User.findOne({where: {email: username}}).then(function (row) {
-    console.log(row.password)
     // if (err) { return cb(err); }
     if (!row) { return cb(null, false, { message: 'Incorrect username or password.' }); }
 
@@ -60,13 +57,7 @@ router.post('/logout', function (req, res, next) {
   });
 });
 
-//I think this can be handled more easily; if the user tries to login and fails, they get an alert and then returned to the login page
-// GET /signup - Prompt the user to sign up.
-// router.get('/signup', function (req, res, next) {
-//   res.render('signup');
-// });
-
-// POST /signup - Create a new user account.
+// POST /register - Create a new user account.
 router.post('/register', function (req, res, next) {
   console.log("Incoming Data: ", req.body);
 
@@ -88,7 +79,7 @@ router.post('/register', function (req, res, next) {
         req.login(user, function (err) {
           if (err) { return next(err); }
           // Redirect to a protected route
-          res.redirect('/register');  //redirect to pack page
+          res.redirect('/new');  //redirect to pack page
         });
       })
       .catch(err => {

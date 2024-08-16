@@ -40,11 +40,3 @@ const regFormHandler = async (event) => {
       })
   })
 }
-
-// document
-//   .querySelector('#login-form')
-//   .addEventListener('submit', logFormHandler);
-
-document
-  .querySelector('#register-form')
-  .addEventListener('submit', regFormHandler);
