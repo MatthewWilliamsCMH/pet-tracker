@@ -1,31 +1,28 @@
 <div class='container inter-tight-regular'>
-    <h2>Add Pet</h2>
-    <form id='add-pet-form' action='/pets/add' method='POST' enctype='multipart/form-data'>
+    <h2>Add Animal</h2>
+    <form id='add-animal-form' action='/animals/add' method='POST' enctype='multipart/form-data'>
         <div>
             <div class='form-group-1'>
-                <label for='pet-name'>Name:</label>
-                <input type='text' id='pet-name' name='pet-name' required>
+                <label for='animal-name'>Name:</label>
+                <input type='text' id='animal-name' name='animal-name' required>
 
-                <label for='pet-chip'>Microchip:</label>
-                <input type='text' id='pet-chip' name='pet-chip' placeholder='111111111111110'>
-
-                <label for='kennel'>Kennel:</label>
-                <input type='text' id='kennel' name='kennel' placeholder='e.g., A5'>
+                <label for='animal-chip'>Microchip:</label>
+                <input type='text' id='animal-chip' name='animal-chip' placeholder='111111111111110'>
             </div>
 
             <div class='columns'>
                 <div class='form-group-2'>
                     <div class='drop-list'>
-                        <label for='pet-species'>Species: </label>
-                            <select name='pet-species'>
+                        <label for='animal-species'>Species: </label>
+                            <select name='animal-species'>
                             <option>dog</option>
                             <option>cat</option>
                         </select>
                     </div>
 
                     <div class='drop-list'>
-                        <label for='pet-breed'>Breed:</label>
-                        <select name='pet-breed'>
+                        <label for='animal-breed'>Breed:</label>
+                        <select name='animal-breed'>
                             <option>bulldog</option>
                             <option>calico</option>
                             <option>tabby</option>
@@ -36,25 +33,25 @@
                     </div>
 
                     <div class='radio-check-group'>
-                        <label for='pet-sex'>Sex:</label>
+                        <label for='animal-sex'>Sex:</label>
                         <div class='radio-list'>
-                            <input type='radio' id='female' name='pet-sex' value='female' checked />
+                            <input type='radio' id='female' name='animal-sex' value='female' checked />
                             <label for='female'>female</label>
                         </div>
                         <div class='radio-list'>
-                            <input type='radio' id='male' name='pet-sex' value='male' />
+                            <input type='radio' id='male' name='animal-sex' value='male' />
                             <label for='radio'>male</label>
                         </div>
                     </div>
 
                     <div class='radio-check-group'>
-                        <label for='pet-altered-yes'>Altered:</label>
+                        <label for='animal-altered-yes'>Altered:</label>
                         <div class='radio-list'>
-                            <input type='radio' id='pet-altered-yes' name='pet-altered' value='yes' checked />
+                            <input type='radio' id='animal-altered-yes' name='animal-altered' value='yes' checked />
                             <label for='yes'>yes</label>
                         </div>
                         <div class='radio-list'>
-                            <input type='radio' id='pet-altered-no' name='pet-altered' value='no' />
+                            <input type='radio' id='animal-altered-no' name='animal-altered' value='no' />
                             <label for='radio'>no</label>
                         </div>
                     </div>
@@ -62,8 +59,8 @@
                     
                 <div class='form-group-3'>
                     <div class='drop-list'>
-                        <label for='pet-breed'>Color:</label>
-                        <select name='pet-breed'>
+                        <label for='animal-color'>Color:</label>
+                        <select name='animal-breed'>
                             <option>black</option checked>
                             <option>white</option>
                             <option>gray</option>
@@ -75,15 +72,21 @@
                     </div>
 
                     <div class='radio-check-group'>
-                        <label for='pet-behavior'>Behavior Issues:</label>
+                        <label for='animal-behavior'>Behavior Issues:</label>
                         <div class='checkbox-list'>
-                            <input type='checkbox' id='animal-aggression' name='pet-behavior'/>
+                            <input type='checkbox' id='animal-aggression' name='animal-behavior'/>
                             <label for='toy-aggression'>toy aggression</label></br>
-                            <input type='checkbox' id='animal-aggression' name='pet-behavior'/>
+                            <input type='checkbox' id='animal-aggression' name='animal-behavior'/>
                             <label for='animal-aggression'>animal aggression</label></br>
-                            <input type='checkbox' id='not-housebroken' name='pet-behavior'/>
+                            <input type='checkbox' id='not-housebroken' name='animal-behavior'/>
                             <label for='not-housebroken'>not housebroken</label>
                         </div>
+
+                        <div>
+                            <label for='kennel'>Kennel:</label>
+                            <input type='text' id='kennel' name='kennel' placeholder='e.g., A5'>
+                        </div>
+
                     </div>
                 </div>
             </dif>

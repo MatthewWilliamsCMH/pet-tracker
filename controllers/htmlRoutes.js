@@ -11,24 +11,24 @@ router.get('/', (req, res) => {
     res.render('home');
 });
 
-router.get('/register', auth, (req, res) => {
+router.get('/pack', auth, (req, res) => {
     console.log(req.isAuthenticated())
     console.log(req.session.passport)
-    res.render('register');
+    res.render('pack');
 });
 
-router.get('/new', auth, (req, res) => { 
-    res.render('new');
+router.get('/pack', auth, (req, res) => { //change to whatever the findAll page is
+    res.render('pack'); //change to whatever the findAll page is
   })
 
-router.get('/pets/:id', async (req, res) => { 
-const pedId = req.params.id;
+router.get('/animals/:id', async (req, res) => { 
+const animalId = req.params.id;
 
     try {
-        const petData = await Animal.findByPk(petId);
+        const animalData = await Animal.findByPk(animalId);
 
-        if (pet) {
-            res.render('pet', {pet: pet.toJSON()});
+        if (animal) {
+            res.render('pack', {animal: animal.toJSON()});
         }
         else {
             res.status(404).send('Animal not found.')
@@ -43,16 +43,16 @@ const pedId = req.params.id;
 
 //model from slavic
 // Route to fetch animal data by ID
-// app.get('/pets/:id', async (req, res) => {
-//     const petId = req.params.id;
+// app.get('/animals/:id', async (req, res) => {
+//     const animalId = req.params.id;
 
 //     try {
 //         // Fetch the animal data from the database
-//         const pet = await Animal.findByPk(petId);
+//         const animal = await Animal.findByPk(animalId);
 
-//         if (pet) {
-//             // Render the Handlebars template named 'pet'
-//             res.render('pet', { pet: pet.toJSON() });
+//         if (animal) {
+//             // Render the Handlebars template named 'animal'
+//             res.render('animal', { animal: animal.toJSON() });
 //         } else {
 //             // Handle case where animal is not found
 //             res.status(404).send('Animal not found');
@@ -66,13 +66,13 @@ const pedId = req.params.id;
 
 //model from brad
 
-// router.get('/pets', async (req, res) => {
+// router.get('/animals', async (req, res) => {
 //     try {
-//         const pets = await Animal.findAll(); // Fetch all pets
-//         res.render('pets', { pets }); // Render 'pets.handlebars' view with the pets data
+//         const animals = await Animal.findAll(); // Fetch all animals
+//         res.render('animals', { animals }); // Render 'animals.handlebars' view with the animals data
 //     } catch (error) {
-//         console.error('Error fetching pets:', error);
-//         res.status(500).send('Error fetching pets');
+//         console.error('Error fetching animals:', error);
+//         res.status(500).send('Error fetching animals');
 //     }
 // });
 
