@@ -5,8 +5,6 @@ router.get('/', (req, res) => {
     res.render('home');
 });
 
-
-
 router.get('/packroute', async (req,res)=> {
     try {
       const allAnimals = await Animal.findAll();
