@@ -36,41 +36,15 @@ passport.deserializeUser(function (user, cb) {
 
 // POST /login/password - Authenticate the user by verifying a username and password.
 router.post('/login/password', passport.authenticate('local', {
-  failureRedirect: '/',
-  failureMessage: true,
-  // successReturnToOrRedirect: '/pack'
-}), async function (req, res) {
-  try {
-    const animalData = await Animal.findAll({
-      // include: [
-      //   {
-      //     model: User,
-      //     attributes: ['name']
-      //   }
-      // ]
-    });
-    const animals = animalData.map((animal) => animal.get({ plain: true }));
-    res.render('pack', {
-      animals
-      // logged_in: req.session.logged_in
-    });
-  }
-  catch (err) {
-    return res.status(500).json({message: 'Error retrieving the animals.', error: err.message});
-  };
-});
+  failureRedirect: '/',  
+  successReturnToOrRedirect: '/packroute'
+}))
+  
 
-// POST /logout - Log the user out.
-router.post('/logout', function (req, res, next) {
-  req.logout(function (err) {
-    if (err) { return next(err); }
-    res.redirect('/');
-  });
-});
+
 
 // POST /register - Create a new user account.
 router.post('/register', function (req, res, next) {
-  console.log("Incoming Data: ", req.body);
 
   bcrypt.hash(req.body.password, 10, function (err, hashedPassword) {
     if (err) {
@@ -99,5 +73,15 @@ router.post('/register', function (req, res, next) {
       });
   });
 });
+
+
+// POST /logout - Log the user out.
+router.post('/logout', function (req, res, next) {
+  req.logout(function (err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
+});
+
 
 module.exports = router;

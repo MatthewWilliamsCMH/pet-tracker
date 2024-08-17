@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Animal } = require('../../models/')
+const { Animal, Behavior, AnimalBehavior } = require('../../models/')
 
 //authentication function to protect routes from unauthorized access
 function auth (req, res, next) {
@@ -16,7 +16,11 @@ router.get('/:id', auth, async (req, res) => {
         // console.log(req.params.id)
         // const animalId = req.params.id;
         const animalId = req.params.id;
-        const animalData = await Animal.findByPk(animalId);
+        const animalData = await Animal.findOne({
+            where: {id: animalId},
+            include: [{model: Behavior, through: AnimalBehavior}]
+              
+        });
         const animal = animalData.get({ plain: true });
         console.log(animalData)
         // const animal = animalData.map((animal) => animal.get({ plain: true }));
@@ -33,6 +37,10 @@ router.get('/:id', auth, async (req, res) => {
         res.status(500).send('Internal server error');
     }
 })
+
+
+
+
 
 
 // router.get('/project/:id', async (req, res) => {

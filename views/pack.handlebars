@@ -1,11 +1,11 @@
 <div class='container login inter-tight-regular'>
   <div>
     <h2>This is the Pack Page</h2>
-    {{#if animalArray.length}}
+   
       {{#each animalArray as |animal|}}
         <p><a href='api/animals/{{animal.id}}'>{{animal.name}}</a></p>
       {{/each}}
-    {{/if}}
+    
   </div>
 </div>
 
