@@ -1,18 +1,8 @@
 <div class='container inter-tight-regular'>
     <h2>{{animal.name}}</h2>
-    {{!-- <header>
-        <nav>
-=            <button onclick="window.location.href='/update-animal/{{animal.id}}'">Update</button> <!-- Update path accordingly -->
-            <button onclick="window.location.href='/delete-animal/{{animal.id}}'">Delete</button> <!-- Update path accordingly -->
-        </nav>
-    </header> --}}
-
-    {{!-- <main> --}}
         <div class='photo_qrcode'>
             <div class='photo'>
-                <img src='/images/1.png' width='200px' alt='image of animal'>
-                {{!-- remove the line above, uncomment the libe below for production --}}
-                {{!-- <img src='/images/{{animal.id}}.png' width='200px' alt='image of animal'> --}}
+                <img src='/images/{{animal.id}}.png' width='200px' alt='image of animal'>
             </div>
             <div class='qrcode'>
                 <img src="https://api.qrserver.com/v1/create-qr-code/?data=../public/images/{{animal.id}}.png&size=200x200" alt="QR code for {{animal.name}}">
@@ -20,43 +10,47 @@
         </div>
 
         <div class='animal-data'>
-            <table>
-                <tr>
-                    <th>Chip:</th>
-                    <td>{{animal.chip}}</td>
-                </tr>
-                <tr>
-                    <th>Species:</th>
-                    <td>{{animal.species}}</td>
-                </tr>
-                <tr>
-                    <th>Breed:</th>
-                    <td>{{breed.breed}}</td>
-                </tr>
-                <tr>
-                    <th>Sex:</th>
-                    <td>{{animal.sex}}</td>
-                </tr>
-                <tr>
-                    <th>Altered:</th>
-                    <td>{{animal.altered}}</td>
-                </tr>
-                <tr>
-                    <th>Color:</th>
-                    <td>{{animal.color}}</td>
-                </tr>
-                <tr>
-                    <th>Kennel:</th>
-                    <td>{{animal.kennel}}</td>
-    {{!-- not sure how to get these in a list --}}
-                </tr>
-                <tr>
-                    <th>Behavior Issues:</th>
-                    <td>{{animal.behavior}}</td>
-                </tr>
-            </table>
+            <form>
+                <table>
+                    <tr>
+                        <th>Chip:</th>
+                        <td>{{animal.chip}}</td>
+                    </tr>
+                    <tr>
+                        <th>Species:</th>
+                        <td>{{animal.species_id}}</td>
+                    </tr>
+                    <tr>
+                        <th>Breed:</th>
+                        <td>{{animal.breed_id}}</td>
+                    </tr>
+                    <tr>
+                        <th>Sex:</th>
+                        <td>{{animal.sex}}</td>
+                    </tr>
+                    <tr>
+                        <th>Altered:</th>
+                        <td>{{animal.altered}}</td>
+                    </tr>
+                    <tr>
+                        <th>Color:</th>
+                        <td>{{animal.color_id}}</td>
+                    </tr>
+                    <tr>
+                        <th>Kennel:</th>
+                        <td>{{animal.kennel_id}}</td>
+        {{!-- not sure how to get these in a list --}}
+                    </tr>
+                    <tr>
+                        <th>Behavior Issues:</th>
+                        <td>{{animal.behavior}}</td>
+                    </tr>
+                </table>
+            </form>
         </div>
     {{!-- </main> --}}
+    <button type='submit' id='edit-button'>Update</button> <!--open new.handlebars and populate it with the data from this form-->
+    <button type='button' id='cancel-button'>Cancel</button> <!--return pack.handlebars without saving any data-->
 </div>
 
 <script>
