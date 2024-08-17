@@ -6,6 +6,7 @@ const db = require('../../config/connection');
 const {Animal, User} = require('../../models');
 
 // Routes
+// Validate user.
 passport.use(new LocalStrategy(function verify(username, password, cb) {
   User.findOne({where: {email: username}}).then(function (row) {
     // if (err) { return cb(err); }
