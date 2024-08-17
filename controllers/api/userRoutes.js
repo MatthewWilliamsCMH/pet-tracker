@@ -90,7 +90,7 @@ router.post('/register', function (req, res, next) {
         req.login(user, function (err) {
           if (err) { return next(err); }
           // Redirect to a protected route
-          res.redirect('pack');
+          res.redirect('/packroute');
         });
       })
       .catch(err => {

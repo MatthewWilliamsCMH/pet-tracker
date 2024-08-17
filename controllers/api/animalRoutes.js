@@ -10,7 +10,7 @@ function auth (req, res, next) {
   };
   
 // Route to display one animal
-router.get('/animals/:id', auth, async (req, res) => { 
+router.get('/:id', auth, async (req, res) => { 
     console.log("*********************HELLO*****************")
     try {
         // console.log(req.params.id)
@@ -18,6 +18,7 @@ router.get('/animals/:id', auth, async (req, res) => {
         const animalId = req.params.id;
         const animalData = await Animal.findByPk(animalId);
         const animal = animalData.get({ plain: true });
+        console.log(animalData)
         // const animal = animalData.map((animal) => animal.get({ plain: true }));
         if (animal) {
             res.render('animal', {animal});
