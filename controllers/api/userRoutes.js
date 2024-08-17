@@ -8,7 +8,7 @@ const {Animal, User} = require('../../models');
 // Routes
 // Validate user.
 passport.use(new LocalStrategy(function verify(username, password, cb) {
-  User.findOne({where: {email: username}}).then(function (row) {
+  User.findOne({where: { name : username}}).then(function (row) {
     // if (err) { return cb(err); }
     if (!row) { return cb(null, false, { message: 'Incorrect username or password.' }); }
 
@@ -24,7 +24,7 @@ passport.use(new LocalStrategy(function verify(username, password, cb) {
 // Configure session management.
 passport.serializeUser(function (user, cb) {
   process.nextTick(function () {
-    cb(null, { id: user.id, username: user.username }); //if this is referencing the database table, it's user.name, not user.username
+    cb(null, { id: user.id, name: user.name }); //if this is referencing the database table, it's user.name, not user.username
   });
 });
 
@@ -35,10 +35,19 @@ passport.deserializeUser(function (user, cb) {
 });
 
 // POST /login/password - Authenticate the user by verifying a username and password.
-router.post('/login/password', passport.authenticate('local', {
-  failureRedirect: '/',  
-  successReturnToOrRedirect: '/packroute'
-}))
+router.post('/login/password', async (req,res) => {
+  try {
+    passport.authenticate('local', {
+      failureRedirect: '/',  
+      
+    })
+    res.redirect('/packroute')
+  } catch (err) {
+    console.error(err)
+    res.status(500).json(err)
+  }
+  
+})
   
 
 
