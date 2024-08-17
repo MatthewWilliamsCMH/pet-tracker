@@ -61,6 +61,9 @@ Animal.init(
         kennel_id: {
             type: DataTypes.INTEGER,
             allowNull: false
+        },
+        behavior_id:{
+            type: DataTypes.INTEGER
         }
     },
     {

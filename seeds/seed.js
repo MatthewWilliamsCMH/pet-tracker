@@ -1,5 +1,5 @@
 const sequelize = require('../config/connection'); 
-const { User, Animal, Breed, Species, Behavior, Color, Kennel } = require('../models');
+const { User, Animal, Breed, Species, Behavior, Color, Kennel, AnimalBehavior } = require('../models');
 const userData = require('./userData.json'); 
 const animalData = require('./animalData.json'); 
 const breedData = require('./breedData.json'); 
@@ -7,6 +7,7 @@ const speciesData = require('./speciesData.json');
 const behaviorData = require('./behaviorData.json');
 const colorData = require('./colorData.json');
 const kennelData = require('./kennelData.json');
+const animalBehaviorData= require('./animalBehaviorData.json')
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -28,6 +29,7 @@ const seedDatabase = async () => {
 
   await Animal.bulkCreate(animalData);
 
+  await AnimalBehavior.bulkCreate(animalBehaviorData)
   process.exit(0);
 };
 

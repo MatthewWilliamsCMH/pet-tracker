@@ -10,6 +10,7 @@
         </div>
 
         <div class='animal-data'>
+<<<<<<< HEAD
             <form>
                 <table>
                     <tr>
@@ -47,6 +48,45 @@
                     </tr>
                 </table>
             </form>
+=======
+            <table>
+                <tr>
+                    <th>Chip:</th>
+                    <td>{{animal.chip}}</td>
+                </tr>
+                <tr>
+                    <th>Species:</th>
+                    <td>{{animal.species.species}}</td>
+                </tr>
+                <tr>
+                    <th>Breed:</th>
+                    <td>{{animal.breed.breed}}</td>
+                </tr>
+                <tr>
+                    <th>Sex:</th>
+                    <td>{{animal.sex}}</td>
+                </tr>
+                <tr>
+                    <th>Altered:</th>
+                    <td>{{animal.altered}}</td>
+                </tr>
+                <tr>
+                    <th>Color:</th>
+                    <td>{{animal.color.color}}</td>
+                </tr>
+                <tr>
+                    <th>Kennel:</th>
+                    <td>{{animal.kennel.kennel}}</td>
+    {{!-- not sure how to get these in a list --}}
+                </tr>
+                <tr>
+                    <th>Behavior Issues:</th>
+                    {{#each animal.behaviors as |behavior| }}
+                    <td>{{behavior.behavior}}</td>
+                    {{/each}}
+                </tr>
+            </table>
+>>>>>>> 6adff3a924b67805fe835cc715a6e38c475dd5e3
         </div>
     {{!-- </main> --}}
     <button type='submit' id='edit-button'>Update</button> <!--open new.handlebars and populate it with the data from this form-->
