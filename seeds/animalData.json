@@ -4,109 +4,109 @@
       "sex": "F",
       "altered": true,
       "chip": "900112345678910",
-      "species_id": "1",
-      "breed_id": "3",
-      "color_id": "6",
-      "behavior_id": "2",
-      "kennel_id": "1"
+      "species_id": 1,
+      "breed_id": 3,
+      "color_id": 6,
+      "behavior_id": 2,
+      "kennel_id": 1
     },
     {
       "name": "Milo",
       "sex": "M",
       "altered": false,
       "chip": "900123456789012",
-      "species_id": "1",
-      "breed_id": "5",
-      "color_id": "3",
-      "behavior_id": "3",
-      "kennel_id": "2"
+      "species_id": 1,
+      "breed_id": 5,
+      "color_id": 3,
+      "behavior_id": 3,
+      "kennel_id": 2
     },
     {
       "name": "Bella",
       "sex": "F",
       "altered": false,
       "chip": null,
-      "species_id": "2",
-      "breed_id": "1",
-      "color_id": "7",
-      "behavior_id": "1",
-      "kennel_id": "3"
+      "species_id": 2,
+      "breed_id": 1,
+      "color_id": 7,
+      "behavior_id": 1,
+      "kennel_id": 3
     },
     {
       "name": "Oliver",
       "sex": "M",
       "altered": true,
       "chip": "900134567890123",
-      "species_id": "1",
-      "breed_id": "2",
-      "color_id": "2",
-      "behavior_id": "1",
-      "kennel_id": "4"
+      "species_id": 1,
+      "breed_id": 2,
+      "color_id": 2,
+      "behavior_id": 1,
+      "kennel_id": 4
     },
     {
       "name": "Daisy",
       "sex": "F",
       "altered": false,
       "chip": "900145678901234",
-      "species_id": "1",
-      "breed_id": "2",
-      "color_id": "2",
+      "species_id": 1,
+      "breed_id": 2,
+      "color_id": 2,
       "behavior_id": null,
-      "kennel_id": "5"
+      "kennel_id": 5
     },
     {
       "name": "Max",
       "sex": "M",
       "altered": true,
       "chip": "900156789012345",
-      "species_id": "2",
-      "breed_id": "4",
-      "color_id": "5",
-      "behavior_id": "3",
-      "kennel_id": "6"
+      "species_id": 2,
+      "breed_id": 4,
+      "color_id": 5,
+      "behavior_id": 3,
+      "kennel_id": 6
     },
     {
       "name": "Rosie",
       "sex": "F",
       "altered": true,
       "chip": "0D0D158498",
-      "species_id": "2",
-      "breed_id": "6",
-      "color_id": "7",
-      "behavior_id": "1",
-      "kennel_id": "7"
+      "species_id": 2,
+      "breed_id": 6,
+      "color_id": 7,
+      "behavior_id": 1,
+      "kennel_id": 7
     },
     {
       "name": "Charlie",
       "sex": "F",
       "altered": false,
       "chip": null,
-      "species_id": "2",
-      "breed_id": "6",
-      "color_id": "5",
+      "species_id": 2,
+      "breed_id": 6,
+      "color_id": 5,
       "behavior_id": null,
-      "kennel_id": "8"
+      "kennel_id": 8
     },
     {
       "name": "Jasper",
       "sex": "M",
       "altered": true,
       "chip": null,
-      "species_id": "2",
-      "breed_id": "5",
-      "color_id": "1",
+      "species_id": 2,
+      "breed_id": 5,
+      "color_id": 1,
       "behavior_id": null,
-      "kennel_id": "9"
+      "kennel_id": 9
     },
     {
       "name": "Willow",
       "sex": "F",
       "altered": true,
       "chip": "0A151138459",
-      "species_id": "1",
-      "breed_id": "3",
-      "color_id": "4",
-      "behavior_id": "2",
-      "kennel_id": "10"
+      "species_id": 1,
+      "breed_id": 3,
+      "color_id": 4,
+      "behavior_id": 2,
+      "kennel_id": 10
     }
   ]

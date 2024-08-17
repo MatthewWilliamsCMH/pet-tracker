@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Animal, Behavior, AnimalBehavior } = require('../../models/')
+const { Animal, Behavior, AnimalBehavior, Breed, Color, Kennel, Species } = require('../../models/')
 
 //authentication function to protect routes from unauthorized access
 function auth (req, res, next) {
@@ -18,7 +18,13 @@ router.get('/:id', auth, async (req, res) => {
         const animalId = req.params.id;
         const animalData = await Animal.findOne({
             where: {id: animalId},
-            include: [{model: Behavior, through: AnimalBehavior}]
+            include: [
+                {model: Behavior, through: AnimalBehavior, as: 'behaviors'},
+                {model: Breed}, 
+                {model:Color},
+                {model: Kennel},
+                {model: Species}
+            ]
               
         });
         const animal = animalData.get({ plain: true });
@@ -116,5 +122,9 @@ router.get('/pack', auth, async (req, res) => {
         res.status(500).send('Error fetching animals');
     }
 });
+
+
+
+
 
 module.exports = router; //exports the router so it's available to other function

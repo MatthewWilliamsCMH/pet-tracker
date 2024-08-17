@@ -27,11 +27,11 @@
                 </tr>
                 <tr>
                     <th>Species:</th>
-                    <td>{{animal.species_id}}</td>
+                    <td>{{animal.species.species}}</td>
                 </tr>
                 <tr>
                     <th>Breed:</th>
-                    <td>{{animal.breed_id}}</td>
+                    <td>{{animal.breed.breed}}</td>
                 </tr>
                 <tr>
                     <th>Sex:</th>
@@ -43,16 +43,18 @@
                 </tr>
                 <tr>
                     <th>Color:</th>
-                    <td>{{animal.color_id}}</td>
+                    <td>{{animal.color.color}}</td>
                 </tr>
                 <tr>
                     <th>Kennel:</th>
-                    <td>{{animal.kennel_id}}</td>
+                    <td>{{animal.kennel.kennel}}</td>
     {{!-- not sure how to get these in a list --}}
                 </tr>
                 <tr>
                     <th>Behavior Issues:</th>
-                    <td>{{animal.behavior}}</td>
+                    {{#each animal.behaviors as |behavior| }}
+                    <td>{{behavior.behavior}}</td>
+                    {{/each}}
                 </tr>
             </table>
         </div>

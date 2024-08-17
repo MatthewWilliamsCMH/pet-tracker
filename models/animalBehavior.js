@@ -15,14 +15,14 @@ AnimalBehavior.init(
         animal_id: {
             type: DataTypes.INTEGER,
             refernces: {
-                model: Animal,
+                model: 'animal',
                 key: 'id'
             }
         },
         behavior_id: {
             type: DataTypes.INTEGER,
             refernces: {
-                model: Behavior,
+                model: 'behavior',
                 key: 'id'
             }
         }
@@ -32,7 +32,7 @@ AnimalBehavior.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'animalBehavior',
+        modelName: 'animal_behavior',
     }
 );
 

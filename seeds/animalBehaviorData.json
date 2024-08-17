@@ -1,0 +1,42 @@
+[
+    {
+        "animal_id": 10,
+        "behavior_id": 1
+    },
+    {
+        "animal_id": 9,
+        "behavior_id": 2
+    },
+    {
+        "animal_id": 8,
+        "behavior_id": 3
+    },
+    {
+        "animal_id": 7,
+        "behavior_id": 1
+    },
+    {
+        "animal_id": 6,
+        "behavior_id": 2
+    },
+    {
+        "animal_id": 5,
+        "behavior_id": 3
+    },
+    {
+        "animal_id": 4,
+        "behavior_id": 1
+    },
+    {
+        "animal_id": 3,
+        "behavior_id": 2
+    },
+    {
+        "animal_id": 2,
+        "behavior_id": 3
+    },
+    {
+        "animal_id": 1,
+        "behavior_id": 1
+    }
+]

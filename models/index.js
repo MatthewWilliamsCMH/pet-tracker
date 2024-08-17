@@ -4,6 +4,7 @@ const Breed = require('./breed')
 const Color = require('./color')
 const Kennel = require('./kennel')
 const Species = require('./species')
+const AnimalBehavior = require('./animalBehavior')
 const User = require('./user')
 
 //one-to-one
@@ -21,7 +22,7 @@ Animal.belongsTo(Species, {foreignKey: 'species_id', onDelete: 'SET NULL'});
 Species.hasMany(Animal, {foreignKey: 'species_id'});
 
 //many-to-many
-Animal.belongsToMany(Behavior, {through: 'animalBehavior'});
-Behavior.belongsToMany(Animal, {through: 'animalBehavior'});
+Animal.belongsToMany(Behavior, {through: AnimalBehavior, foreignKey: 'animal_id'});
+Behavior.belongsToMany(Animal, {through: AnimalBehavior, foreignKey: 'behavior_id'});
 
-module.exports = {Animal, Behavior, Breed, Color, Kennel, Species, User}
+module.exports = {Animal, Behavior, Breed, Color, Kennel, Species, User, AnimalBehavior}
