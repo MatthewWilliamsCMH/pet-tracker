@@ -1,18 +1,19 @@
 <div class='container login inter-tight-regular'>
-  <div>
+  <div class='content'>
     <h2>This is the Pack Page</h2>
    
-      {{#each animalArray as |animal|}}
-        <p><a href='api/animals/{{animal.id}}'>{{animal.name}}</a></p>
-      {{/each}}
-    
+    {{#each animalArray as |animal|}}
+      <p><a href='api/animals/{{animal.id}}'>{{animal.name}}</a></p>
+    {{/each}}
+  </div>
+  
+  <!-- Add Button to Navigate to Add Animal Page -->
+  <div class='button-container'>
+    <a href='/animals/add' class='btn btn-primary'>Add New Animal</a>
   </div>
 </div>
 
 {{!-- <script src='./js/login.js'></script> --}}
-
-
-
 
 {{!-- <!-- Loop over each object in the projects array -->
 {{#each projects as |project| }}
@@ -38,3 +39,4 @@
   </div>
 </div>
 {{/each}} --}}
+

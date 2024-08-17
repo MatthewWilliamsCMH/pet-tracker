@@ -290,3 +290,27 @@ tr:first-of-type {
         height: auto;
     }
 } */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .content {
+    flex-grow: 1; 
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: flex-end; 
+    padding: 1em 0; 
+  }
+
+  .btn {
+    
+    padding: 0.5em 1em;
+    background-color: #007bff; 
+    color: white;
+    text-decoration: none;
+    border-radius: 0.25em;
+  }
