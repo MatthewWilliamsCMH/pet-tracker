@@ -141,8 +141,8 @@ footer p {
     width: 100%;
 }
 
-.login_form button, .register_form button, .add-animal-form button {
-    margin-top: auto;
+.login_form button, .register_form button, .add-animal-form button, .animal-details button  {
+    margin-top: 10px;
 }
 
 /*---------- pack page ----------*/
@@ -235,14 +235,20 @@ tr:first-of-type {
 }
 
 /*---------- existing animal page ---------*/
-.photo_qrcode {
-    position:absolute;
-    right:1rem;
+.photo {
+    position:relative;
+    width:0;
+    height:0;
+    left:-225px;
+
 }
 
 .qrcode {
-    margin-top:.5rem;
-    text-align:right;
+    position:relative;
+    width:0;
+    height:0;
+    left:25px;
+    float:right;
 }
 .qrcode img {
     width:100px;
