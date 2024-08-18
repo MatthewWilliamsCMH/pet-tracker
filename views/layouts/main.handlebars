@@ -14,9 +14,7 @@
     <header>
       <h1>Pet Tracker</h1>
       <nav>
-        {{!-- {{#if loginStatus}} --}}
-            <a href="/packroute"><button class='no-button' id='homeBtn'>HOME</button></a> | <button class='no-button' id='logoutBtn'>LOGOUT</button>
-        {{!-- {{/if}} --}}
+          <a href="/packroute"><button class='no-button' id='homeBtn'>HOME</button></a> | <button class='no-button' id='logoutBtn'>LOGOUT</button>
       </nav>
     </header>
     <main>
@@ -29,15 +27,12 @@
 
 <script src='./js/logout.js'></script>
 
-{{!-- <script>
-  if (sessionStorage.getItem('logged-in') {
+<script>
+  if (!sessionStorage.getItem('logged-in')) {
     window.open('splash.html')
-  })
-  //where does this go?
-  //sessionStorage.setItem('logged-in', 'true');
-  //console.log(sessionStorage.getItem('logged-in'))
-
-</script> --}}
+    sessionStorage.setItem('logged-in', 'true')
+  }
+</script>
 </html>
 
 

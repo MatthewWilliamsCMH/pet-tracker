@@ -10,7 +10,6 @@ router.get('/packroute', async (req,res)=> {
       const allAnimals = await Animal.findAll();
 
       const animalArray = allAnimals.map((animal) => animal.get({plain: true}))
-      console.log(animalArray)
         res.render('pack',  { animalArray } )
     } catch (err) {
         console.error(err);
