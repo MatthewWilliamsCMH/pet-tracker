@@ -14,30 +14,28 @@
     <header>
       <h1>Pet Tracker</h1>
       <nav>
-        {{!-- {{#if loginStatus}} --}}
-            <a href="/packroute"><button class='no-button' id='homeBtn'>HOME</button></a> | <button class='no-button' id='logoutBtn'>LOGOUT</button>
-        {{!-- {{/if}} --}}
+          <a href="/packroute"><button class='no-button' id='homeBtn'>HOME</button></a> | <button class='no-button' id='logoutBtn'>LOGOUT</button>
       </nav>
     </header>
     <main>
       {{{body}}}
     </main>
 </body>
-<footer>
+{{!-- <footer>
     <p>Whitney Burnette, Danny McHugh, Michael Nyamohanga, </br>Brad Schneider, and Matthew Williams</p>
-</footer>
+</footer> --}}
 
-<script src='./js/logout.js'></script>
+{{!-- //this is incorrectly calling a route (?) "http://localhost:3001/api/animals/logout.js" --}}
+<script src='logout.js'></script>
 
-{{!-- <script>
-  if (sessionStorage.getItem('logged-in') {
+<script>
+  if (sessionStorage.getItem('logged-in') == null) {
+{{!-- this is not firing consistenly --}}
+console.log("HELLO")
     window.open('splash.html')
-  })
-  //where does this go?
-  //sessionStorage.setItem('logged-in', 'true');
-  //console.log(sessionStorage.getItem('logged-in'))
-
-</script> --}}
+    sessionStorage.setItem('logged-in', "true")
+  }
+</script>
 </html>
 
 

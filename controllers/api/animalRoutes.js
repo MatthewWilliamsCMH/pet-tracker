@@ -25,7 +25,6 @@ router.get('/:id', auth, async (req, res) => {
               
         });
         const animal = animalData.get({ plain: true });
-        console.log(animalData)
         if (animal) {
             res.render('animal', {animal});
         }
