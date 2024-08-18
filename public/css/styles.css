@@ -146,31 +146,23 @@ footer p {
 }
 
 /*---------- pack page ----------*/
-/* table {
-    border-collapse:collapse;
+.packgallery {
+    display:flex;
+    gap: 10px;
+    flex-flow:row wrap;
+    justify-content:flex-start;
 }
 
-.container:has(table){
-    width:fit-content;
-    text-align:left;
+.packmember {
+    flex: 1 1 0;
+    padding:5px;
+    max-width:20%;
 }
 
-tr:nth-child(odd) {
-    background-color: #fff;
+.packmember p {
+    line-height:0%;
+    text-align:center;
 }
- 
-tr:nth-child(even) {
-    background-color: hsl(204, 72%, 90%);
-}
-    
-th, td {
-    padding:.25rem 1rem;
-    text-align: left; 
-}
-
-tr:first-of-type {
-    border-bottom:1px solid black;
-} */
 
 /*---------- new animal page ----------*/
 .form-group-1 {
