@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Animal, Behavior, AnimalBehavior } = require('../../models/')
+const { Animal, Behavior, AnimalBehavior, Breed, Color, Kennel, Species } = require('../../models/')
 
 //authentication function to protect routes from unauthorized access
 function auth (req, res, next) {
@@ -11,22 +11,23 @@ function auth (req, res, next) {
   
 // Route to display one animal
 router.get('/:id', auth, async (req, res) => { 
-    console.log("*********************HELLO*****************")
     try {
-        // console.log(req.params.id)
-        // const animalId = req.params.id;
         const animalId = req.params.id;
         const animalData = await Animal.findOne({
             where: {id: animalId},
-            include: [{model: Behavior, through: AnimalBehavior}]
+            include: [
+                {model: Behavior, through: AnimalBehavior, as: 'behaviors'},
+                {model: Breed}, 
+                {model:Color},
+                {model: Kennel},
+                {model: Species}
+            ]
               
         });
         const animal = animalData.get({ plain: true });
         console.log(animalData)
-        // const animal = animalData.map((animal) => animal.get({ plain: true }));
         if (animal) {
             res.render('animal', {animal});
-            // res.render('animal', {animal: animal.toJSON()});
         }
         else {
             res.status(404).send('Animal not found.')
@@ -37,42 +38,6 @@ router.get('/:id', auth, async (req, res) => {
         res.status(500).send('Internal server error');
     }
 })
-
-
-
-
-
-
-// router.get('/project/:id', async (req, res) => {
-//     try {
-//       const projectData = await Project.findByPk(req.params.id, {
-//         include: [
-//           {
-//             model: User,
-//             attributes: ['name'],
-//           },
-//         ],
-//       });
-
-// const project = projectData.get({ plain: true });
-
-// res.render('project', {
-//   ...project,
-//   logged_in: req.session.logged_in
-// });
-// } catch (err) {
-// res.status(500).json(err);
-// }
-// });
-
-
-
-
-
-
-
-
-
 
 // Adding a new animal
 router.post('/animal', auth, async (req, res) => {
@@ -116,5 +81,9 @@ router.get('/pack', auth, async (req, res) => {
         res.status(500).send('Error fetching animals');
     }
 });
+
+
+
+
 
 module.exports = router; //exports the router so it's available to other function

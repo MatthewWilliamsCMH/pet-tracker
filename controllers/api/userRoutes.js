@@ -38,8 +38,7 @@ passport.deserializeUser(function (user, cb) {
 router.post('/login/password', async (req,res) => {
   try {
     passport.authenticate('local', {
-      failureRedirect: '/',  
-      
+      failureRedirect: '/',       
     })
     res.redirect('/packroute')
   } catch (err) {
@@ -48,9 +47,6 @@ router.post('/login/password', async (req,res) => {
   }
   
 })
-  
-
-
 
 // POST /register - Create a new user account.
 router.post('/register', function (req, res, next) {

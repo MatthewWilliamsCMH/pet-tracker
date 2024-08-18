@@ -15,7 +15,7 @@
       <h1>Pet Tracker</h1>
       <nav>
         {{!-- {{#if loginStatus}} --}}
-            <button class='no-button' id='logout'>HOME</button> | <button class='no-button' id='logout'>LOGOUT</button>
+            <a href="/packroute"><button class='no-button' id='homeBtn'>HOME</button></a> | <button class='no-button' id='logoutBtn'>LOGOUT</button>
         {{!-- {{/if}} --}}
       </nav>
     </header>
@@ -26,6 +26,9 @@
 <footer>
     <p>Whitney Burnette, Danny McHugh, Michael Nyamohanga, </br>Brad Schneider, and Matthew Williams</p>
 </footer>
+
+<script src='./js/logout.js'></script>
+
 {{!-- <script>
   if (sessionStorage.getItem('logged-in') {
     window.open('splash.html')
