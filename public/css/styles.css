@@ -97,8 +97,25 @@
   }
   
   /*---------- splash page ----------*/
+    .modal {
+        display:none;
+        position:absolute;
+        z-index:1;
+        left:0;
+        right:0;
+        top:0;
+        margin:auto;
+        width:25%;
+        height:25%;
+    }
+
+    .hideContent {
+        display:none;
+    }
+
   .splash-back {
       background-color:white;
+      border-radius: 1rem 0 0 0;
   }
   
   .splash {
@@ -117,29 +134,37 @@
       object-fit: cover;
   }
   
-  .splash-foot {
-      margin-left:0px;
-  }
-  
-  /*---------- login page ----------*/
-  .login {
-      display: flex;
-  }
-  
-  .login_form, .register_form, .add-animal-form {
-      display: flex;
-      flex-direction: column;
-      flex:1;
-      padding:.5rem;
-  }
-  
-  .login_form > form, .register_form > form, .add-animal-form > form {
-      display: flex;
-      flex-direction: column;
-      justify-content:space-between;
-      height:100%;
-      width: 100%;
-  }
+.splash > footer {
+    font-size:10px;
+    font-weight:400;
+    position:static;
+    text-align:center;
+    left:0;
+    right:0;
+    margin:auto;
+    background-color:none;
+    padding: 0.25rem;
+}
+
+/*---------- login page ----------*/
+.login {
+    display: flex;
+}
+
+.login_form, .register_form, .add-animal-form {
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    padding:.5rem;
+}
+
+.login_form > form, .register_form > form, .add-animal-form > form {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    height:100%;
+    width: 100%;
+}
   
 button {
     margin-top: 10px;
