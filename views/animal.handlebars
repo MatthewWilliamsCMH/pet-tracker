@@ -10,7 +10,7 @@
                         <th>Chip:</th>
                         <td>{{animal.chip}}</td>
                         <div class='qrcode'>
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?data=../public/images/{{animal.id}}.png&size=200x200" alt="QR code for {{animal.name}}">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?data=pet-tracker{{animal.id}}.png&size=200x200" alt="QR code for {{animal.name}}">
                         </div>
                     </tr>
                     <tr>
@@ -51,7 +51,8 @@
     <button type='button' id='cancel-button'>Cancel</button> <!--return pack.handlebars without saving any data-->
 </div>
 
-<script>
+{{!-- I don't think we we need these? --}}
+{{!-- <script>
         document.addEventListener("DOMContentLoaded", () => {
             const animalId = "{{animal.id}}"; // Get the animal ID from the template
 
@@ -80,4 +81,4 @@
                 window.location.href = "/cancel";
             });
         });
-    </script>
+    </script> --}}

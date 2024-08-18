@@ -15,6 +15,15 @@
   <button type='button' id='addAnimalBtn'>Add Animal</button> <!--load empty animal form-->
 </div>
 
+
+<script>
+  const addAnimal = document.querySelector('#addAnimalBtn');
+    console.log("clicked")
+  addAnimal.addEventListener('click', function() {
+    window.location.href = '/new'; // Redirect to the animals list page or any other page
+  });
+
+</script>
 {{!-- <script src='./js/login.js'></script> --}}
 
 {{!-- <!-- Loop over each object in the projects array -->
@@ -41,4 +50,5 @@
   </div>
 </div>
 {{/each}} --}}
+
 

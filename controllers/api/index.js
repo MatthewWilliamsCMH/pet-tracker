@@ -2,6 +2,7 @@ const router = require('express').Router();
 const userRoutes = require('./userRoutes')
 const animalRoutes = require('./animalRoutes')
 const { Animal, Behavior, AnimalBehavior, Breed, Color, Kennel, Species } = require('../../models/')
+
 // all of these routes are prefixed with '/api'
 router.use('/users', userRoutes);
 router.use('/animals', animalRoutes);

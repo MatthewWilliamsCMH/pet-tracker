@@ -79,7 +79,6 @@ router.post('/register', function (req, res, next) {
   });
 });
 
-
 // POST /logout - Log the user out.
 router.post('/logout', function (req, res, next) {
   req.logout(function (err) {
@@ -87,6 +86,5 @@ router.post('/logout', function (req, res, next) {
     res.redirect('/');
   });
 });
-
 
 module.exports = router;
