@@ -35,7 +35,7 @@ passport.deserializeUser(function (user, cb) {
 });
 
 // POST /login/password - Authenticate the user by verifying a username and password.
-router.post('/login/password', async (req,res) => {
+router.post('/login/password', async (req, res) => {
   try {
     passport.authenticate('local', {
       failureRedirect: '/',       
