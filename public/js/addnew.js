@@ -1,7 +1,7 @@
-const addAnimal = document.getElementById('addAnimalBtn')
+// const addAnimal = document.getElementById('addAnimalBtn') {
     //should just load an empty new page into main.handlebars
-    alert("Hello")
-    fetch('/new')
+    // alert("Hello")
+    // fetch('/new')
     // .then(response => response.text())
     // .then(html => {
     //   contentDiv.innerHTML = html;
@@ -21,6 +21,6 @@ const addAnimal = document.getElementById('addAnimalBtn')
     // } else {
     //   alert(response.statusText);
     // }
-  };
+  // };
   
   document.getElementById('addAnimalBtn').addEventListener('click', addAnimal);

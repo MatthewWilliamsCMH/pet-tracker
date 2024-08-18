@@ -1,13 +1,12 @@
 <div class='container inter-tight-regular'>
-<<<<<<< HEAD
     <div class='animal-details'>
         <h2>{{animal.name}}</h2>
             <div class='animal-data'>
                 <table>
                     <tr>
-                        <div class='photo'>
-                            <img src='/images/{{animal.id}}.png' width='200px' alt='image of {{animal.name}}'>
-                        </div>
+                <div class='photo'>
+                    <img src='/images/{{animal.id}}.png' width='200px' alt='image of {{animal.name}}'>
+                </div>
                         <th>Chip:</th>
                         <td>{{animal.chip}}</td>
                         <div class='qrcode'>
@@ -46,59 +45,8 @@
                         {{/each}}
                     </tr>
                 </table>
-=======
-    <h2>{{animal.name}}</h2>
-        <div class='photo_qrcode'>
-            <div class='photo'>
-                <img src='/images/{{animal.id}}.png' width='200px' alt='image of animal'>
->>>>>>> 73e5425dfe098bcce43040c399100ed527024fae
-            </div>
-            <div class='qrcode'>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?data=../public/images/{{animal.id}}.png&size=200x200" alt="QR code for {{animal.name}}">
             </div>
         </div>
-
-        <div class='animal-data'>
-           
-            <table>
-                <tr>
-                    <th>Chip:</th>
-                    <td>{{animal.chip}}</td>
-                </tr>
-                <tr>
-                    <th>Species:</th>
-                    <td>{{animal.species.species}}</td>
-                </tr>
-                <tr>
-                    <th>Breed:</th>
-                    <td>{{animal.breed.breed}}</td>
-                </tr>
-                <tr>
-                    <th>Sex:</th>
-                    <td>{{animal.sex}}</td>
-                </tr>
-                <tr>
-                    <th>Altered:</th>
-                    <td>{{animal.altered}}</td>
-                </tr>
-                <tr>
-                    <th>Color:</th>
-                    <td>{{animal.color.color}}</td>
-                </tr>
-                <tr>
-                    <th>Kennel:</th>
-                    <td>{{animal.kennel.kennel}}</td>
-    {{!-- not sure how to get these in a list --}}
-                </tr>
-                <tr>
-                    <th>Behavior Issues:</th>
-                    {{#each animal.behaviors as |behavior| }}
-                    <td>{{behavior.behavior}}</td>
-                    {{/each}}
-                </tr>
-            </table>
-        </div>
-    {{!-- </main> --}}
     <button type='submit' id='edit-button'>Update</button> <!--open new.handlebars and populate it with the data from this form-->
     <button type='button' id='cancel-button'>Cancel</button> <!--return pack.handlebars without saving any data-->
 </div>
