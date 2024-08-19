@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
         event.preventDefault(); // Prevent default form submission
 
         const formData = new FormData(form); 
-        const formObject = Object.formEntries(formData.entries())
+        const formObject = Object.fromEntries(formData.entries())
         console.log(formObject)
 
         fetch('/api/animals/animal', {
