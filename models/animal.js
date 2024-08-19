@@ -28,11 +28,11 @@ Animal.init(
         },
         chip: {
             type: DataTypes.STRING,
-            validate: {
-                len: [9,15],
-                isAlphanumeric: true,
-                unique: true
-            }
+            // validate: {
+            //     len: [9,15],
+            //     isAlphanumeric: true,
+            //     unique: true
+            // }
         },
         species_id: {
             type: DataTypes.INTEGER,

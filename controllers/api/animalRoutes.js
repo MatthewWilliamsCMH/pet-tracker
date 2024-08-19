@@ -39,39 +39,18 @@ router.get('/:id', auth, async (req, res) => {
 })
 
 // Adding a new animal
-router.post('/animal', auth, async (req, res) => {
-    const animal_name = req.body["animal-name"]
-    const animal_chip = req.body["animal-chip"]
-    const animal_species = req.body["animal-species"]
-    const animal_breed = req.body["animal-breed"]
-    const animal_sex = req.body["animal-sex"]
-    const animal_altered = req.body["animal-altered"]
-    const animal_color = req.body["animal-color"]
-    const animal_behavior = req.body["animal-behavior"]
-    const kennel = req.body["kennel"]
-    
+router.post('/animal', async (req, res) => {
     try {
-        console.log(req.body)
+        const body = req.body
         // Create a new animal entry in the Animal table
-        const newAnimal = await Animal.create({
-            animal_name,
-            animal_chip,
-            animal_species,
-            animal_sex,
-            animal_breed,
-            animal_altered,
-            animal_color,
-            // animal_behavior, //this will need to be written into the animalBehavior table
-            kennel
-        });
-        console.log(animal_name)
-        res.json({ success: true, data: newAnimal });
+        const newAnimal = await Animal.create({...body});
+        console.log(newAnimal)
+        res.json(newAnimal)
     } catch (error) {
-        console.error('Error adding animal:', error);
+        console.error('Error adding animal:******************', error);
         res.status(500).json({ success: false, message: 'Error adding animal' });
     }
 });
-
 
 router.put('/animal', auth, async (req, res) => {
     //update existing animal in db
@@ -91,9 +70,5 @@ router.get('/pack', auth, async (req, res) => {
         res.status(500).send('Error fetching animals');
     }
 });
-
-
-
-
 
 module.exports = router; //exports the router so it's available to other function
