@@ -57,13 +57,14 @@ router.post('/animal', auth, async (req, res) => {
             animal_name,
             animal_chip,
             animal_species,
-            animal_breed,
             animal_sex,
+            animal_breed,
             animal_altered,
             animal_color,
-            animal_behavior, //this will need to be written into the animalBehavior table
+            // animal_behavior, //this will need to be written into the animalBehavior table
             kennel
         });
+        console.log(animal_name)
         res.json({ success: true, data: newAnimal });
     } catch (error) {
         console.error('Error adding animal:', error);
