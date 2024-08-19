@@ -60,8 +60,8 @@
                 <div class='form-group-3'>
                     <div class='drop-list'>
                         <label for='animal-color'>Color:</label>
-                        <select name='animal-color'> <!--corrected error-->
-                            <option>black</option> <!--corrected error-->
+                        <select name='animal-color'>
+                            <option>black</option>
                             <option>white</option>
                             <option>gray</option>
                             <option>brown</option>
@@ -74,7 +74,7 @@
                     <div class='radio-check-group'>
                         <label for='animal-behavior'>Behavior Issues:</label>
                         <div class='checkbox-list'>
-                            <input type='checkbox' id='toy-aggression' name='animal-behavior'/> <!--corrected error-->
+                            <input type='checkbox' id='toy-aggression' name='animal-behavior'/>
                             <label for='toy-aggression'>toy aggression</label></br>
                             <input type='checkbox' id='animal-aggression' name='animal-behavior'/>
                             <label for='animal-aggression'>animal aggression</label></br>
@@ -86,13 +86,12 @@
                             <label for='kennel'>Kennel:</label>
                             <input type='text' id='kennel' name='kennel' placeholder='e.g., A5'>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
-        <button type='submit' id='save-button'>Save</button> <!--write to db and return to pack.handlebars-->
-        <button type='button' id='cancel-button'>Cancel</button> <!--return pack.handlebars without saving any data-->
+        <button type='submit' id='save-button'>Save</button>
+        <button type='button' id='cancel-button'>Cancel</button>
     </form>
 </div>
 <script>
@@ -106,19 +105,11 @@ document.addEventListener("DOMContentLoaded", function() {
     form.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent default form submission
 
-<<<<<<< HEAD
-        const formData = new FormData(form);
-
-        fetch('/animals/add', {
-=======
-
-
         const formData = new FormData(form); 
-        const formObject = Object.fromEntries(formData.entries())
+        const formObject = Object.formEntries(formData.entries())
         console.log(formObject)
 
         fetch('/api/animals/animal', {
->>>>>>> d43673b8732fc64ff37d85dfa8e77360364a72d4
             method: 'POST',
             headers: {"Content-Type": "application/json",},
             body: JSON.stringify(formObject)

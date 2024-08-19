@@ -36,7 +36,6 @@
                     <tr>
                         <th>Kennel:</th>
                         <td>{{animal.kennel.kennel}}</td>
-        {{!-- not sure how to get these in a list --}}
                     </tr>
                     <tr>
                         <th>Behavior Issues:</th>
@@ -47,40 +46,8 @@
                 </table>
             </div>
         </div>
-    <button type='submit' id='edit-button'>Update</button> <!--open new.handlebars and populate it with the data from this form-->
-    <button type='button' id='cancel-button'>Cancel</button> <!--return pack.handlebars without saving any data-->
+    <button type='submit' id='edit-button'>Update</button>
+    <button type='button' id='cancel-button'>Cancel</button>
 </div>
 
 <script src='../public/js/logic.js'></script>
-
-{{!-- I don't think we we need these? --}}
-{{!-- <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const animalId = "{{animal.id}}"; // Get the animal ID from the template
-
-            // Home button functionality
-            document.getElementById("home-button").addEventListener("click", () => {
-                window.location.href = "/";
-            });
-
-            // Update button functionality
-            document.getElementById("update-button").addEventListener("click", () => {
-                window.location.href = `/update-animal/${animalId}`;
-            });
-
-            // Delete button functionality
-            document.getElementById("delete-button").addEventListener("click", () => {
-                window.location.href = `/delete-animal/${animalId}`;
-            });
-
-            // Logout button functionality
-            document.getElementById("logout-button").addEventListener("click", () => {
-                window.location.href = "/logout";
-            });
-
-            // Cancel button functionality in the form
-            document.getElementById("cancel-button").addEventListener("click", () => {
-                window.location.href = "/cancel";
-            });
-        });
-    </script> --}}
