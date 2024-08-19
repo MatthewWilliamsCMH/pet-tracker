@@ -140,8 +140,6 @@ input {
 
 .login_form > form, .register_form > form, .add-animal-form > form {
     display:flex;
-    flex-direction: column;
-    justify-content:space-between;
 }
   
 button {

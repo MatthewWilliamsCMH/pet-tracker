@@ -39,8 +39,17 @@ router.get('/:id', auth, async (req, res) => {
 })
 
 // Adding a new animal
-router.post('/add', auth, async (req, res) => {
-    const { animal_name, animal_chip, animal_species, animal_breed, animal_sex, animal_altered, animal_color, animal_behavior, kennel } = req.body;
+router.post('/animal', auth, async (req, res) => {
+    const animal_name = req.body["animal-name"]
+    const animal_chip = req.body["animal-chip"]
+    const animal_species = req.body["animal-species"]
+    const animal_breed = req.body["animal-breed"]
+    const animal_sex = req.body["animal-sex"]
+    const animal_altered = req.body["animal-altered"]
+    const animal_color = req.body["animal-color"]
+    const animal_behavior = req.body["animal-behavior"]
+    const kennel = req.body["kennel"]
+    
     try {
         console.log(req.body)
         // Create a new animal entry in the Animal table
