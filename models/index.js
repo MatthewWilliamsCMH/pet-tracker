@@ -5,7 +5,7 @@ const Color = require('./color')
 const Kennel = require('./kennel')
 const Species = require('./species')
 const AnimalBehavior = require('./animalBehavior')
-const User = require('./user')
+const User = require('./User')
 
 //one-to-one
 Animal.belongsTo(Kennel, {foreignKey: 'kennel_id'});
