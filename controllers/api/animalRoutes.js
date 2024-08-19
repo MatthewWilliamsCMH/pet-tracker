@@ -39,21 +39,23 @@ router.get('/:id', auth, async (req, res) => {
 })
 
 // Adding a new animal
-router.post('/animal', auth, async (req, res) => {
+router.post('/add', auth, async (req, res) => {
     const { animal_name, animal_chip, animal_species, animal_breed, animal_sex, animal_altered, animal_color, animal_behavior, kennel } = req.body;
     try {
+        console.log(req.body)
         // Create a new animal entry in the Animal table
         const newAnimal = await Animal.create({
             animal_name,
             animal_chip,
             animal_species,
-            animal_breed,
             animal_sex,
+            animal_breed,
             animal_altered,
             animal_color,
-            animal_behavior, //this will need to be written into the animalBehavior table
+            // animal_behavior, //this will need to be written into the animalBehavior table
             kennel
         });
+        console.log(animal_name)
         res.json({ success: true, data: newAnimal });
     } catch (error) {
         console.error('Error adding animal:', error);
