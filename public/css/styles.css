@@ -14,7 +14,6 @@
 }
   
 body {
-    height:97.5vh;
     background-color:rgb(120, 188, 233);
 }
 
@@ -27,7 +26,7 @@ main {
 }
 
 .container {
-    max-width: 720px;
+    max-width:720px;
     margin:auto;
     margin-top:2rem;
     padding:.5rem;
@@ -38,7 +37,7 @@ nav {
     color:white;
     position:absolute;
     top:4rem;
-    right:0;
+    right:1rem;
 }
   
 h1, h2, h3, h4, h5, h6 {
@@ -131,18 +130,15 @@ input {
 
 /*---------- login page ----------*/
 .login {
-    display: flex;
+    display:flex;
+    flex:1;
 }
 
 .login_form, .register_form, .add-animal-form {
-    display: flex;
-    flex-direction: column;
-    flex:1;
     padding:.5rem;
 }
 
 .login_form > form, .register_form > form, .add-animal-form > form {
-    display: flex;
     flex-direction: column;
     justify-content:space-between;
 }
@@ -271,26 +267,33 @@ button {
     text-align: left; 
 }
 
-/*-------------------- adaptive --------------------*/
-/* @media (orientation: landscape) {
-    .splash_container {
-        width: 100vw;
-        height: 100vh; /* Full height for landscape
+/*-------------------- media queries --------------------*/
+@media screen and (max-width: 992px) {
+    main {
+        border-radius: 1rem 0 0 0;
+        height:100%;
     }
-    img {
-        margin-top:0;
-        padding-top:0;
-        width: auto; Allow width to adjust based on height
-        height: 70%; Fill height of container
+    
+       .login {
+        display:block;
+    }
+
+    nav {
+        left:6vw;
+        padding-top:1rem;
+    }
+
+    .packgallery {
+        display:flex;
+        gap:10px;
+        flex-flow:row wrap;
+        justify-content:space-around;
+        right:0;
+        left:0;
+    }
+    
+    .packmember {
+        padding:5px;
+        max-width:33%;
     }
 }
-
-@media (orientation: portrait) {
-    .splash_container {
-        height: fit-content;
-    }
-    img {
-        width: 100%;
-        height: auto;
-    }
-} */
