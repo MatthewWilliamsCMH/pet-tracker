@@ -1,6 +1,6 @@
 // const addAnimal = document.getElementById('addAnimalBtn') {
     //should just load an empty new page into main.handlebars
-    // alert("Hello")
+    // alert('Hello')
     // fetch('/new')
     // .then(response => response.text())
     // .then(html => {
@@ -23,4 +23,4 @@
     // }
   // };
   
-  document.getElementById('addAnimalBtn').addEventListener('click', addAnimal);
+  // document.getElementById('addAnimalBtn').addEventListener('click', addAnimal);

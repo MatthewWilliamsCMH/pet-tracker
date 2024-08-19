@@ -15,7 +15,7 @@ passport.use(new LocalStrategy(function verify(username, password, cb) {
     bcrypt.compare(password, row.password, function (err, result) {
       if (err) { return cb(err); }
       if (!result) { return cb(null, false, { message: 'Incorrect username or password.' }); }
-      console.log("User successfully logged in!")
+      console.log('User successfully logged in!')
       return cb(null, row);
     });
   })
@@ -53,7 +53,7 @@ router.post('/register', function (req, res, next) {
 
   bcrypt.hash(req.body.password, 10, function (err, hashedPassword) {
     if (err) {
-      console.log("Err: ", err);
+      console.log('Err: ', err);
       return next(err);
     }
 
@@ -73,7 +73,7 @@ router.post('/register', function (req, res, next) {
         });
       })
       .catch(err => {
-        console.log("Err: ", err);
+        console.log('Err: ', err);
         return next(err);
       });
   });

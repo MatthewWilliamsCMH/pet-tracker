@@ -106,7 +106,7 @@
         event.preventDefault(); // Prevent default form submission
 
         const formData = new FormData(form);
-
+        console.log(FormData)
         fetch('/animals/add', {
             method: 'POST',
             body: formData
