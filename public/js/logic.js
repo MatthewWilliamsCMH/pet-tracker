@@ -27,6 +27,10 @@ function closeModal() {
   page.classList.remove('hide-content');
 }
 
+const noPhoto = () => {
+  document.getElementById(animalPhoto).innerHTML = 'The photo is not yet available.';
+};
+
 window.onload = function () {
   openModal();
   setTimeout(closeModal, 4000);

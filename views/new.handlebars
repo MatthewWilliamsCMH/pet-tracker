@@ -106,6 +106,8 @@ document.addEventListener("DOMContentLoaded", function() {
     form.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent default form submission
 
+
+
         const formData = new FormData(form); 
         const formObject = Object.fromEntries(formData.entries())
         console.log(formObject)

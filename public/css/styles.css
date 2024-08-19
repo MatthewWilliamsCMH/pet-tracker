@@ -110,7 +110,7 @@ input {
 }
 
 .splash > img {
-    width:25%;
+    width:100%;
     margin:auto;
     height:auto;
     object-fit:cover;
@@ -131,16 +131,15 @@ input {
 /*---------- login page ----------*/
 .login {
     display:flex;
-    flex:1;
 }
 
 .login_form, .register_form, .add-animal-form {
     padding:.5rem;
+    flex:1 1 100%;
 }
 
 .login_form > form, .register_form > form, .add-animal-form > form {
-    flex-direction: column;
-    justify-content:space-between;
+    display:flex;
 }
   
 button {

@@ -5,12 +5,12 @@
                 <table>
                     <tr>
                 <div class='photo'>
-                    <img src='/images/{{animal.id}}.png' width='200px' alt='image of {{animal.name}}'>
+                    <img src='/images/{{animal.id}}.png' id='animalPhoto' width='200px' alt='image of {{animal.name}}' onerror='animalPhotoWarning'>
                 </div>
                         <th>Chip:</th>
                         <td>{{animal.chip}}</td>
                         <div class='qrcode'>
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?data=pet-tracker{{animal.id}}.png&size=200x200" alt="QR code for {{animal.name}}">
+                            <img src='https://api.qrserver.com/v1/create-qr-code/?data=pet-tracker{{animal.id}}.png&size=200x200' alt='QR code for {{animal.name}}'>
                         </div>
                     </tr>
                     <tr>
@@ -50,6 +50,8 @@
     <button type='submit' id='edit-button'>Update</button> <!--open new.handlebars and populate it with the data from this form-->
     <button type='button' id='cancel-button'>Cancel</button> <!--return pack.handlebars without saving any data-->
 </div>
+
+<script src='../public/js/logic.js'></script>
 
 {{!-- I don't think we we need these? --}}
 {{!-- <script>
