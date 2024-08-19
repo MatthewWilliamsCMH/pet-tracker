@@ -3,55 +3,55 @@
     <form id='add-animal-form' action='/animal' method='POST'>
         <div>
             <div class='form-group-1'>
-                <label for='animal-name'>Name:</label>
-                <input type='text' id='animal-name' name='animal-name' required>
+                <label for='name'>Name:</label>
+                <input type='text' id='animal-name' name='name' required>
 
-                <label for='animal-chip'>Microchip:</label>
-                <input type='text' id='animal-chip' name='animal-chip'>
+                <label for='chip'>Microchip:</label>
+                <input type='text' id='animal-chip' name='chip'>
             </div>
 
             <div class='columns'>
                 <div class='form-group-2'>
                     <div class='drop-list'>
-                        <label for='animal-species'>Species: </label>
-                            <select name='animal-species'>
-                            <option>dog</option>
-                            <option>cat</option>
+                        <label for='species'>Species: </label>
+                            <select name='species'>
+                            <option value = "1">dog</option>
+                            <option value = "2">cat</option>
                         </select>
                     </div>
 
                     <div class='drop-list'>
-                        <label for='animal-breed'>Breed:</label>
-                        <select name='animal-breed'>
-                            <option>bulldog</option>
-                            <option>calico</option>
-                            <option>tabby</option>
-                            <option>dachschund</option>
-                            <option>Siamese</option>
-                            <option>retriever</option>
+                        <label for='breed'>Breed:</label>
+                        <select name='breed'>
+                            <option value = "1">bulldog</option>
+                            <option value = "2">calico</option>
+                            <option value = "3">tabby</option>
+                            <option value = "4">dachschund</option>
+                            <option value = "5">Siamese</option>
+                            <option value = "6">retriever</option>
                         </select>
                     </div>
 
                     <div class='radio-check-group'>
-                        <label for='animal-sex'>Sex:</label>
+                        <label for='sex'>Sex:</label>
                         <div class='radio-list'>
-                            <input type='radio' id='female' name='animal-sex' value='female' checked />
+                            <input type='radio' id='female' name='sex' value='F' checked />
                             <label for='female'>female</label>
                         </div>
                         <div class='radio-list'>
-                            <input type='radio' id='male' name='animal-sex' value='male' />
+                            <input type='radio' id='male' name='sex' value='M' />
                             <label for='radio'>male</label>
                         </div>
                     </div>
 
                     <div class='radio-check-group'>
-                        <label for='animal-altered-yes'>Altered:</label>
+                        <label for='altered-yes'>Altered:</label>
                         <div class='radio-list'>
-                            <input type='radio' id='animal-altered-yes' name='animal-altered' value='yes' checked />
+                            <input type='radio' id='animal-altered-yes' name='altered' value='yes' checked />
                             <label for='yes'>yes</label>
                         </div>
                         <div class='radio-list'>
-                            <input type='radio' id='animal-altered-no' name='animal-altered' value='no' />
+                            <input type='radio' id='animal-altered-no' name='altered' value='no' />
                             <label for='radio'>no</label>
                         </div>
                     </div>
@@ -59,26 +59,26 @@
                     
                 <div class='form-group-3'>
                     <div class='drop-list'>
-                        <label for='animal-color'>Color:</label>
-                        <select name='animal-color'>
-                            <option>black</option>
-                            <option>white</option>
-                            <option>gray</option>
-                            <option>brown</option>
-                            <option>yellow</option>
-                            <option>orange</option>
-                            <option>brindle</option>
+                        <label for='color'>Color:</label>
+                        <select name='color'>
+                            <option value="1">black</option>
+                            <option value="2">white</option>
+                            <option value="3">gray</option>
+                            <option value="4">brown</option>
+                            <option value="5">yellow</option>
+                            <option value="6">orange</option>
+                            <option value="7">brindle</option>
                         </select>
                     </div>
 
                     <div class='radio-check-group'>
-                        <label for='animal-behavior'>Behavior Issues:</label>
+                        <label for='behavior'>Behavior Issues:</label>
                         <div class='checkbox-list'>
-                            <input type='checkbox' id='toy-aggression' name='animal-behavior'/>
+                            <input type='checkbox' id='toy-aggression' name='behavior'/>
                             <label for='toy-aggression'>toy aggression</label></br>
-                            <input type='checkbox' id='animal-aggression' name='animal-behavior'/>
-                            <label for='animal-aggression'>animal aggression</label></br>
-                            <input type='checkbox' id='not-housebroken' name='animal-behavior'/>
+                            <input type='checkbox' id='animal-aggression' name='behavior'/>
+                            <label for='aggression'>animal aggression</label></br>
+                            <input type='checkbox' id='not-housebroken' name='behavior'/>
                             <label for='not-housebroken'>not housebroken</label>
                         </div>
 
@@ -108,26 +108,49 @@ document.addEventListener("DOMContentLoaded", function() {
         const formData = new FormData(form); 
         const formObject = Object.fromEntries(formData.entries())
         console.log(formObject)
-
         fetch('/api/animals/animal', {
-            method: 'POST',
-            headers: {"Content-Type": "application/json",},
-            body: JSON.stringify(formObject)
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert('Animal added successfully!');
-                form.reset(); // Reset form fields
-            } else {
-                alert('Error adding animal: ' + data.message);
-            }
-        })
-        .catch(error => {
-            console.error(error);
-            alert('There was an error with the request.');
+    method: 'POST',
+    body: JSON.stringify({
+        name: formObject.name,
+        sex: formObject.sex,
+        altered: formObject.altered,
+        chip: formObject.chip,
+        species_id: formObject.species,
+        breed_id: formObject.breed,
+        color_id: formObject.color,
+        kennel_id: 1,
+        behavior_id: formObject.behavior
+    }),
+        headers: {
+        "Content-Type": "application/json",
+    },
+
+})
+.then(response => {
+    if (!response.ok) {
+        // If the response is not ok (status code not in the range 200-299), throw an error
+        return response.json().then(errorData => {
+            throw new Error(errorData.message || 'Network response was not ok.');
         });
+    }
+    // Otherwise, parse the JSON response
+    return response.json();
+})
+.then(data => {
+    if (data) {
+        alert('Animal added successfully!');
+        form.reset(); // Reset form fields
+        document.location.replace('/packroute')
+    } else {
+        alert('Error adding animal: ' + data.message);
+    }
+})
+.catch(error => {
+    console.error('Fetch error:', error);
+    alert('There was an error with the request.');
+});
     });
+
 
     // Handle Cancel button click
     cancelButton.addEventListener('click', function() {
