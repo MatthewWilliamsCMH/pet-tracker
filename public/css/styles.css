@@ -161,7 +161,8 @@ button {
     min-width:fit-content;
     max-width:20%;
     padding:5px;
-    border:1px solid green;
+    border:1px solid rgb(58, 157, 223);
+    box-shadow:-4px 4px 4px #ddd;
 }
 
 .packmember p {
@@ -272,6 +273,14 @@ button {
 
 /*-------------------- media queries --------------------*/
 @media screen and (max-width: 992px) {
+    h1 {
+        margin-left:.5vw;
+    }
+
+    h2 {
+        text-align:center;
+    }
+
     main {
         height:100%;
         margin-left:.5vw;
@@ -288,7 +297,7 @@ button {
     }
 
     nav {
-        left:6vw;
+        left:.5vw;
         padding-top:1rem;
     }
 
@@ -297,9 +306,5 @@ button {
         right:0;
         margin:5px auto 5px auto;
         padding:5px;
-    }
-
-    h2 {
-        text-align:center;
     }
 }
