@@ -17,14 +17,14 @@ const logout = async () => {
 function openModal() {
   if (sessionStorage.getItem('logged-in') === null) {
     modal.style.display = 'block';
-    page.classList.add('hide-content');
+    page.classList.add('hideContent');
     sessionStorage.setItem('logged-in', 'true')
   }
 }
 
 function closeModal() {
   modal.style.display = 'none';
-  page.classList.remove('hide-content');
+  page.classList.remove('hideContent');
 }
 
 const noPhoto = () => {

@@ -1,18 +1,16 @@
 <div class='container inter-tight-regular'>
-    <div>
-    <h2>Our Current Pack</h2>
-      <div class="packgallery">
-        {{#each animalArray as |animal|}}
-        <div class="packmember">
-            <a href='api/animals/{{animal.id}}'>
-              <img src='/images/{{animal.id}}.png' style="max-width: 107px;" alt="image of {{animal.name}}">
-              <p>{{animal.name}}</p>
-           </a>
-        </div>
-      {{/each}}
+  <h2>Our Current Pack</h2>
+  <div class="packgallery">
+    {{#each animalArray as |animal|}}
+      <div class="packmember">
+        <a href='api/animals/{{animal.id}}'>
+        <img src='/images/{{animal.id}}.png' alt="image of {{animal.name}}">
+        <p>{{animal.name}}</p>
+      </a>
       </div>
+    {{/each}}
   </div>
-  <button type='button' id='addAnimalBtn'>Add Animal</button>
+    <button type='button' id='addAnimalBtn'>Add Animal</button>
 </div>
 
 
