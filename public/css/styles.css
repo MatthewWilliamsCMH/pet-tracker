@@ -158,7 +158,6 @@ button {
 }
 
 .packmember {
-    /* flex:1 1 auto; */
     min-width:fit-content;
     max-width:20%;
     padding:5px;
@@ -274,11 +273,17 @@ button {
 /*-------------------- media queries --------------------*/
 @media screen and (max-width: 992px) {
     main {
-        border-radius: 1rem 0 0 0;
         height:100%;
+        margin-left:.5vw;
+        border-radius: 1rem 0 0 0;
+    }
+
+    .container {
+        display:block;
+        width:100%;
     }
     
-       .login {
+    .login {
         display:block;
     }
 
@@ -287,17 +292,14 @@ button {
         padding-top:1rem;
     }
 
-    .packgallery {
-        display:flex;
-        gap:10px;
-        flex-flow:row wrap;
-        justify-content:space-around;
-        right:0;
-        left:0;
-    }
-    
     .packmember {
+        left:0;
+        right:0;
+        margin:5px auto 5px auto;
         padding:5px;
-        max-width:33%;
+    }
+
+    h2 {
+        text-align:center;
     }
 }
