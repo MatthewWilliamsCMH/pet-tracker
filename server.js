@@ -29,10 +29,18 @@ const sess = {
     db: sequelize
   })
 };
-app.use(session(sess));
 // Passport AUTH config middleware
 // Configure password authentication strategy using bcrypt.
 
+
+
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session(sess));
 app.use(passport.authenticate('session'));
 app.use(function(req, res, next) {
   var msgs = req.session.messages || [];
@@ -41,13 +49,6 @@ app.use(function(req, res, next) {
   req.session.messages = [];
   next();
 });
-
-
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 // app.use(apiRoutes);

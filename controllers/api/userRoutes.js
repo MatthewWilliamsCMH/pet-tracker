@@ -36,16 +36,36 @@ passport.deserializeUser(function (user, cb) {
 
 // POST /login/password - Authenticate the user by verifying a username and password.
 router.post('/login/password', async (req, res) => {
+  
   try {
-    passport.authenticate('local', {
-      failureRedirect: '/',       
-    })
-    res.redirect('/packroute')
+    let current = await User.findOne({ where: { email: req.body.emailVal }});
+
+   
+
+    if(!current) {
+      console.log("No user found");
+    }
+
+    const user = {
+      id: current.id,
+      name: current.name
+    };
+
+    
+
+    req.login(user, function (err) {
+      if (err) { return next(err); }
+
+      res.status(200).json({ msg: "user logged in"})
+    });
+
+
+    //res.redirect('/packroute')
   } catch (err) {
     console.error(err)
     res.status(500).json(err)
   }
-  
+
 })
 
 // POST /register - Create a new user account.
@@ -59,12 +79,15 @@ router.post('/register', function (req, res, next) {
 
     User.create({ name: req.body.user, email: req.body.email, password: hashedPassword })
       .then(data => {
+
+        
+
         const user = {
           id: data.id,
           name: req.body.user
         };
 
-        console.log('New User: ', user);
+       
 
         req.login(user, function (err) {
           if (err) { return next(err); }
