@@ -3,6 +3,10 @@ const { Animal, Behavior, AnimalBehavior, Breed, Color, Kennel, Species } = requ
 
 //authentication function to protect routes from unauthorized access
 function auth (req, res, next) {
+    console.log("Req Session: ", req.session)
+    console.log("Passport: ", req.session.passport)
+    console.log("Authorized: ", req.isAuthenticated());
+
     if (!req.isAuthenticated()) {
         res.redirect('/')
     }
@@ -68,6 +72,51 @@ router.get('/pack', auth, async (req, res) => {
     } catch (error) {
         console.error('Error fetching animals:', error);
         res.status(500).send('Error fetching animals');
+    }
+});
+
+// Route to render the update page
+router.get('/animals/:id/update', async (req, res) => {
+    try {
+        const animal = await Animal.findByPk(req.params.id);
+        if (animal) {
+            res.render('update-animal', { animal });
+        } else {
+            res.status(404).send('Animal not found');
+        }
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+});
+
+// Route to handle the update logic (assuming form submission from update page)
+router.post('/animals/:id/update', async (req, res) => {
+    try {
+        const { name, chip, species, breed, sex, altered, color, kennel } = req.body;
+        const animal = await Animal.findByPk(req.params.id);
+        if (animal) {
+            await animal.update({ name, chip, species, breed, sex, altered, color, kennel });
+            res.redirect(`/animals/${animal.id}`);
+        } else {
+            res.status(404).send('Animal not found');
+        }
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+});
+
+// Route to handle delete
+router.post('/animals/:id/delete', async (req, res) => {
+    try {
+        const animal = await Animal.findByPk(req.params.id);
+        if (animal) {
+            await animal.destroy();
+            res.redirect('/animals');
+        } else {
+            res.status(404).send('Animal not found');
+        }
+    } catch (error) {
+        res.status(500).send(error.message);
     }
 });
 
