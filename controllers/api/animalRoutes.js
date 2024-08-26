@@ -56,13 +56,49 @@ router.post('/animal', async (req, res) => {
     }
 });
 
-router.put('/animal', auth, async (req, res) => {
-    //update existing animal in db
+router.put('/animal/:id', auth, async (req, res) => {
+    try {
+        const animalId = req.params.id;
+        const updatedData = req.body;
+
+        // Find the animal by ID
+        const animal = await Animal.findByPk(animalId);
+
+        if (!animal) {
+            return res.status(404).json({ success: false, message: 'Animal not found' });
+        }
+
+        // Update the animal with the new data
+        await animal.update(updatedData);
+
+        res.json({ success: true, message: 'Animal updated successfully', animal });
+    } catch (error) {
+        console.error('Error updating animal:', error);
+        res.status(500).json({ success: false, message: 'Error updating animal' });
+    }
+});
+// Delete an existing animal from the database
+router.delete('/animal/:id', auth, async (req, res) => {
+    try {
+        const animalId = req.params.id;
+
+        // Find the animal by ID
+        const animal = await Animal.findByPk(animalId);
+
+        if (!animal) {
+            return res.status(404).json({ success: false, message: 'Animal not found' });
+        }
+
+        // Delete the animal
+        await animal.destroy();
+
+        res.json({ success: true, message: 'Animal deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting animal:', error);
+        res.status(500).json({ success: false, message: 'Error deleting animal' });
+    }
 });
 
-router.delete('/animal', auth, async (req, res) => {
-    //delete existing animal from db
-});
 
 // Route to display all animals
 router.get('/pack', auth, async (req, res) => {
