@@ -157,3 +157,23 @@ router.post('/animals/:id/delete', async (req, res) => {
 });
 
 module.exports = router; //exports the router so it's available to other function
+
+router.post('/api/animals/animal', async (req, res) => {
+    try {
+        const { name, chip, species, breed, sex, altered, color, kennel, behavior } = req.body;
+        const newAnimal = await Animal.create({
+            name,
+            chip,
+            species,
+            breed,
+            sex,
+            altered,
+            color,
+            kennel,
+            behavior
+        });
+        res.status(201).json(newAnimal);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
