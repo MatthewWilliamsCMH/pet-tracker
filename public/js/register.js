@@ -1,4 +1,3 @@
-// we need to GRAB References
 const form = document.getElementById('register-form');
 const username = document.getElementById('username');
 const email = document.getElementById('email');
@@ -11,7 +10,6 @@ form.addEventListener('submit', (event) => {
     let emailVal = email.value
     let passVal = password.value
 
-    //console.log(userVal, emailVal, passVal)
 
     fetch('/api/users/register', {
         method: 'POST',

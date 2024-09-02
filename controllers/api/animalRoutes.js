@@ -51,7 +51,7 @@ router.post('/animal', async (req, res) => {
         console.log(newAnimal)
         res.json(newAnimal)
     } catch (error) {
-        console.error('Error adding animal:******************', error);
+        console.error('Error adding animal:', error);
         res.status(500).json({ success: false, message: 'Error adding animal' });
     }
 });
@@ -142,21 +142,20 @@ router.post('/animals/:id/update', async (req, res) => {
 });
 
 // Route to handle delete
-router.post('/animals/:id/delete', async (req, res) => {
-    try {
-        const animal = await Animal.findByPk(req.params.id);
-        if (animal) {
-            await animal.destroy();
-            res.redirect('/animals');
-        } else {
-            res.status(404).send('Animal not found');
-        }
-    } catch (error) {
-        res.status(500).send(error.message);
-    }
-});
+// router.post('/animals/:id/delete', async (req, res) => {
+//     try {
+//         const animal = await Animal.findByPk(req.params.id);
+//         if (animal) {
+//             await animal.destroy();
+//             res.redirect('/animals');
+//         } else {
+//             res.status(404).send('Animal not found');
+//         }
+//     } catch (error) {
+//         res.status(500).send(error.message);
+//     }
+// });
 
-module.exports = router; //exports the router so it's available to other function
 
 router.post('/api/animals/animal', async (req, res) => {
     try {
@@ -177,3 +176,5 @@ router.post('/api/animals/animal', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+
+module.exports = router; //exports the router so it's available to other function
