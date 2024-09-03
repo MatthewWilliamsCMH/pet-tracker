@@ -4,7 +4,7 @@ const animalName=animalDetails.dataset.name
 const editBtn = document.getElementById('editBtn');
 const saveBtn = document.getElementById('saveBtn');
 
-//handle delete button
+//handle the delete button
 document.getElementById('deleteBtn').addEventListener('click', (event) => {
     const yesDelete = window.confirm(`Are you sure you would like to delete ${animalName} from the pack?`)
     if (yesDelete) {
@@ -60,6 +60,7 @@ saveBtn.addEventListener('click', (event) => {
     const behaviorElements = document.querySelectorAll('#behavior');
     const behaviors = Array.from(behaviorElements).map(el => el.innerText);
 
+    //create json object to send to endpoint
     const data = {
         id: animalId,
         name: name,
@@ -72,7 +73,8 @@ saveBtn.addEventListener('click', (event) => {
         kennel: kennel,
         behaviors: behaviors
     }
-const jsonString=JSON.stringify(data)
+
+    //send data
     fetch(`/api/animals/animal/${animalId}`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
@@ -81,13 +83,13 @@ const jsonString=JSON.stringify(data)
     .then(response => response.json())
     .then(result => {
         if (result.success) {
-            alert('Animal updated successfully');
+            alert(`${name} has been updated.`);
         } else {
-            alert('Failed to update animal');
+            alert(`Unable to update ${name}`);
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('Error updating animal');
+        alert(`Error updating ${name}`);
     });
 });

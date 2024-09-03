@@ -1,17 +1,14 @@
-
-
 const email = document.getElementById('login-username');
 const pass = document.getElementById('login-password');
 const loginForm = document.getElementById('login-form');
 
-
 function handleLogin(event) {
-    console.log("Submitting...")
+    console.log('Submitting...')
     event.preventDefault();
 
     let emailVal = email.value;
     let passVal = pass.value;
-    console.log("Data: ", emailVal, passVal);
+    console.log('Data: ', emailVal, passVal);
 
     if(emailVal && passVal) {
        fetch('/api/users/login/password', {
@@ -26,6 +23,4 @@ function handleLogin(event) {
     }
 }
 
-
 loginForm.addEventListener('submit', handleLogin)
-

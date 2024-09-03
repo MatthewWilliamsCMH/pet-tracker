@@ -15,32 +15,32 @@
                     </tr>
                     <tr>
                         <th>Species:</th>
-                        <td id="species">{{animal.species.species}}</td>
+                        <td id='species'>{{animal.species.species}}</td>
                     </tr>
                     <tr>
                         <th>Breed:</th>
-                        <td id="breed">{{animal.breed.breed}}</td>
+                        <td id='breed'>{{animal.breed.breed}}</td>
                     </tr>
                     <tr>
                         <th>Sex:</th>
-                        <td id="sex">{{animal.sex}}</td>
+                        <td id='sex'>{{animal.sex}}</td>
                     </tr>
                     <tr>
                         <th>Altered:</th>
-                        <td id="altered">{{animal.altered}}</td>
+                        <td id='altered'>{{animal.altered}}</td>
                     </tr>
                     <tr>
                         <th>Color:</th>
-                        <td id="color">{{animal.color.color}}</td>
+                        <td id='color'>{{animal.color.color}}</td>
                     </tr>
                     <tr>
                         <th>Kennel:</th>
-                        <td id="kennel">{{animal.kennel.kennel}}</td>
+                        <td id='kennel'>{{animal.kennel.kennel}}</td>
                     </tr>
                     <tr>
                         <th>Behavior Issues:</th>
                         {{#each animal.behaviors as |behavior| }}
-                        <td id="behavior">{{behavior.behavior}}</td>
+                        <td id='behavior'>{{behavior.behavior}}</td>
                         {{/each}}
                     </tr>
                 </table>
@@ -51,5 +51,4 @@
     <button type='button' id='deleteBtn'>Delete</button>
 </div>
 
-{{!-- <script src='/js/logic.js'></script> --}}
 <script src='/js/animal.js'></script>

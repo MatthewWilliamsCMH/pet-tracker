@@ -43,7 +43,7 @@ router.post('/login/password', async (req, res) => {
    
 
     if(!current) {
-      console.log("No user found");
+      console.log('No user found');
     }
 
     const user = {
@@ -56,7 +56,7 @@ router.post('/login/password', async (req, res) => {
     req.login(user, function (err) {
       if (err) { return next(err); }
 
-      res.status(200).json({ msg: "user logged in"})
+      res.status(200).json({ msg: 'user logged in'})
     });
 
 
