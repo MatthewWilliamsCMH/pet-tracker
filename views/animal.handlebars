@@ -1,5 +1,5 @@
 <div class='container inter-tight-regular'>
-    <div class='animal-details'>
+    <div class='animal-details' data-id={{animal.id}} data-name={{animal.name}}>
         <h2>{{animal.name}}</h2>
             <div class='animal-data'>
                 <table>
@@ -46,8 +46,11 @@
                 </table>
             </div>
         </div>
-    <button type='submit' id='edit-button'>Update</button>
-    <button type='button' id='cancel-button'>Cancel</button>
+<!--********** changes begin **********-->
+    <button type='submit' id='edit-button'>Edit</button>
+    <button type='button' id='deleteBtn'>Delete</button>
 </div>
 
-<script src='../public/js/logic.js'></script>
+<script src='/js/logic.js'></script>
+<script src='/js/animal.js'></script>
+<!--********** changes end **********-->
