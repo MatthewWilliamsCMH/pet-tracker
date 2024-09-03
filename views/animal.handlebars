@@ -1,6 +1,6 @@
 <div class='container inter-tight-regular'>
     <div class='animal-details' data-id={{animal.id}} data-name={{animal.name}}>
-        <h2>{{animal.name}}</h2>
+        <h2 id='name'>{{animal.name}}</h2>
             <div class='animal-data'>
                 <table>
                     <tr>
@@ -8,49 +8,47 @@
                     <img src='/images/{{animal.id}}.png' id='animalPhoto' width='200px' alt='image of {{animal.name}}' onerror='animalPhotoWarning'>
                 </div>
                         <th>Chip:</th>
-                        <td>{{animal.chip}}</td>
+                        <td id='chip'>{{animal.chip}}</td>
                         <div class='qrcode'>
                             <img src='https://api.qrserver.com/v1/create-qr-code/?data=pet-tracker{{animal.id}}.png&size=200x200' alt='QR code for {{animal.name}}'>
                         </div>
                     </tr>
                     <tr>
                         <th>Species:</th>
-                        <td>{{animal.species.species}}</td>
+                        <td id='species'>{{animal.species.species}}</td>
                     </tr>
                     <tr>
                         <th>Breed:</th>
-                        <td>{{animal.breed.breed}}</td>
+                        <td id='breed'>{{animal.breed.breed}}</td>
                     </tr>
                     <tr>
                         <th>Sex:</th>
-                        <td>{{animal.sex}}</td>
+                        <td id='sex'>{{animal.sex}}</td>
                     </tr>
                     <tr>
                         <th>Altered:</th>
-                        <td>{{animal.altered}}</td>
+                        <td id='altered'>{{animal.altered}}</td>
                     </tr>
                     <tr>
                         <th>Color:</th>
-                        <td>{{animal.color.color}}</td>
+                        <td id='color'>{{animal.color.color}}</td>
                     </tr>
                     <tr>
                         <th>Kennel:</th>
-                        <td>{{animal.kennel.kennel}}</td>
+                        <td id='kennel'>{{animal.kennel.kennel}}</td>
                     </tr>
                     <tr>
                         <th>Behavior Issues:</th>
                         {{#each animal.behaviors as |behavior| }}
-                        <td>{{behavior.behavior}}</td>
+                        <td id='behavior'>{{behavior.behavior}}</td>
                         {{/each}}
                     </tr>
                 </table>
             </div>
         </div>
-<!--********** changes begin **********-->
-    <button type='submit' id='edit-button'>Edit</button>
+    <button type='button' id='saveBtn' class='hidden'>Save</button>
+    <button type='button' id='editBtn'>Edit</button>
     <button type='button' id='deleteBtn'>Delete</button>
 </div>
 
-<script src='/js/logic.js'></script>
 <script src='/js/animal.js'></script>
-<!--********** changes end **********-->

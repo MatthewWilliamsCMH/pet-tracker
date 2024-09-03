@@ -20,5 +20,4 @@ form.addEventListener('submit', (event) => {
             password: passVal
         })
     })
-        
 })

@@ -3,9 +3,9 @@ const { Animal, Behavior, AnimalBehavior, Breed, Color, Kennel, Species } = requ
 
 //authentication function to protect routes from unauthorized access
 function auth (req, res, next) {
-    console.log("Req Session: ", req.session)
-    console.log("Passport: ", req.session.passport)
-    console.log("Authorized: ", req.isAuthenticated());
+    console.log('Req Session: ', req.session)
+    console.log('Passport: ', req.session.passport)
+    console.log('Authorized: ', req.isAuthenticated());
 
     if (!req.isAuthenticated()) {
         res.redirect('/')
@@ -57,6 +57,7 @@ router.post('/animal', async (req, res) => {
 });
 
 router.put('/animal/:id', auth, async (req, res) => {
+    console.log('hello')
     try {
         const animalId = req.params.id;
         const updatedData = req.body;
@@ -77,6 +78,7 @@ router.put('/animal/:id', auth, async (req, res) => {
         res.status(500).json({ success: false, message: 'Error updating animal' });
     }
 });
+
 // Delete an existing animal from the database
 router.delete('/animal/:id', auth, async (req, res) => {
     try {
@@ -98,7 +100,6 @@ router.delete('/animal/:id', auth, async (req, res) => {
         res.status(500).json({ success: false, message: 'Error deleting animal' });
     }
 });
-
 
 // Route to display all animals
 router.get('/pack', auth, async (req, res) => {
@@ -140,22 +141,6 @@ router.post('/animals/:id/update', async (req, res) => {
         res.status(500).send(error.message);
     }
 });
-
-// Route to handle delete
-// router.post('/animals/:id/delete', async (req, res) => {
-//     try {
-//         const animal = await Animal.findByPk(req.params.id);
-//         if (animal) {
-//             await animal.destroy();
-//             res.redirect('/animals');
-//         } else {
-//             res.status(404).send('Animal not found');
-//         }
-//     } catch (error) {
-//         res.status(500).send(error.message);
-//     }
-// });
-
 
 router.post('/api/animals/animal', async (req, res) => {
     try {

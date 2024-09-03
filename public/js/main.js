@@ -1,3 +1,4 @@
+//handle modal
 const modal = document.getElementById('modal');
 const page = document.getElementById('page');
 
@@ -18,3 +19,19 @@ window.onload = function () {
   openModal();
   setTimeout(closeModal, 4000);
 };
+
+//handle logout button
+const logout = async () => {
+  const response = await fetch('/api/users/logout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+  });
+
+  if (response.ok) {
+    document.location.replace('/');
+  } else {
+    alert(response.statusText);
+  }
+};
+
+document.getElementById('logoutBtn').addEventListener('click', logout);
