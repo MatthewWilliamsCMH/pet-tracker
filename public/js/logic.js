@@ -1,18 +1,18 @@
 // const modal = document.getElementById('modal');
 // const page = document.getElementById('page');
 
-const logout = async () => {
-  const response = await fetch('/api/users/logout', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-  });
+// const logout = async () => {
+//   const response = await fetch('/api/users/logout', {
+//     method: 'POST',
+//     headers: { 'Content-Type': 'application/json' },
+//   });
 
-  if (response.ok) {
-    document.location.replace('/');
-  } else {
-    alert(response.statusText);
-  }
-};
+//   if (response.ok) {
+//     document.location.replace('/');
+//   } else {
+//     alert(response.statusText);
+//   }
+// };
 
 // function noImage() {
 //   animalPhoto = document.querySelector('img');
@@ -44,7 +44,7 @@ const logout = async () => {
 //   setTimeout(closeModal, 4000);
 // };
 
-document.getElementById('logoutBtn').addEventListener('click', logout);
+// document.getElementById('logoutBtn').addEventListener('click', logout);
 
 document.addEventListener("DOMContentLoaded", function() {
   const form = document.getElementById('add-animal-form');

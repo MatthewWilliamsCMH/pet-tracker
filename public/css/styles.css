@@ -76,6 +76,10 @@ input {
     border:none;
 }
 
+.hidden {
+    display:none;
+}
+
 /*---------- splash page ----------*/
 .modal {
     display:none;

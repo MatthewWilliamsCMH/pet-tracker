@@ -57,6 +57,7 @@ router.post('/animal', async (req, res) => {
 });
 
 router.put('/animal/:id', auth, async (req, res) => {
+    console.log("hello")
     try {
         const animalId = req.params.id;
         const updatedData = req.body;
@@ -77,6 +78,7 @@ router.put('/animal/:id', auth, async (req, res) => {
         res.status(500).json({ success: false, message: 'Error updating animal' });
     }
 });
+
 // Delete an existing animal from the database
 router.delete('/animal/:id', auth, async (req, res) => {
     try {
@@ -98,7 +100,6 @@ router.delete('/animal/:id', auth, async (req, res) => {
         res.status(500).json({ success: false, message: 'Error deleting animal' });
     }
 });
-
 
 // Route to display all animals
 router.get('/pack', auth, async (req, res) => {

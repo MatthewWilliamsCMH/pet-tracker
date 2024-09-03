@@ -3,7 +3,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const bcrypt = require('bcrypt');
 const db = require('../../config/connection');
-const {Animal, User} = require('../../models');
+const {User} = require('../../models');
 
 // Routes
 // Validate user.
