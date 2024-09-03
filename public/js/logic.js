@@ -1,5 +1,5 @@
-const modal = document.getElementById('modal');
-const page = document.getElementById('page');
+// const modal = document.getElementById('modal');
+// const page = document.getElementById('page');
 
 const logout = async () => {
   const response = await fetch('/api/users/logout', {
@@ -14,25 +14,35 @@ const logout = async () => {
   }
 };
 
-function openModal() {
-  if (sessionStorage.getItem('logged-in') === null) {
-    modal.style.display = 'block';
-    page.classList.add('hideContent');
-    sessionStorage.setItem('logged-in', 'true')
-  }
-}
+// function noImage() {
+//   animalPhoto = document.querySelector('img');
+//   animalPhoto.src = '/images/generic.png';
+//   animalPhoto.alt = 'Image not yet available.';
+//   animalPhoto.onerror = () => {
+//     animalPhoto.src = '/images/generic.png';
+//     animalPhoto.alt = 'Image not yet available.';
+//   };
+// }
 
-function closeModal() {
-  modal.style.display = 'none';
-  page.classList.remove('hideContent');
-}
-//********** changes begin **********/
-// [three deleted lines]
-//********** changes end **********/
-window.onload = function () {
-  openModal();
-  setTimeout(closeModal, 4000);
-};
+// function openModal() {
+//   if (!sessionStorage.getItem('logged-in')) {
+//     modal.style.display = 'block';
+//     page.classList.add('hideContent');
+//     sessionStorage.setItem('logged-in', 'true')
+//   }
+// }
+
+// function closeModal() {
+//   modal.style.display = 'none';
+//   page.classList.remove('hideContent');
+// }
+// //********** changes begin **********/
+// // [three deleted lines]
+// //********** changes end **********/
+// window.onload = function () {
+//   openModal();
+//   setTimeout(closeModal, 4000);
+// };
 
 document.getElementById('logoutBtn').addEventListener('click', logout);
 
