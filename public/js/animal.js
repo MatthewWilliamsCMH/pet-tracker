@@ -1,7 +1,7 @@
 const animalDetails = document.querySelector('.animal-details')
 const animalId=animalDetails.dataset.id
 const animalName=animalDetails.dataset.name
-const editBtn = document.getElementById('editBtn');
+const updateBtn = document.getElementById('updateBtn');
 const saveBtn = document.getElementById('saveBtn');
 
 //handle the delete button
@@ -26,17 +26,28 @@ document.getElementById('deleteBtn').addEventListener('click', (event) => {
     }
 })
 
-//handle the edit button
-editBtn.addEventListener('click', (event) => {
-    const elements = document.querySelectorAll('td');
-    elements.forEach(function(element) {
-        element.setAttribute('contenteditable', 'true');
+//handle the update button
+updateBtn.addEventListener('click', (event) => {
+    fetch(`/api/animals/animal/update/${animalId}`, {
+        method: 'GET'
     })
-    saveBtn.classList.remove('hidden');
-    editBtn.classList.add('hidden');
-    alert(`Edit the values on the right-hand side of the table. Click 'Save' when you are finished.`)
+    .then(response => {
+        if (!response.ok) {
+            return response.json().then(errorData => {
+                throw new Error(errorData.message || `Unable to update ${animalName}.`);
+            });
+        }
+        return response.text();
+    })
+    .then(html => {
+        document.querySelector('body').innerHTML = html;
+    })
+    .catch(error => {
+        console.error('There was an error!', error);
+    })
 })
 
+////THIS NEEDS TO MOVE TO AN UPDATE.JS LOGIC FILE, YES? THIS IS THE OLD CODE THAT DOES NOT WORK CORRECTLY
 //handle the save button
 saveBtn.addEventListener('click', (event) => {
     //set the state of the page element back to their defaults

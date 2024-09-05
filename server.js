@@ -15,6 +15,12 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const hbs = exphbs.create();
+
+//helper for Handlebars used on update.handlebars template
+hbs.handlebars.registerHelper('equals', function(value1, value2, options) {
+ return value1 === value2 ? options.fn(this) : options.inverse(this);
+});
+
 const sess = {
   secret: 'Super secret secret',
   cookie: {
@@ -31,8 +37,6 @@ const sess = {
 };
 // Passport AUTH config middleware
 // Configure password authentication strategy using bcrypt.
-
-
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');

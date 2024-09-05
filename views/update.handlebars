@@ -4,25 +4,29 @@
         <div>
             <div class='form-group-1'>
                 <label for='name'>Name:</label>
-                <input type='text' id='animal-name' name='name' required>
+                <input type='text' id='animal-name' name='name' value='{{animal.name}}' required>
 
                 <label for='chip'>Microchip:</label>
-                <input type='text' id='animal-chip' name='chip'>
+                <input type='text' id='animal-chip' name='chip' value='{{animal.chip}}'>
             </div>
 
             <div class='columns'>
                 <div class='form-group-2'>
                     <div class='drop-list'>
                         <label for='species'>Species: </label>
-                            <select name='species'>
-                            <option value = '1'>dog</option>
-                            <option value = '2'>cat</option>
+                            <select name='species' id='species'>
+<!--I'm getting an error when I invoke this helper, which is defined in server.js; without the helper, I get no error, but the dropdown is not updated-->
+                            {{!-- <option value = '1' {{#if (equals animal.species_id 1)}}selected{{/if}}>cat</option>
+                            <option value = '2' {{#if (equals animal.species_id 2)}}selected{{/if}}>dog</option> --}}
+<!--Comment out the two lines above and uncomment the two below to stop invokding the helper-->
+                            <option value = '1'>cat</option>
+                            <option value = '2'>dog</option>
                         </select>
                     </div>
 
                     <div class='drop-list'>
                         <label for='breed'>Breed:</label>
-                        <select name='breed'>
+                        <select name='breed' id='breed'>
                             <option value = '1'>bulldog</option>
                             <option value = '2'>calico</option>
                             <option value = '3'>tabby</option>
@@ -34,7 +38,7 @@
 
                     <div class='drop-list'>
                         <label for='color'>Color:</label>
-                        <select name='color'>
+                        <select name='color' id='color'>
                             <option value='1'>black</option>
                             <option value='2'>white</option>
                             <option value='3'>gray</option>
@@ -96,4 +100,4 @@
     </form>
 </div>
 
-<script src='/js/new.js'></script>
+{{!-- <script src='/js/update.js'></script> --}}
