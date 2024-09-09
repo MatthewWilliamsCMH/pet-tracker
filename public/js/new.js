@@ -52,4 +52,46 @@ document.addEventListener('DOMContentLoaded', function() {
       alert('There was an error with the request.');
     });
   });
+
+  //Handle breeds dropdown list
+  fetch('/api/breeds')
+    .then(response => response.json())
+    .then (data => {
+      const breedSelect = document.getElementById('breed');
+      data.forEach(breed => {
+        const option = document.createElement('option');
+        option.value = breed.id;
+        option.textContent = breed.breed;
+        breedSelect.appendChild(option)
+      })
+    })
+
+  //Handle species dropdown list
+  fetch('/api/species')
+  .then(response => response.json())
+  .then (data => {
+    const speciesSelect = document.getElementById('species');
+    data.forEach(species => {
+      const option = document.createElement('option');
+      option.value = species.id;
+      option.textContent = species.species;
+      speciesSelect.appendChild(option)
+    })
+  })
+
+  //Handle color dropdown list
+  fetch('/api/color')
+  .then(response => response.json())
+  .then (data => {
+    const colorSelect = document.getElementById('color');
+    data.forEach(color => {
+      const option = document.createElement('option');
+      option.value = color.id;
+      option.textContent = color.color;
+      colorSelect.appendChild(option)
+    })
+  })
+
+
+
 });

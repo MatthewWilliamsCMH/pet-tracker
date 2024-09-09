@@ -14,6 +14,7 @@ function auth (req, res, next) {
   };
   
 //********** GET and affiliated routes **********/
+//I don't think this is used; packroute is handling this
 //display all animals
 router.get('/pack', auth, async (req, res) => {
     try {

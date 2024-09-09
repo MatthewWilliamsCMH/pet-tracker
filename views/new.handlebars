@@ -12,27 +12,34 @@
 
             <div class='columns'>
                 <div class='form-group-2'>
-                    <div class='drop-list'>
+                    {{!-- <div class='drop-list'>
                         <label for='species'>Species: </label>
                             <select name='species'>
                             <option value = '1'>dog</option>
                             <option value = '2'>cat</option>
                         </select>
-                    </div>
-
+                    </div> --}}
                     <div class='drop-list'>
-                        <label for='breed'>Breed:</label>
-                        <select name='breed'>
-                            <option value = '1'>bulldog</option>
-                            <option value = '2'>calico</option>
-                            <option value = '3'>tabby</option>
-                            <option value = '4'>dachschund</option>
-                            <option value = '5'>Siamese</option>
-                            <option value = '6'>retriever</option>
+                        <label for='species'>Species: </label>
+                        <select id='species' name='species'>
+                            <!-- options will be populated here -->
                         </select>
                     </div>
 
                     <div class='drop-list'>
+                        <label for='breed'>Breed:</label>
+                        <select id='breed' name='breed'>
+                            <!-- options will be populated here -->
+                        </select>
+                    </div>
+
+                    <div class='drop-list'>
+                        <label for='color'>Color:</label>
+                        <select id='color' name='color'>
+                            <!-- options will be populated here -->
+                        </select>
+                    </div>
+                    {{!-- <div class='drop-list'>
                         <label for='color'>Color:</label>
                         <select name='color'>
                             <option value='1'>black</option>
@@ -43,7 +50,7 @@
                             <option value='6'>orange</option>
                             <option value='7'>brindle</option>
                         </select>
-                    </div>
+                    </div> --}}
 
                     <div>
                         <label for='kennel'>Kennel:</label>
