@@ -55,10 +55,41 @@ router.get('/:id', auth, async (req, res) => {
     }
 });
 
-//retrieve data for one animal for updating
-router.get('/update/:id', auth, async (req, res) => { 
+//display one animal
+router.get('/updateHTML/:id', auth, async (req, res) => { 
     try {
         const animalId = req.params.id;
+        console.log("***************************************")
+        const animalData = await Animal.findOne({
+            where: {id: animalId},
+            include: [
+                {model: Behavior, through: AnimalBehavior, as: 'behaviors'},
+                {model: Breed}, 
+                {model:Color},
+                {model: Kennel},
+                {model: Species}
+            ]
+        });
+        const animal = animalData.get({ plain: true });
+        if (animal) {
+            res.render('update', {animal});
+        }
+        else {
+            res.status(404).send('Animal not found.')
+        }
+    }
+    catch (err) {
+        console.error('Error fetching animal:', err);
+        res.status(500).send('Internal server error');
+    }
+});
+
+
+//retrieve data for one animal for updating
+router.get('/updateJSON/:id', auth, async (req, res) => { 
+    try {
+        const animalId = req.params.id;
+        console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         const animalData = await Animal.findOne({
             where: {id: animalId},
             include: [
@@ -82,6 +113,7 @@ router.get('/update/:id', auth, async (req, res) => {
         res.status(500).send('Internal server error');
     }
 });
+
 
 //********** POST and affiliated routes ***********/
 //add an animal
