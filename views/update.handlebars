@@ -1,6 +1,6 @@
 <div class='container inter-tight-regular'>
     <h2>{{animal.name}} Details</h2>
-    <form id='add-animal-form' action='/animal' method='POST'>
+    <form id='update-animal-form' action='/animal' method='POST'>
         <div>
             <div class='form-group-1'>
                 <label for='name'>Name:</label>
@@ -14,41 +14,24 @@
                 <div class='form-group-2'>
                     <div class='drop-list'>
                         <label for='species'>Species: </label>
-                            <select name='species' id='species'>
-<!--I'm getting an error when I invoke this helper, which is defined in server.js; without the helper, I get no error, but the dropdown is not updated-->
-                            {{!-- <option value = '1' {{#if (equals animal.species_id 1)}}selected{{/if}}>cat</option>
-                            <option value = '2' {{#if (equals animal.species_id 2)}}selected{{/if}}>dog</option> --}}
-<!--Comment out the two lines above and uncomment the two below to stop invokding the helper-->
-                            <option value = '1'>cat</option>
-                            <option value = '2'>dog</option>
+                        <select id='species' name='species'>
+                            <!-- options will be populated here -->
                         </select>
                     </div>
 
                     <div class='drop-list'>
                         <label for='breed'>Breed:</label>
-                        <select name='breed' id='breed'>
-                            <option value = '1'>bulldog</option>
-                            <option value = '2'>calico</option>
-                            <option value = '3'>tabby</option>
-                            <option value = '4'>dachschund</option>
-                            <option value = '5'>Siamese</option>
-                            <option value = '6'>retriever</option>
+                        <select id='breed' name='breed'>
+                            <!-- options will be populated here -->
                         </select>
                     </div>
 
                     <div class='drop-list'>
                         <label for='color'>Color:</label>
-                        <select name='color' id='color'>
-                            <option value='1'>black</option>
-                            <option value='2'>white</option>
-                            <option value='3'>gray</option>
-                            <option value='4'>brown</option>
-                            <option value='5'>yellow</option>
-                            <option value='6'>orange</option>
-                            <option value='7'>brindle</option>
+                        <select id='color' name='color'>
+                            <!-- options will be populated here -->
                         </select>
                     </div>
-
                     <div>
                         <label for='kennel'>Kennel:</label>
                         <input type='text' id='kennel' name='kennel' placeholder='e.g., A5'>
@@ -100,4 +83,4 @@
     </form>
 </div>
 
-{{!-- <script src='/js/update.js'></script> --}}
+<script src='/js/update.js'></script>
