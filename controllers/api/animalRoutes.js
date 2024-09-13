@@ -30,7 +30,6 @@ router.get('/pack', auth, async (req, res) => {
 router.get('/:id', auth, async (req, res) => { 
     try {
         const animalId = req.params.id;
-        console.log("***************************************")
         const animalData = await Animal.findOne({
             where: {id: animalId},
             include: [
@@ -54,66 +53,6 @@ router.get('/:id', auth, async (req, res) => {
         res.status(500).send('Internal server error');
     }
 });
-
-//display one animal
-router.get('/updateHTML/:id', auth, async (req, res) => { 
-    try {
-        const animalId = req.params.id;
-        console.log("***************************************")
-        const animalData = await Animal.findOne({
-            where: {id: animalId},
-            include: [
-                {model: Behavior, through: AnimalBehavior, as: 'behaviors'},
-                {model: Breed}, 
-                {model:Color},
-                {model: Kennel},
-                {model: Species}
-            ]
-        });
-        const animal = animalData.get({ plain: true });
-        if (animal) {
-            res.render('update', {animal});
-        }
-        else {
-            res.status(404).send('Animal not found.')
-        }
-    }
-    catch (err) {
-        console.error('Error fetching animal:', err);
-        res.status(500).send('Internal server error');
-    }
-});
-
-
-//retrieve data for one animal for updating
-router.get('/updateJSON/:id', auth, async (req, res) => { 
-    try {
-        const animalId = req.params.id;
-        console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-        const animalData = await Animal.findOne({
-            where: {id: animalId},
-            include: [
-                {model: Behavior, through: AnimalBehavior, as: 'behaviors'},
-                {model: Breed}, 
-                {model:Color},
-                {model: Kennel},
-                {model: Species}
-            ]
-        });
-        const animal = animalData.get({ plain: true });
-        if (animal) {
-            res.json(animal);
-        }
-        else {
-            res.status(404).send('Animal not found.')
-        }
-    }
-    catch (err) {
-        console.error('Error fetching animal:', err);
-        res.status(500).send('Internal server error');
-    }
-});
-
 
 //********** POST and affiliated routes ***********/
 //add an animal
@@ -152,11 +91,23 @@ router.post('/animal', async (req, res) => {
 // });
 
 //********** PUT and affiliated routes **********/
-//update an animal; now defunct?
-router.put('/animal/:id', auth, async (req, res) => {
+//update an animal
+router.post('/update/:id', auth, async (req, res) => {
     try {
         const animalId = req.params.id;
-        const updatedData = req.body;
+        const requestData = req.body;
+        const updatedData = {
+            name: requestData.name,
+            chip: requestData.chip,
+            species_id: requestData.species,
+            breed_id: requestData.breed,
+            color_id: requestData.color,
+            kennel: requestData.kennel,
+            sex: requestData.sex,
+            altered: requestData.altered,
+            //behaviors
+        };
+        console.log(req.body)
 
         // Find the animal by ID
         const animal = await Animal.findByPk(animalId);
@@ -167,16 +118,33 @@ router.put('/animal/:id', auth, async (req, res) => {
 
         // Update the animal with the new data
         await animal.update(updatedData);
-
-        res.json({ success: true, message: 'Animal updated successfully', animal });
+        res.redirect(`/api/animals/${animal.id}`);
     } catch (error) {
         console.error('Error updating animal:', error);
         res.status(500).json({ success: false, message: 'Error updating animal' });
     }
 });
 
-// Route to get one animal for editing
-router.get('/animal/update/:id', async (req, res) => {
+//not sure what this is
+// Route to handle the update logic (assuming form submission from update page)
+// router.post('/animals/:id/update', async (req, res) => {
+//     try {
+//         const { name, chip, species, breed, sex, altered, color, kennel } = req.body;
+//         const animal = await Animal.findByPk(req.params.id);
+//         if (animal) {
+//             await animal.update({ name, chip, species, breed, sex, altered, color, kennel });
+//             res.redirect(`/animals/${animal.id}`);
+//         } else {
+//             res.status(404).send('Animal not found');
+//         }
+//     } catch (error) {
+//         res.status(500).send(error.message);
+//     }
+// });
+
+
+//retrieve data in HTML format for one animal for updating
+router.get('/updateHTML/:id', auth, async (req, res) => { 
     try {
         const animalId = req.params.id;
         const animalData = await Animal.findOne({
@@ -191,7 +159,6 @@ router.get('/animal/update/:id', async (req, res) => {
         });
         const animal = animalData.get({ plain: true });
         if (animal) {
-            //renders the update form in memory; the form is not populated yet, though
             res.render('update', {animal});
         }
         else {
@@ -202,22 +169,34 @@ router.get('/animal/update/:id', async (req, res) => {
         console.error('Error fetching animal:', err);
         res.status(500).send('Internal server error');
     }
-})
+});
 
-//not sure what this is
-// Route to handle the update logic (assuming form submission from update page)
-router.post('/animals/:id/update', async (req, res) => {
+
+//retrieve data in JSON for one animal for updating
+router.get('/updateJSON/:id', auth, async (req, res) => { 
     try {
-        const { name, chip, species, breed, sex, altered, color, kennel } = req.body;
-        const animal = await Animal.findByPk(req.params.id);
+        const animalId = req.params.id;
+        const animalData = await Animal.findOne({
+            where: {id: animalId},
+            include: [
+                {model: Behavior, through: AnimalBehavior, as: 'behaviors'},
+                {model: Breed}, 
+                {model:Color},
+                {model: Kennel},
+                {model: Species}
+            ]
+        });
+        const animal = animalData.get({ plain: true });
         if (animal) {
-            await animal.update({ name, chip, species, breed, sex, altered, color, kennel });
-            res.redirect(`/animals/${animal.id}`);
-        } else {
-            res.status(404).send('Animal not found');
+            res.json(animal);
         }
-    } catch (error) {
-        res.status(500).send(error.message);
+        else {
+            res.status(404).send('Animal not found.')
+        }
+    }
+    catch (err) {
+        console.error('Error fetching animal:', err);
+        res.status(500).send('Internal server error');
     }
 });
 

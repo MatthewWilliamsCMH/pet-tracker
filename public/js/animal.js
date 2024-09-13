@@ -58,6 +58,21 @@ updateBtn.addEventListener('click', async (event) => {
         document.querySelector('#species').value = animalData.species.id;
         document.querySelector('#breed').value = animalData.breed.id;
         document.querySelector('#color').value = animalData.color.id;
+        document.querySelector('#kennel').value = animalData.kennel.id;
+        //not working yet.
+        if (animalData.sex === 'M') {
+            document.querySelector('#male').checked = true
+        }
+        else {
+            document.querySelector('#female').checked = true
+        }
+        if (animalData.altered=true) {
+            document.querySelector('#animal-altered-yes').checked = true
+        }
+        else {
+            document.querySelector('#animal-altered-no').checked = true
+        }
+        // document.querySelector('#behavior').value = animal.behavior.id;
     } 
     catch (error) {
         console.error('There was an error!', error);
