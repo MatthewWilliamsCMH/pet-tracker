@@ -38,7 +38,7 @@ updateBtn.addEventListener('click', async (event) => {
         let html = await responseHTML.text();
         document.querySelector('body').innerHTML = html;
 
-        // Load additional script and wait for it to be loaded
+        //load script on update handlebars page (which is lost when the HTML data is inserted above)
         await new Promise((resolve, reject) => {
             const script = document.createElement('script');
             script.src = '/js/update.js';
@@ -59,7 +59,6 @@ updateBtn.addEventListener('click', async (event) => {
         document.querySelector('#breed').value = animalData.breed.id;
         document.querySelector('#color').value = animalData.color.id;
         document.querySelector('#kennel').value = animalData.kennel.kennel;
-        //not working yet.
         if (animalData.sex === 'M') {
             document.querySelector('#male').checked = true
         }

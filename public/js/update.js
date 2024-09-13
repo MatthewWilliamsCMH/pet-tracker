@@ -4,7 +4,6 @@ const cancelButton = document.getElementById('cancel-button');
 
 document.addEventListener('DOMContentLoaded', function() {
   // Handle Save button click
-  //This now has to be a PUT, not a POST, I think
   form.addEventListener('submit', function(event) {
       event.preventDefault(); // Prevent default form submission
 
@@ -91,7 +90,6 @@ fetch('/api/color')
   return response.json();
 })
 .then (data => {
-  // console.log('Color data:', data); // Log the data
   const colorSelect = document.getElementById('color');
   data.forEach(color => {
     const option = document.createElement('option');
