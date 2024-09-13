@@ -58,7 +58,7 @@ updateBtn.addEventListener('click', async (event) => {
         document.querySelector('#species').value = animalData.species.id;
         document.querySelector('#breed').value = animalData.breed.id;
         document.querySelector('#color').value = animalData.color.id;
-        document.querySelector('#kennel').value = animalData.kennel.id;
+        document.querySelector('#kennel').value = animalData.kennel.kennel;
         //not working yet.
         if (animalData.sex === 'M') {
             document.querySelector('#male').checked = true

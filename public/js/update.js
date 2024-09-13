@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
           species_id: formObject.species,
           breed_id: formObject.breed,
           color_id: formObject.color,
-          kennel_id: 1,
+          kennel_id: formObject.kennel,
           behavior_id: formObject.behavior
         }),
         headers: {
