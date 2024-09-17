@@ -37,17 +37,11 @@
                         <th>Kennel:</th>
                         <td id='kennel'>{{animal.kennel.kennel}}</td>
                     </tr>
-                    <tr>
-                        <th>Behavior Issues:</th>
-                        {{#each animal.behaviors as |behavior| }}
-                        <td id='behavior'>{{behavior.behavior}}</td>
-                        {{/each}}
-                    </tr>
                 </table>
             </div>
         </div>
     <button type='button' id='saveBtn' class='hidden'>Save</button>
-    <button type='button' id='editBtn'>Edit</button>
+    <button type='button' id='updateBtn'>Update</button>
     <button type='button' id='deleteBtn'>Delete</button>
 </div>
 

@@ -1,8 +1,8 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('add-animal-form');
-  const saveButton = document.getElementById('save-button');
-  const cancelButton = document.getElementById('cancel-button');
+const form = document.getElementById('update-animal-form');
+const saveButton = document.getElementById('save-button');
+const cancelButton = document.getElementById('cancel-button');
 
+document.addEventListener('DOMContentLoaded', function() {
   // Handle Save button click
   form.addEventListener('submit', function(event) {
       event.preventDefault(); // Prevent default form submission
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
           species_id: formObject.species,
           breed_id: formObject.breed,
           color_id: formObject.color,
-          kennel_id: 1,
+          kennel_id: formObject.kennel,
           behavior_id: formObject.behavior
         }),
         headers: {
@@ -52,43 +52,49 @@ document.addEventListener('DOMContentLoaded', function() {
       alert('There was an error with the request.');
     });
   });
+});
 
-  //Handle breeds dropdown list
-  fetch('/api/breeds')
-    .then(response => response.json())
-    .then (data => {
-      const breedSelect = document.getElementById('breed');
-      data.forEach(breed => {
-        const option = document.createElement('option');
-        option.value = breed.id;
-        option.textContent = breed.breed;
-        breedSelect.appendChild(option)
-      })
-    })
-
-  //Handle species dropdown list
-  fetch('/api/species')
-  .then(response => response.json())
-  .then (data => {
-    const speciesSelect = document.getElementById('species');
-    data.forEach(species => {
-      const option = document.createElement('option');
-      option.value = species.id;
-      option.textContent = species.species;
-      speciesSelect.appendChild(option)
-    })
+//Handle breeds dropdown list
+fetch('/api/breeds')
+.then(response => response.json())
+.then (data => {
+  const breedSelect = document.getElementById('breed');
+  data.forEach(breed => {
+    const option = document.createElement('option');
+    option.value = breed.id;
+    option.textContent = breed.breed;
+    breedSelect.appendChild(option)
   })
+})
 
-  //Handle color dropdown list
-  fetch('/api/color')
-  .then(response => response.json())
-  .then (data => {
-    const colorSelect = document.getElementById('color');
-    data.forEach(color => {
-      const option = document.createElement('option');
-      option.value = color.id;
-      option.textContent = color.color;
-      colorSelect.appendChild(option)
-    })
+//Handle species dropdown list
+fetch('/api/species')
+.then(response => response.json())
+.then (data => {
+  const speciesSelect = document.getElementById('species');
+  data.forEach(species => {
+    const option = document.createElement('option');
+    option.value = species.id;
+    option.textContent = species.species;
+    speciesSelect.appendChild(option)
+  })
+})
+
+//Handle color dropdown list
+fetch('/api/color')
+.then(response => {
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  // console.log(form.dataset.id)
+  return response.json();
+})
+.then (data => {
+  const colorSelect = document.getElementById('color');
+  data.forEach(color => {
+    const option = document.createElement('option');
+    option.value = color.id;
+    option.textContent = color.color;
+    colorSelect.appendChild(option)
   })
 });

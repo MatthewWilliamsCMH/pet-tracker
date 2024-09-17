@@ -1,11 +1,11 @@
 const animalDetails = document.querySelector('.animal-details')
 const animalId=animalDetails.dataset.id
 const animalName=animalDetails.dataset.name
-const editBtn = document.getElementById('editBtn');
-const saveBtn = document.getElementById('saveBtn');
+const deleteBtn = document.getElementById('deleteBtn');
+const updateBtn = document.getElementById('updateBtn');
 
 //handle the delete button
-document.getElementById('deleteBtn').addEventListener('click', (event) => {
+deleteBtn.addEventListener('click', (event) => {
     const yesDelete = window.confirm(`Are you sure you would like to delete ${animalName} from the pack?`)
     if (yesDelete) {
         fetch(`/api/animals/animal/${animalId}`, {
@@ -26,70 +26,54 @@ document.getElementById('deleteBtn').addEventListener('click', (event) => {
     }
 })
 
-//handle the edit button
-editBtn.addEventListener('click', (event) => {
-    const elements = document.querySelectorAll('td');
-    elements.forEach(function(element) {
-        element.setAttribute('contenteditable', 'true');
-    })
-    saveBtn.classList.remove('hidden');
-    editBtn.classList.add('hidden');
-    alert(`Edit the values on the right-hand side of the table. Click 'Save' when you are finished.`)
-})
-
-//handle the save button
-saveBtn.addEventListener('click', (event) => {
-    //set the state of the page element back to their defaults
-    const elements = document.querySelectorAll('td');
-    elements.forEach(function(element) {
-        element.removeAttribute('contenteditable');
-    })
-    saveBtn.classList.add('hidden');
-    editBtn.classList.remove('hidden');
-
-    //collect the data
-    const animalId = document.querySelector('.animal-details').getAttribute('data-id');
-    const name = document.querySelector('#name').innerText;
-    const chip = document.querySelector('#chip').innerText;
-    const species = document.querySelector('#species').innerText;
-    const breed = document.querySelector('#breed').innerText;
-    const sex = document.querySelector('#sex').innerText;
-    const altered = document.querySelector('#altered').innerText;
-    const color = document.querySelector('#color').innerText;
-    const kennel = document.querySelector('#kennel').innerText;
-    const behaviorElements = document.querySelectorAll('#behavior');
-    const behaviors = Array.from(behaviorElements).map(el => el.innerText);
-
-    //create json object to send to endpoint
-    const data = {
-        id: animalId,
-        name: name,
-        chip: chip,
-        species: species,
-        breed: breed,
-        sex: sex,
-        altered: altered,
-        color: color,
-        kennel: kennel,
-        behaviors: behaviors
-    }
-
-    //send data
-    fetch(`/api/animals/animal/${animalId}`, {
-        method: 'PUT',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(result => {
-        if (result.success) {
-            alert(`${name} has been updated.`);
-        } else {
-            alert(`Unable to update ${name}`);
+//handle the update button
+updateBtn.addEventListener('click', async (event) => {
+    try {
+        //get the animal data in HTML format for the page display
+        let responseHTML = await fetch(`/api/animals/updateHTML/${animalId}`, { method: 'GET' });
+        if (!responseHTML.ok) {
+            let errorData = await responseHTML.json();
+            throw new Error(errorData.message || `Unable to update ${animalName}.`);
         }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert(`Error updating ${name}`);
-    });
+        let html = await responseHTML.text();
+        document.querySelector('body').innerHTML = html;
+
+        //load script on update handlebars page (which is lost when the HTML data is inserted above)
+        await new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = '/js/update.js';
+            script.onload = () => resolve();
+            script.onerror = (error) => reject(new Error('Script loading error:', error));
+            document.body.appendChild(script);
+        });
+
+        //get the animal data in JSON format to update the fields
+        let responseJSON = await fetch(`/api/animals/updateJSON/${animalId}`, { method: 'GET' });
+        if (!responseJSON.ok) {
+            let errorData = await responseJSON.json();
+            throw new Error(errorData.message || `Unable to retrieve animal.`);
+        }
+        let animalData = await responseJSON.json();
+        console.log(animalData)
+        document.querySelector('#species').value = animalData.species.id;
+        document.querySelector('#breed').value = animalData.breed.id;
+        document.querySelector('#color').value = animalData.color.id;
+        document.querySelector('#kennel').value = animalData.kennel.kennel;
+        if (animalData.sex === 'M') {
+            document.querySelector('#male').checked = true
+        }
+        else {
+            document.querySelector('#female').checked = true
+        }
+        if (animalData.altered=true) {
+            document.querySelector('#animal-altered-yes').checked = true
+        }
+        else {
+            document.querySelector('#animal-altered-no').checked = true
+        }
+        // document.querySelector('#behavior').value = animal.behavior.id;
+    } 
+    catch (error) {
+        console.error('There was an error!', error);
+    }
 });

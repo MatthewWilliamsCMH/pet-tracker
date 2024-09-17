@@ -201,7 +201,8 @@ button {
     width:50%;
 }
 
-.form-group-3 #kennel {
+.form-group-2 #kennel {
+    margin-top:10px;
     width:15%;
 }
 

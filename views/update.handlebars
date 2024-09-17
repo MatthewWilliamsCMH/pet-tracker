@@ -1,13 +1,13 @@
 <div class='container inter-tight-regular'>
-    <h2>Animal Details</h2>
-    <form id='add-animal-form' action='/animal' method='POST'>
+    <h2>{{animal.name}} Details</h2>
+    <form id='update-animal-form' action='update/{{animal.id}}' method='POST'>
         <div>
             <div class='form-group-1'>
                 <label for='name'>Name:</label>
-                <input type='text' id='animal-name' name='name' required>
+                <input type='text' id='animal-name' name='name' value='{{animal.name}}' required>
 
                 <label for='chip'>Microchip:</label>
-                <input type='text' id='animal-chip' name='chip'>
+                <input type='text' id='animal-chip' name='chip' value='{{animal.chip}}'>
             </div>
 
             <div class='columns'>
@@ -63,7 +63,7 @@
                         </div>
                     </div>
 
-                    
+                   
                 </div>
             </div>
         </div>
@@ -72,4 +72,4 @@
     </form>
 </div>
 
-<script src='/js/new.js'></script>
+<script src='/js/update.js'></script>
